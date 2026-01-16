@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="LrGeniusAI - Tag Smarter, Not Harder.">
+  <section class="hero">
+    <p></p>
+    <img src="/images/logo.png" alt="LrGeniusAI Logo" width="500">
+    <h1>LrGeniusAI</h1>
+    <p class="tagline">Tag Smarter, Not Harder.</p>
+    <p>
+      LrGeniusAI is a powerful Lightroom Classic plugin that generates keywords, image descriptions, titles, and alt text using advanced AI models. Choose from 4 different AI providers: local models (Ollama, LM Studio) or cloud services (ChatGPT, Google Gemini). The results are unmatched in terms of precision and detail. Try it today.
+    </p>
+  </section>
+
+  <section class="features">
+    <h2>What's special about LrGeniusAI?</h2>
+    <p>
+      Thanks to the use of advanced vision-language models, the level of detail and precision of image descriptions and keywords is unparalleled. Forget superfluous, general keywords; from now on, the image content will be described precisely. With the new semantic search in v2.0, you can find any photo by simply describing what you're looking for. See our real world examples below.
+    </p>
+    
+    <div class="feature-highlights">
+      <div class="feature-item">
+        <h3>🚀 4 AI Providers</h3>
+        <p>Choose between local models (Ollama, LM Studio) or cloud services (ChatGPT, Gemini). Switch providers anytime based on your needs.</p>
+      </div>
+      <div class="feature-item">
+        <h3>🔒 Complete Privacy</h3>
+        <p>Use Ollama or LM Studio for 100% local image analysis. Your photos never leave your computer. Run AI models privately on your own hardware.</p>
+      </div>
+      <div class="feature-item">
+        <h3>🔍 Semantic Search</h3>
+        <p>New in v2.0: Search your entire photo library using natural language. Find images by describing what you're looking for, not just by keywords.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="examples">
+    <h2>Examples using LrGeniusAI</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <img src="/images/example-car.jpg" alt="Classic BMW 635CSi">
+        <h3>Car photography</h3>
+        <p><strong>Used AI Model:</strong> Gemini-2.0-flash</p>
+        <p>The car, a classic BMW 635CSi, is recognized in detail by the AI model with precise keywords and descriptions.</p>
+        <img src="/images/635CSi-keywords.png" alt="Keywords generated for BMW 635CSi">
+        <img src="/images/635CSi-caption.png" alt="Caption and title for BMW 635CSi">
+      </div>
+      <div class="example-card">
+        <img src="/images/example-nature.jpg" alt="Purple coneflower">
+        <h3>Nature photography</h3>
+        <p><strong>Used AI Model:</strong> ollama-gemma3:12b</p>
+        <p>Purple coneflower is correctly classified and noted in the keywords and description. Processed locally with complete privacy.</p>
+        <img src="/images/echinacea_keywords.png" alt="Keywords generated for purple coneflower">
+        <img src="/images/echinacea_caption.png" alt="Caption for purple coneflower">
+      </div>
+      <div class="example-card">
+        <img src="/images/example-travel.jpg" alt="Landmark in a city">
+        <h3>Travel photography</h3>
+        <p><strong>Used AI Model:</strong> gemini-2.0-pro</p>
+        <p>Gemini correctly identifies landmarks and architectural details, providing comprehensive metadata in seconds.</p>
+        <img src="/images/st-martin-keywords.png" alt="Keywords generated for St. Martin's Church photo">
+        <img src="/images/st-martin-caption-1.png" alt="Caption for St. Martin's Church photo">
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-grid">
+      <div class="cta-card">
+        <h3>Contact us</h3>
+        <p>Have any questions regarding our product?</p>
+        <a href="/contact" class="btn btn-primary">Contact</a>
+      </div>
+      <div class="cta-card">
+        <h3>Try now</h3>
+        <p>Try for free. All features unlocked. 7-day trial period.</p>
+        <a href="/downloads" class="btn btn-secondary">Download trial</a>
+      </div>
+      <div class="cta-card">
+        <h3>Buy license</h3>
+        <p>1 seat. Lifetime updates. E-Mail Support. $29.</p>
+        <a href="https://buy.lrgenius.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy on Gumroad</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+ .hero {
+    text-align: center;
+    padding: 4rem 0;
+  }
+ .tagline {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+ .features,.examples,.cta-section {
+    padding: 2rem 0;
+  }
+ .feature-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+ .feature-item {
+    padding: 1.5rem;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+  }
+ .feature-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+ .feature-item h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+  }
+ .example-grid,.cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+ .example-card,.cta-card {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+  }
+ .example-card:hover,.cta-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+ .example-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+ .cta-card p {
+    min-height: 60px;
+  }
+</style>

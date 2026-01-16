@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allDownloads = await getCollection('downloads');
+// Sort strictly by release date (newest first) so the latest version appears on top
+const sortedDownloads = allDownloads.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const latest = sortedDownloads[0];
+const versionToId = (v: string) => `ver-${v.replaceAll('.', '-')}`;
+---
+
+<Layout title="Downloads - LrGeniusAI">
+  <h1 class="page-title">Downloads</h1>
+
+ <p/>
+
+  <section class="latest-release">
+    <div class="latest-card">
+      <div class="latest-info">
+        <h2>Download LrGeniusAI</h2>
+      </div>
+      <div class="latest-actions">
+      <p><a href="https://files.lrgenius.com/dl/LrGeniusAI-Installer-Windows.exe" class="btn btn-primary">Download for Windows</a>
+
+        <a href="https://files.lrgenius.com/dl/LrGeniusAI-Installer-macOS.zip" class="btn btn-primary">Download for macOS</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="requirements">
+    <h3>Hardware Requirements</h3>
+    <p>As we are a little company with limited resourcess, we cannot test many hardware combinations. We recommend to try LrGeniusAI with the free test version to see if your hardware is sufficient.</p>
+    <p>Supported platforms are Windows with AMD or Intel processor, and macOS with Apple Silicon M1, M2, M3, M4, M5 processors. macOS with Intel processor is not supported anymore.</p>
+    <p>
+      The performance of the local AI processing with Ollama or LM Studio heavily depends on your graphics card. 
+      Using cloud providers like Google Gemini and OpenAI ChatGPT can reduce the hardware requirements.<br>
+      <b>See:</b> <a href="/help/choosing-ai-model/">Which AI model should you choose?</a>
+    </p>
+  </section>
+
+  <section class="requirements">
+    <h3>What's new in LrGeniusAI v2.0</h3>
+    <ul>
+      <li><strong>New name</strong>: LrGeniusAI. Since the software does much more than just tagging photos, the name has been changed to better reflect its capabilities.</li>
+      <li><strong>NEW: Semantic Search</strong>: Search your photo library using natural language - find images by describing what you're looking for</li>
+      <li><strong>Validation</strong>: The AI results can be validated by the user after the whole batch run is complete.</li>
+      <li><strong>License key</strong>: The license key verification has been reworked to avoid issues.</li>
+      <li><strong>Installer</strong>: We moved to using a installer for updates and intial install.</li>
+      <li><strong>Keyword categories</strong>: It is possible to let LrGeniusAI use the existing Lightroom keyword structure.</li>
+    </ul>
+  </section>
+
+  <hr>
+  <h2 align="center">Archived old versions</h2>
+
+  <div class="changelog">
+    {sortedDownloads.map(async (entry) => {
+      const { Content } = await entry.render();
+      return (
+        <div class="version-entry" id={versionToId(entry.data.version)}>
+          <h3>{entry.data.version}</h3>
+          <div class="release-notes">
+            <Content />
+          </div>
+        </div>
+      )
+    })}
+  </div>
+</Layout>
+
+<style>
+.latest-release {
+  margin: 0 auto 2rem auto;
+  max-width: 900px;
+}
+.latest-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  background: #fff;
+}
+.latest-info h2 {
+  margin: 0 0 0.25rem 0;
+}
+.latest-version {
+  margin: 0;
+  font-weight: 600;
+}
+.latest-date {
+  color: #666;
+  font-weight: 400;
+}
+.latest-actions .btn {
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .latest-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .latest-actions {
+    width: 100%;
+  }
+  .latest-actions .btn {
+    width: 100%;
+  }
+}
+ .changelog {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+ .version-entry {
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+ .version-entry:last-child {
+    border-bottom: none;
+  }
+ .version-entry h2 {
+    margin-top: 0;
+  }
+ .release-date {
+    font-style: italic;
+    color: #666;
+    font-size: 0.9rem;
+  }
+ .release-notes ul {
+    padding-left: 20px;
+  }
+ .requirements {
+    margin: 0 auto 2rem auto;
+    max-width: 900px;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+ }
+</style>
+

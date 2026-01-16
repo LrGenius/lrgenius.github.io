@@ -1,0 +1,56 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import '../styles/global.css';
+import { SEO } from 'astro-seo';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+const lang = Astro.currentLocale as 'en' | 'de';
+const t = useTranslations(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/lrgenius.png" />
+		<meta name="generator" content={Astro.generator} />
+		<SEO
+			title={title}
+			description={description || t('seo.default_description')}
+			openGraph={{
+				basic: {
+					title: title,
+					type: 'website',
+					image: new URL('/images/og-image.png', Astro.site).href, // Make sure you have an og-image.png in public/images
+					url: Astro.url,
+				},
+				image: {
+					alt: t('alt.logo'),
+				}
+			}}
+			twitter={{
+				card: 'summary_large_image',
+				creator: '@lrgenius', // TODO: Replace with your Twitter handle
+				site: '@lrgenius', // TODO: Replace with your Twitter handle
+			}}
+		/>
+		<!-- Google Analytics loaded conditionally via CookieBanner -->
+	</head>
+	<body>
+    <Header />
+		<main class="container">
+			<slot />
+		</main>
+    <Footer />
+		<CookieBanner />
+	</body>
+</html>

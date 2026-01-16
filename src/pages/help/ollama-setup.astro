@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Ollama Setup - LrGeniusAI">
+  <section class="ollama-setup-section">
+    <h1>Ollama Setup Instructions</h1>
+
+    <h2>Download and Install Ollama</h2>
+    <p>Download the current version of Ollama for your platform from the official website: <a href="https://ollama.com/" target="_blank" rel="noopener noreferrer">HERE</a>. There’s a standard installer package for each operating system (Windows or macOS).</p>
+
+    <h2>After the Installation</h2>
+    <p>Once the installation is complete, you need to pull a vision-capable LLM. Most models are multiple gigabytes, so the download will take some time depending on your internet connection speed.</p>
+    <p>Our recommendations for use with LrGeniusAI via Ollama:</p>
+    <ul>
+      <li><strong>gemma3:12b-it-q4_K_M or gemma3:4b-it-q4_K_M</strong> - The open source version of Google's Gemini models.</li>
+      <li><strong>qwen3-vl:4b-instruct-q4_K_M or qwen3-vl:8b-instruct-q4_K_M</strong> - Another very strong AI vision model</li>
+      <li>llava - Popular vision model</li>
+      <li>minicpm-v - Smaller, faster option for basic analysis</li>
+    </ul>
+    <p>You can pull and use any vision-capable model available in Ollama.</p>
+
+    <h2>Pull an AI Model</h2>
+    <p>You need to download at least one AI model to use Ollama with LrGeniusAI. Recommendations are gemma3 or qwen3-vl. Try multiple models to find the best combinaton of results and performance for your use-case.</p>
+    <p>See the Ollama model list <a href="https://ollama.com/search?c=vision" target="_blank">online</a></p>
+    <p><b>Run at least one of the following commands:</b></p>
+
+    <pre><code>ollama pull gemma3:4b-it-q4_K_M</code></pre> GPU memory recommended: 8GB
+    <pre><code>ollama pull gemma3:12b-it-q4_K_M</code></pre> GPU memory recommended: 12GB
+    <pre><code>ollama pull qwen3-vl:4b-instruct-q4_K_M</code></pre> GPU memory recommended: 8GB
+    <pre><code>ollama pull qwen3-vl:8b-instruct-q4_K_M</code></pre> GPU memory recommended: 8-12GB
+    <pre><code>ollama pull llava</code></pre> GPU memory recommended: 8GB
+    <pre><code>ollama pull minicpm-v</code></pre> GPU memory recommended: 8GB
+    <p>The download will take some time depending on your internet connection speed.</p>
+
+  </section>
+</Layout>
+
+<style>
+  .ollama-setup-section {
+    padding: 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  code {
+    background-color: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+  }
+  pre {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+</style>

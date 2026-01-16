@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Help - LrGeniusAI">
+  <section class="help-section">
+    <h1>First Steps</h1>
+    <h2>Installation and Setup</h2>
+    <ul>
+      <li>Install current version of the plugin with the installer from the <a href="/downloads">downloads page</a>.</li>
+      <li>After the installation is complete, open Lightroom Classic. The plugin should appear in the Plug-in Manager.</li>
+      <li>Enter the license key of LrGeniusAI (or LrGeniusTagAI) in Lightroom plug-in manager, or use the 7-day trial mode without entering a license key.</li>
+      <li>
+        Depending on which AI model you choose, additional setup steps are required.
+      </li>
+      <small><ul>
+        <li><b>Google Gemini</b>: You have to <a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank">setup an API key and activate billing at Google</a>, since using Gemnini will generate costs per image. Enter the API key in the plugin settings.</li>
+        <li><b>ChatGPT</b>: You need to <a href="https://platform.openai.com/account/api-keys" target="_blank">setup an API key at OpenAI</a> and <a href="https://platform.openai.com/account/billing" target="_blank">activate billing</a>, since using ChatGPT will generate costs per image.</li>
+        <li><b>Ollama</b>: You need to <a href="/help/ollama-setup/">install and setup Ollama</a> locally for private AI processing without additional costs.</li>
+        <li><b>LM Studio</b>: You need to <a href="/help/lmstudio-setup/">install and setup LM Studio</a> locally for private AI processing without additional costs.</li>
+      </ul></small>
+    </ul>
+
+    <div class="highlight">See our guide: <a href="/help/choosing-ai-model/">Which AI model should you choose?</a></div>
+
+    <img src="/images/plug-in manager.png" class="image-w-shadow">
+
+    <h2>Analyzing photos</h2>
+    <p>To start analyzing photos with LrGeniusAI, follow these steps:</p>
+    <ul>
+      <li>Go to Library in Lightroom</li>
+      <li>Select some photos</li>
+      <li>Go to menu -> Library -> Plug-In Extras -> Analyze & Index photos</li>
+      <li>
+        The startup dialog shows up
+        <br><small><b>See explanations below</b></small>
+      </li>
+    </ul>
+
+    <div><img src="/images/preflight.png"></div>
+    <div style="padding-top: 40px; width: 40em;">
+      <ul>
+        <li><b>Scope</b>
+          <small>
+          <ul>
+            <li><b>Selected photos only</b></li>
+            <li><b>Current View</b>: All photos in the currently opened folder or collection</li>
+            <li><b>All photos in catalog</b>: Process all photos in the Lightroom catalog.</b></li>
+            <li><b>New or unprocessed photos</b></li>
+          </ul>
+          </small>
+        </li>
+        <li><b>AI Model</b> <small>to use Gemini and ChatGPT always show up. Ollama and LM Studio models appear if installed locally.</small></li>
+        <li><b>Temperature</b> <small>Controls the behavior of the AI model. Moving the slider to the left will result in more consistent results, where moving the slider to the right makes the AI more creative.</small></li>
+        <li><b>Prompts</b> <small>Select and/or edit the prompt submitted to the AI.</small></li>
+        <li><b>Language of results</b> <small>Select the language in which the AI provides its analysis.</small></li>
+        <li><b>Replace ß with ss</b> <small>Option to replace the German sharp S (ß) with "ss" in the analysis results. (Swiss german)</small></li>
+
+        <li><b>Tasks to perform</b></li>
+        <small>
+        <ul>
+          <li><b>Create search embeddings</b> Needed for the natural language search feature.</li>
+          <li><b>Generate AI metadata</b> Generate keywords, title, caption and alt-text as selected below</li>
+          <li><b>Import metadata from catalog before indexing</b> Import existing metadata from the Lightroom catalog to the LrGeniusAI database before generating new AI metadata.</li>
+          <li><b>Regenerate all data (overwrite existing)</b> If not selected, only data not present in the LrGeniusAI database is generated.</li>
+        </ul>
+        </small>
+        <li><b>Metadata Options</b></li>
+        <ul>
+          <small>
+            <li><b>Keywords</b> Add keywords to the photo based on the AI analysis.</li>
+            <li><b>Caption</b> Add a caption to the photo based on the AI analysis.</li>
+            <li><b>Title</b> Add a title to the photo based on the AI analysis.</li>
+            <li><b>Alt-Text</b> Add an alt-text to the photo based on the AI analysis.</li>
+            <li><b>Use hierachical keywords</b> Means that keywords are put into categories. Otherwise you will receive a flat list of keywords.</li>
+            <li>
+              <b>Use keyword structure from Lightroom catalog</b> Instead of using the categories configured in "Edit keyword categories", those already existing in the Lightroom catalog will be used.<br>
+              <b>Use with caution</b> This might cause unexpected keyword hierarchies. Be sure to keep a backup of your catalog before using this option.
+              <b>Also note:</b> This uses all available parents of existing keywords, which might lead to very deep hierarchies. <b>Using it if you have top-level keywords probably leads to chaos.</b>
+            </li>
+            <li><b>Use top-level keyword</b> Put all keywords beneath a top-level keyword. So they are separated hierachically from any existing manual keywords.</li>
+          </small>
+        </ul>
+        <li><b>Context Options</b><br><small>Select which data you want to give the AI model as context for the analysis.</small></li>
+        <li>Available are:</li>
+        <ul>
+          <small>
+            <li><b>GPS coordinates</b> Submit the GPS coordinates associated with the photo to the AI model as context for the analysis. (If the used AI model is not trained very well with GPS data, this might not improve results. But this is greatly helpful when using i.e. Gemini Pro models.)</li>
+            <li><b>Existing Keywords</b> The keywords assigned to the photo.</li>
+            <li><b>Capture Date/Time</b> The date and time the photo was taken.</li>
+            <li><b>Folder names</b> The names of the folders containing the photo.</li>
+            <li><b>Show Photo Context Dialog</b> Display a dialog before analyzing each photo to enter additional context information.</li>
+          </small>
+        </ul>
+        <li><b>Save generated data to catalog</b> <small>Disabling this option enables you to prevent the generated metadata from being saved directly to the Lightroom catalog. Useful when you want to review the data before saving. This can be done via <b>Library -> Plug-In Extras -> Retrieve metadata from backend</b>.</small></li>
+        <li><b>Review Results</b> <small>Before results are saved to the catalog, a brief review dialog is displayed.</small></li>
+      </ul>
+    </div>
+
+
+    <h2>Advanced search</h2>
+    <p>LrGeniusAI now includes a powerful semantic search feature that allows you to find photos using natural language queries</p>
+    <b>Library -> Plug-In Extras -> Advanced search</b>
+    <img src="/images/search.png">
+    <small>
+      <ul>
+        <li><strong>Search Term:</strong> "sunset over mountains with orange sky"</li>
+        <li><strong>Search Term:</strong> "red sports car in front of a garage"</li>
+        <li><strong>Search In:</strong> All photos, Current view or Selected photos</li>
+      </ul>
+      <p>The search algorithm combines all available data: The AI image understanding as well as keywords, caption, title and Alt-Text to retrieve the results</p>
+      <p>The search uses AI-generated embeddings to understand the meaning of your query and find matching images, even if they don't contain the exact keywords you searched for.</p>
+
+      <p>After the search is completed a new collection is created in your Lightroom catalog containing the search results.</p>
+      <p><b>It is very important to set the sort order of the collection to "Custom Order" to see the best matching results at the top. (Default is "Capture Time")</b></p>
+      <img src="/images/sort-order.png">
+    </small>
+
+    <h2>Retrieving metadata from backend</h2>
+    <p>
+      If you have disabled "Save generated data to catalog" in the analysis dialog, you can review and retrieve the generated metadata via <b>Library -> Plug-In Extras -> Retrieve metadata from backend</b>.
+    </p>
+    <img src="/images/retrieve-metadata.png" style="max-width: 50%; height: auto;">
+
+    <h2>Import metadata from catalog</h2>
+    <p>
+      Since LrGeniusAI uses its own database since version v2, you can import metadata from the Lightroom catalog to the LrGeniusAI database via <b>Library -> Plug-In Extras -> Import metadata from catalog</b>.
+      In case you are upgrading from LrGeniusTagAI v1, this step will be done automatically on first run of LrGeniusAI.
+    </p>
+
+  </section>
+</Layout>
+
+<style>
+  .help-section {
+    padding: 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    margin-top: 2rem;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+  pre {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  .container {
+    display: flex; /* Aktiviert Flexbox für den Container */
+    justify-content: space-around; /* Verteilt den verfügbaren Platz gleichmäßig */
+    gap: 20px; /* Fügt Abstand zwischen den Boxen hinzu */
+  }
+  .image-w-shadow {
+    box-shadow: 0 30px 48px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+</style>

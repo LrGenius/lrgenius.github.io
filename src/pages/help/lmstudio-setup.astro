@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="LM Studio Setup - LrGeniusAI">
+  <section class="lmstudio-setup-section">
+    <h1>LM Studio Setup Instructions</h1>
+
+    <h3>Download and Install LM Studio</h3>
+    <p>Download and run the installer: <a href="https://lmstudio.ai/download" target="_blank">Here</a></p>
+
+    <h3>Setup LM Studio for use with LrGeniusAI</h3>
+    <ul>
+        <li>Start LM Studio</li>
+        <li>Go to the Developer Tab</li>
+        <li><b>Set status to: running</b></li>
+        <li>In the Server Settings: <b>Activate Just-In-Time Model Loading</b></li>
+    </ul>
+    <img src="/images/lmstudio-settings.png" class="image-w-shadow">
+
+    <h3>Pull an AI model</h3>
+    <p><b>Go to the Discover Tab</b>: Search and download the AI model(s) you want to use. Recommended are:
+    <ul>
+        <li>google/gemma3-4b - Google's open source model</li>
+        <li>google/gemma3-12b - Bigger version of Google's open source model‚</li>
+        <li>google/gemma3n-e4b - Reduced size (faster) version of gemma3:4b (macOS only, at the moment)</li>
+        <li>qwen/qwen3-vl-4b - The current vision model from Alibaba</li>
+        <li>qwen/qwen3-vl-8b - Bigger size of qwen3-vl-4b</li>
+    </ul>
+    There are different sizes for each model (4b, 8b, 12b). For optimal performance and results: Use the biggest model which offers <b>"Full GPU offload possible"</b>. Bigger means more intelligent, but requires more hardware resources.</p>
+
+    <h3>macOS</h3>
+    <p>If you are running LM Studio on macOS you should models with <b>MLX</b> format. Those models are optimized for Apple Silicon and offer better performance.</p>
+  </section>
+</Layout>
+
+
+<style>
+  .lmstudio-setup-section {
+    padding: 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  code {
+    background-color: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+  }
+  pre {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  .image-w-shadow {
+    box-shadow: 0 30px 48px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+</style>

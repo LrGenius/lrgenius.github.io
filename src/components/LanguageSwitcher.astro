@@ -1,0 +1,28 @@
+---
+const { pathname } = Astro.url;
+const currentLang = Astro.currentLocale;
+
+const otherLang = currentLang === 'en' ? 'de' : 'en';
+const otherLangPath = pathname.replace(`/${currentLang}/`, `/${otherLang}/`);
+---
+
+<a href={otherLangPath} class="language-switcher">
+  {otherLang.toUpperCase()}
+</a>
+
+<style>
+.language-switcher {
+  color: var(--color-text);
+  font-weight: 500;
+  padding: 5px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.language-switcher:hover {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+</style>

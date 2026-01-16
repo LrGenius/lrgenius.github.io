@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Configuration - LrGeniusAI">
+  <section class="configuration-section">
+    <h1>Configuration</h1>
+    <p>This page describes the configuration settings for the LrGeniusAI plugin.</p>
+
+    <img src="/images/plug-in manager.png" alt="Landmark in a city">
+
+    <h2>General Settings</h2>
+    <ul>
+      <li><strong>License key:</strong> Enter the license key you received upon purchase. Can be left blank if you want to use the plugin in trial mode.</li>
+    </ul>
+
+    <h2>API Keys / Provider Configuration</h2>
+    <ul>
+      <li><strong>Google Gemini API key:</strong> Required for using Google Gemini cloud models. <a href="https://aistudio.google.com/app/api-keys">Obtain from Google AI Studio</a>.</li>
+      <li><strong>ChatGPT API key:</strong> Required for using OpenAI ChatGPT models. <a href="https://platform.openai.com/api-keys">Obtain from OpenAI</a>.</li>
+    </ul>
+
+    <h2>Prompts</h2>
+    <p>Edit prompts sent to the AI, if needed. This is an advanced topic. In most cases you can stick to the standard prompt.</p>
+
+    <h2>Export Settings</h2>
+    <p>Export settings:</strong> Modifies settings for the reduced-size export used by the plugin to the AI.</p>
+
+  </section>
+</Layout>
+
+<style>
+  .configuration-section {
+    padding: 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  h2 {
+    margin-top: 2rem;
+  }
+</style>

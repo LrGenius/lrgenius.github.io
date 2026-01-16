@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Help - LrGeniusAI">
+  <section class="help-section">
+    <h1>Choosing an AI Model</h1>
+    <p>LrGeniusAI supports multiple AI models for analyzing and tagging your photos. Each model has its own strengths and requirements. Here’s a brief overview to help you choose the right one for your needs</p>
+
+    <h3>Privacy and Pricing Considerations</h3>
+    <p>
+        The first question to ask yourself is: Do you want to use a cloud-based AI model, or do you prefer to run an AI model locally on your own hardware for privacy reasons?
+        Also consider that cloud-based models typically incur costs based on usage, while local models are free to use.
+    </p>
+
+
+
+    <h3>Cloud-based AI Models</h3>
+    <p>Cloud-based AI models like Google Gemini and OpenAI's ChatGPT offer the best results without the need for local hardware resources. However, using these services involves sending your photos to external servers, which may raise privacy concerns depending on the sensitivity of your images.</p>
+    <ul>
+      <li><b>Google Gemini</b>: <a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank">Requires setting up an API key and activating billing at Google</a>. Costs are incurred per image analyzed.</li>
+      Available Google Gemini models (2025-12-12)
+      <small><ul>
+        <li>gemini-2.5-flash-lite - Cheapest and fastest but less intelligent</li>
+        <li>gemini-2.5-flash - Good compromise between speed, intelligence and costs.</li>
+        <li>gemini-2.5-pro - Best in class model.</li>
+        <li>gemini-3-pro-preview - Successor to gemini-2.5-pro, currently in preview. Limited to 300 images per day from Google.</li>
+      </ul></small>
+      <li><b>ChatGPT</b>: <a href="https://platform.openai.com/account/api-keys" target="_blank">Requires setting up an API key at OpenAI</a> and <a href="https://platform.openai.com/account/billing" target="_blank">activating billing</a>. Costs are incurred per image analyzed.</li>
+      Available ChatGPT models (2025-12-12)
+      <small><ul>
+        <li>gpt-4.1 - Old flagship model</li>
+        <li>gpt-4.1-mini - Reduced size model. Faster, less expensive, but not as intelligent.</li>
+        <li>gpt-5 - Old flagship</li>
+        <li>gpt-5-mini - Good compromise between performance and cost.</li>
+        <li>gpt-5-nano - Cheap and fast model.</li>
+        <li>gpt-5.1 - Current flagship model from OpenAI.</li>
+      </ul></small>
+    </ul>
+
+    <h3>Local AI Models</h3>
+    <p>If privacy is a concern or if you want to avoid ongoing costs, consider using local AI models with LrGeniusAI. This requires installing and setting up software like Ollama or LM Studio on your own computer.</p>
+    <ul>
+      <li><b>Ollama</b>: A local AI model hosting solution that allows you to run vision-capable models on your own hardware. <a href="/help/ollama-setup/">See our Ollama setup guide</a>.</li>
+      <li><b>LM Studio</b>: Another local AI model hosting solution that supports various vision-capable models. <a href="/help/lmstudio-setup/">See our LM Studio setup guide</a>.</li>
+    </ul>
+
+    <h3>Choosing the Right Model</h3>
+    <p>
+        The choice is a very personal one and depends on your specific needs regarding privacy, cost, and performance. 
+        Also the hardware you have available plays a big role when choosing a local AI model.
+        For cloud-based models, consider the cost per image and the quality of results you require.
+        For local models, ensure your hardware meets the requirements for running the chosen AI model effectively.
+        <b>The best way is probably to try out different models and see which one fits your workflow and requirements the best.</b>
+    </p>
+
+    <h3>Model comparison done by the community</h3>
+    <p>
+        There are two <b>german-speaking</b> YouTube videos from Andreas Pott (<a href="https://www.youtube.com/@AndreasPott-Photography" target="_blank">channel link</a>) where he compares different AI models for photo analysis and tagging.
+        Credit to Andreas for doing these tests and sharing his insights with the community!
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=QB7fJfmzBGg" target="_blank">KI-Modellvergleich in LrGenius: GPT-5, Gemini & lokale Modelle im Praxistest</a></li>
+            <li><a href="https://www.youtube.com/watch?v=-egUaAybsOQ" target="_blank">Update KI-Modellvergleich in LrGenius: GPT-5 reasoning im Praxistest</a></li>
+        
+        </ul>
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .help-section {
+    padding: 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    margin-top: 2rem;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+  pre {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  .container {
+    display: flex; /* Aktiviert Flexbox für den Container */
+    justify-content: space-around; /* Verteilt den verfügbaren Platz gleichmäßig */
+    gap: 20px; /* Fügt Abstand zwischen den Boxen hinzu */
+  }
+  .image-w-shadow {
+    box-shadow: 0 30px 48px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+</style>

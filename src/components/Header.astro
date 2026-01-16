@@ -1,0 +1,137 @@
+---
+import { useTranslations } from '../i18n/utils';
+
+const t = useTranslations('en');
+
+const base = '';
+---
+<header>
+  <div class="container header-container">
+    <a href="/" class="logo">
+      <img src="/lrgenius.png" alt={t('alt.logo')} width="40" height="40">
+      <span>LrGenius</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/">{t('nav.home')}</a></li>
+        <li><a href="/downloads">{t('nav.downloads')}</a></li>
+        <li class="dropdown">
+          <a href="/help">{t('nav.help')}</a>
+          <ul class="dropdown-menu">
+            <li><a href="/help">{t('nav.help.first_steps')}</a></li>
+            <li><a href="/help/choosing-ai-model">Choosing the right AI Model</a></li>
+            <li><a href="/help/migration">Updating to LrGeniusAI</a></li>
+            <li><a href="/help/installation">{t('nav.help.installation')}</a></li>
+            <li><a href="/help/configuration">{t('nav.help.configuration')}</a></li>
+            <li><a href="/help/ollama-setup">{t('nav.help.ollama_setup')}</a></li>
+            <li><a href="/help/lmstudio-setup">{t('nav.help.lmstudio_setup')}</a></li>
+            <li><a href="/help/tips-tricks">{t('nav.help.tips_tricks')}</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eaeaea;
+    z-index: 1000;
+    height: var(--header-height);
+  }
+
+ .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+ .logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--color-heading);
+  }
+ .logo:hover {
+    text-decoration: none;
+  }
+
+ .logo img {
+    margin-right: 10px;
+  }
+
+  nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 0 15px;
+  }
+
+  nav ul li a {
+    color: var(--color-text);
+    font-weight: 500;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  nav ul li a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+ .dropdown {
+    position: relative;
+  }
+
+ .dropdown-menu {
+    display: flex; /* Keep flex for layout */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    padding: 10px 0;
+    min-width: 160px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+  }
+
+ .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+ .dropdown-menu li {
+    margin: 0;
+  }
+
+ .dropdown-menu li a {
+    display: block;
+    padding: 8px 15px;
+    white-space: nowrap;
+  }
+</style>

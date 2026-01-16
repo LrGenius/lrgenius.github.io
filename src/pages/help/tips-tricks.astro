@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Tips & Tricks - LrGeniusAI">
+  <section class="help-section"></section>
+    <h2>Tips & Tricks</h2>
+
+    <h3 id="prompt">Adapting the Prompt</h3>
+    <p>It is possible to adapt the used prompt for the AI model to different use cases, photography genres.</p>
+    <p>For example portrait photography:</p>
+    <pre><code>“You are a professional portrait photography analyst. You describe the model’s attire, hair, eyes as detailed as possible”</code></pre>
+    <p>The different prompts can added/edited/deleted via the Lightroom Plug-In manager.</p>
+
+    <h3 id="photo-context">Photo Context</h3>
+    <p>There are two ways to provide the AI with some contextual information about a photo before processing. This can be helpful if there is information about the image that the AI cannot derive from the content. The two options are:</p>
+    <ul>
+    <li>The Photo Context dialog, which can be activated in the <a href="help/preflight/">startup dialog</a>. The dialog is displayed after you start the Analyze process before each photo of the batch is analyzed.</li>
+    <li>Or directly in the Metadata panel of Lightroom Classic’s Library module.</li>
+    </ul>
+    <p>You have the set the dropdown next Metadata to "LrGeniusAI". Afterwards there’s a text input field called “Photo context” where the context can be entered in simple words. <b>Note if you select multiple images, you can set the context for a series of images at once.</b></p>
+
+  </section>
+</Layout>
+
+
+<style>
+  .help-section {
+    padding: 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    margin-top: 2rem;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+  pre {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  .container {
+    display: flex; /* Aktiviert Flexbox für den Container */
+    justify-content: space-around; /* Verteilt den verfügbaren Platz gleichmäßig */
+    gap: 20px; /* Fügt Abstand zwischen den Boxen hinzu */
+  }
+</style>

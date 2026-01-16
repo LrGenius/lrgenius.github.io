@@ -1,0 +1,64 @@
+---
+import { useTranslations } from '../i18n/utils';
+
+const lang = Astro.currentLocale as 'en' | 'de';
+const t = useTranslations(lang);
+
+const base = `/${lang}`;
+---
+<footer>
+  <div class="container footer-container">
+    <div class="footer-brand">
+      <img src="/lrgenius.png" alt={t('alt.logo')} width="30" height="30">
+      <span>LrGenius</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #eaeaea;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+
+ .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+ .footer-brand {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+
+ .footer-brand img {
+    margin-right: 8px;
+  }
+
+ .footer-links a,.footer-social a {
+    color: #6c757d;
+    margin: 0 10px;
+  }
+  
+ .footer-links a:hover,.footer-social a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+   .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+   .footer-brand,.footer-links,.footer-social {
+      margin-bottom: 1rem;
+    }
+  }
+</style>
