@@ -14,20 +14,21 @@ const base = '';
     <nav>
       <ul>
         <li><a href="/">{t('nav.home')}</a></li>
+        <li><a href="https://github.com/LrGenius/LrGeniusAI/releases" target="_blank">Downloads</a></li>
+        <li><a href="https://github.com/LrGenius" target="_blank">GitHub</a></li>
         <li class="dropdown">
           <a href="/help">{t('nav.help')}</a>
           <ul class="dropdown-menu">
             <li><a href="/help">{t('nav.help.first_steps')}</a></li>
             <li><a href="/help/choosing-ai-model">Choosing the right AI Model</a></li>
-            <li><a href="/help/migration">Updating to LrGeniusAI</a></li>
+            <li><a href="/help/migration">Updating to LrGeniusAI from LrGeniusTagAI</a></li>
             <li><a href="/help/installation">{t('nav.help.installation')}</a></li>
             <li><a href="/help/configuration">{t('nav.help.configuration')}</a></li>
             <li><a href="/help/ollama-setup">{t('nav.help.ollama_setup')}</a></li>
             <li><a href="/help/lmstudio-setup">{t('nav.help.lmstudio_setup')}</a></li>
             <li><a href="/help/tips-tricks">{t('nav.help.tips_tricks')}</a></li>
           </ul>
-        </li>
-        <a href="https://github.com/LrGenius">GitHub</a>
+         </li>
       </ul>
     </nav>
   </div>
@@ -118,6 +119,7 @@ const base = '';
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease;
+    text-align: left;
   }
 
  .dropdown:hover .dropdown-menu {
@@ -133,5 +135,6 @@ const base = '';
     display: block;
     padding: 8px 15px;
     white-space: nowrap;
+    text-align: left;
   }
 </style>

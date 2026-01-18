@@ -3,11 +3,17 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="LrGeniusAI - Tag Smarter, Not Harder.">
+
   <section class="hero">
     <p></p>
     <img src="/images/logo.png" alt="LrGeniusAI Logo" width="500">
     <h1>LrGeniusAI</h1>
     <p class="tagline">Tag Smarter, Not Harder.</p>
+
+    <section class="banner">
+      <p>LrGeniusAI is now free and open-source! Check out the <a href="https://github.com/LrGenius" target="_blank">GitHub repository</a>.</p>
+    </section>
+
     <p>
       LrGeniusAI is a powerful Lightroom Classic plugin that generates keywords, image descriptions, titles, and alt text using advanced AI models. Choose from 4 different AI providers: local models (Ollama, LM Studio) or cloud services (ChatGPT, Google Gemini). The results are unmatched in terms of precision and detail. Try it today.
     </p>
@@ -64,6 +70,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
+
 </Layout>
 
 <style>
@@ -123,5 +130,15 @@ import Layout from '../layouts/Layout.astro';
   }
  .cta-card p {
     min-height: 60px;
+  }
+ .banner {
+    background-color: #f0f8ff;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    margin: 2rem 0;
   }
 </style>
