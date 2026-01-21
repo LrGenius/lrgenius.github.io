@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="LrGeniusAI - Tag Smarter, Not Harder.">
+
+    Please use GitHub discussions for contact or issues for bug reports:
+    <ul>
+        <li><a href="https://github.com/LrGenius/LrGeniusAI/discussions/new/choose" target="_blank">Discussions</a></li>
+        <li><a href="https://github.com/LrGenius/LrGeniusAI/issues/new/choose" target="_blank">Issues</a></li>
+    </ul>
+
+</Layout>
+
+<style>
+ .hero {
+    text-align: center;
+    padding: 4rem 0;
+  }
+ .tagline {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+ .features,.examples,.cta-section {
+    padding: 2rem 0;
+  }
+ .feature-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+ .feature-item {
+    padding: 1.5rem;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+  }
+ .feature-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+ .feature-item h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+  }
+ .example-grid,.cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+ .example-card,.cta-card {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+  }
+ .example-card:hover,.cta-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+ .example-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+ .cta-card p {
+    min-height: 60px;
+  }
+ .banner {
+    background-color: #f0f8ff;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    margin: 2rem 0;
+  }
+</style>
