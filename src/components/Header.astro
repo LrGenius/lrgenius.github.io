@@ -16,20 +16,8 @@ const base = '';
         <li><a href="/">{t('nav.home')}</a></li>
         <li><a href="https://github.com/LrGenius/LrGeniusAI/releases" target="_blank">Downloads</a></li>
         <li><a href="https://github.com/LrGenius" target="_blank">GitHub</a></li>
+        <li><a href="https://github.com/LrGenius/LrGeniusAI/wiki" target="_blank">{t('nav.wiki')}</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li class="dropdown">
-          <a href="/help">{t('nav.help')}</a>
-          <ul class="dropdown-menu">
-            <li><a href="/help">{t('nav.help.first_steps')}</a></li>
-            <li><a href="/help/choosing-ai-model">Choosing the right AI Model</a></li>
-            <li><a href="/help/migration">Updating to LrGeniusAI from LrGeniusTagAI</a></li>
-            <li><a href="/help/installation">{t('nav.help.installation')}</a></li>
-            <li><a href="/help/configuration">{t('nav.help.configuration')}</a></li>
-            <li><a href="/help/ollama-setup">{t('nav.help.ollama_setup')}</a></li>
-            <li><a href="/help/lmstudio-setup">{t('nav.help.lmstudio_setup')}</a></li>
-            <li><a href="/help/tips-tricks">{t('nav.help.tips_tricks')}</a></li>
-          </ul>
-         </li>
       </ul>
     </nav>
   </div>
@@ -101,41 +89,4 @@ const base = '';
     text-decoration: none;
   }
 
- .dropdown {
-    position: relative;
-  }
-
- .dropdown-menu {
-    display: flex; /* Keep flex for layout */
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    border: 1px solid #eaeaea;
-    border-radius: 5px;
-    padding: 10px 0;
-    min-width: 160px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-    text-align: left;
-  }
-
- .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-  }
-
- .dropdown-menu li {
-    margin: 0;
-  }
-
- .dropdown-menu li a {
-    display: block;
-    padding: 8px 15px;
-    white-space: nowrap;
-    text-align: left;
-  }
 </style>
