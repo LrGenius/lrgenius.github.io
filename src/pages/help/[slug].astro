@@ -1,15 +1,15 @@
 ---
-const redirects: Record<string, string> = {
-  'choosing-ai-model': 'https://github.com/LrGenius/LrGeniusAI/wiki/Help-Choosing-AI-Model',
-  'migration': 'https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started',
-  'installation': 'https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started',
-  'configuration': 'https://github.com/LrGenius/LrGeniusAI/wiki/Plugin-Guide',
-  'ollama-setup': 'https://github.com/LrGenius/LrGeniusAI/wiki/Help-Ollama-Setup',
-  'lmstudio-setup': 'https://github.com/LrGenius/LrGeniusAI/wiki/Help-LM-Studio-Setup',
-  'tips-tricks': 'https://github.com/LrGenius/LrGeniusAI/wiki/Plugin-Guide',
-};
-
 export function getStaticPaths() {
+  const redirects: Record<string, string> = {
+    'choosing-ai-model': 'https://github.com/LrGenius/LrGeniusAI/wiki/Help-Choosing-AI-Model',
+    'migration': 'https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started',
+    'installation': 'https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started',
+    'configuration': 'https://github.com/LrGenius/LrGeniusAI/wiki/Plugin-Guide',
+    'ollama-setup': 'https://github.com/LrGenius/LrGeniusAI/wiki/Help-Ollama-Setup',
+    'lmstudio-setup': 'https://github.com/LrGenius/LrGeniusAI/wiki/Help-LM-Studio-Setup',
+    'tips-tricks': 'https://github.com/LrGenius/LrGeniusAI/wiki/Plugin-Guide',
+  };
+
   return Object.entries(redirects).map(([slug, destination]) => ({
     params: { slug },
     props: { destination },
