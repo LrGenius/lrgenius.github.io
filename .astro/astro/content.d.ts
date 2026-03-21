@@ -140,85 +140,14 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"downloads": {
-"v1.0.0.md": {
-	id: "v1.0.0.md";
-  slug: "v100";
+		"downloads": Record<string, {
+  id: string;
+  slug: string;
   body: string;
   collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-"v1.1.0.md": {
-	id: "v1.1.0.md";
-  slug: "v110";
-  body: string;
-  collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-"v1.2.0.md": {
-	id: "v1.2.0.md";
-  slug: "v120";
-  body: string;
-  collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-"v1.3.0.md": {
-	id: "v1.3.0.md";
-  slug: "v130";
-  body: string;
-  collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-"v1.3.1.md": {
-	id: "v1.3.1.md";
-  slug: "v131";
-  body: string;
-  collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-"v1.4.0.md": {
-	id: "v1.4.0.md";
-  slug: "v140";
-  body: string;
-  collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-"v1.4.1.md": {
-	id: "v1.4.1.md";
-  slug: "v141";
-  body: string;
-  collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-"v1.5.0.md": {
-	id: "v1.5.0.md";
-  slug: "v150";
-  body: string;
-  collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-"v1.5.1.md": {
-	id: "v1.5.1.md";
-  slug: "v151";
-  body: string;
-  collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-"v1.6.0.md": {
-	id: "v1.6.0.md";
-  slug: "v160";
-  body: string;
-  collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-"v1.7.0.md": {
-	id: "v1.7.0.md";
-  slug: "v170";
-  body: string;
-  collection: "downloads";
-  data: InferEntrySchema<"downloads">
-} & { render(): Render[".md"] };
-};
+  data: InferEntrySchema<"downloads">;
+  render(): Render[".md"];
+}>;
 "testimonials": {
 "1_yt-gwegner.md": {
 	id: "1_yt-gwegner.md";
