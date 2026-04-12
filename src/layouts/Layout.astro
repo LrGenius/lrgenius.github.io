@@ -23,6 +23,8 @@ const t = useTranslations(lang);
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/lrgenius.png" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+		<meta name="keywords" content={t('seo.keywords')} />
 		<SEO
 			title={title}
 			description={description || t('seo.default_description')}
@@ -30,7 +32,7 @@ const t = useTranslations(lang);
 				basic: {
 					title: title,
 					type: 'website',
-					image: new URL('/images/og-image.png', Astro.site).href, // Make sure you have an og-image.png in public/images
+					image: new URL('/images/og-image.png', Astro.site).href,
 					url: Astro.url,
 				},
 				image: {
@@ -39,10 +41,27 @@ const t = useTranslations(lang);
 			}}
 			twitter={{
 				card: 'summary_large_image',
-				creator: '@lrgenius', // TODO: Replace with your Twitter handle
-				site: '@lrgenius', // TODO: Replace with your Twitter handle
+				creator: '@lrgenius',
+				site: '@lrgenius',
 			}}
 		/>
+
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "LrGeniusAI",
+			"operatingSystem": "Windows, macOS",
+			"applicationCategory": "MultimediaApplication",
+			"softwareVersion": "2.5.0",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"description": t('seo.default_description'),
+			"applicationSubCategory": "Photography Plugin"
+		})} />
+
 		<!-- Google Analytics loaded conditionally via CookieBanner -->
 	</head>
 	<body>
