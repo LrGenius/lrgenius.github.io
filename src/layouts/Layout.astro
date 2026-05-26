@@ -62,7 +62,27 @@ const t = useTranslations(lang);
 			"applicationSubCategory": "Photography Plugin"
 		})} />
 
-		<!-- Google Analytics loaded conditionally via CookieBanner -->
+		<!-- Google Analytics with Consent Mode v2 (default denied; CookieBanner updates on accept) -->
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){ dataLayer.push(arguments); }
+			window.gtag = gtag;
+
+			const stored = localStorage.getItem('cookie-consent');
+			const analyticsGranted = stored === 'accepted' ? 'granted' : 'denied';
+
+			gtag('consent', 'default', {
+				ad_storage: 'denied',
+				ad_user_data: 'denied',
+				ad_personalization: 'denied',
+				analytics_storage: analyticsGranted,
+				wait_for_update: 500,
+			});
+
+			gtag('js', new Date());
+			gtag('config', 'G-3T09LKYR2E', { anonymize_ip: true });
+		</script>
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-3T09LKYR2E"></script>
 	</head>
 	<body>
     <Header />

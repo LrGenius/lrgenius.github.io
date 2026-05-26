@@ -16,54 +16,34 @@ const t = useTranslations(lang);
 </div>
 
 <script>
-  // Check if user has already made a choice
   const cookieConsent = localStorage.getItem('cookie-consent');
-  
+
   if (!cookieConsent) {
-    // Show banner if no choice has been made
     const banner = document.getElementById('cookie-banner');
-    if (banner) {
-      banner.style.display = 'block';
-    }
-  } else if (cookieConsent === 'accepted') {
-    // Load Google Analytics if previously accepted
-    loadGoogleAnalytics();
+    if (banner) banner.style.display = 'block';
   }
 
-  // Handle accept button
   document.getElementById('cookie-accept')?.addEventListener('click', () => {
     localStorage.setItem('cookie-consent', 'accepted');
+    updateConsent('granted');
     hideBanner();
-    loadGoogleAnalytics();
   });
 
-  // Handle decline button
   document.getElementById('cookie-decline')?.addEventListener('click', () => {
     localStorage.setItem('cookie-consent', 'declined');
+    updateConsent('denied');
     hideBanner();
   });
 
   function hideBanner() {
     const banner = document.getElementById('cookie-banner');
-    if (banner) {
-      banner.style.display = 'none';
-    }
+    if (banner) banner.style.display = 'none';
   }
 
-  function loadGoogleAnalytics() {
-    // Only load if not already loaded
-    if (!window.dataLayer) {
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-3T09LKYR2E';
-      document.head.appendChild(script);
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(...args: any[]) {
-        window.dataLayer.push(args);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-3T09LKYR2E');
+  function updateConsent(state: 'granted' | 'denied') {
+    const gtag = (window as any).gtag;
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { analytics_storage: state });
     }
   }
 </script>

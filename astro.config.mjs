@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://lrgenius.github.io',
+  site: 'https://lrgenius.com',
   integrations: [sitemap()],
   i18n: {
     defaultLocale: 'en',
