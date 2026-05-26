@@ -1,0 +1,503 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'LrGenius vs. Excire, AnyVision, Peakto, Aftershoot, Narrative, Imagen & Neurapix — Honest Comparison';
+const description = 'How LrGenius compares to Excire Search, AnyVision, Peakto, Aftershoot, Narrative Select, Imagen AI and Neurapix for AI-powered keywording, search, culling and editing in Adobe Lightroom Classic.';
+
+const lastUpdated = '2026-05-26';
+---
+
+<Layout title={title} description={description}>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": lastUpdated,
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "LrGenius" },
+    "about": [
+      { "@type": "SoftwareApplication", "name": "LrGenius" },
+      { "@type": "Thing", "name": "Excire Search" },
+      { "@type": "Thing", "name": "AnyVision (Lightroom plugin)" },
+      { "@type": "Thing", "name": "Peakto" },
+      { "@type": "Thing", "name": "Aftershoot" },
+      { "@type": "Thing", "name": "Narrative Select" },
+      { "@type": "Thing", "name": "Imagen AI" },
+      { "@type": "Thing", "name": "Neurapix" },
+      { "@type": "Thing", "name": "LrToolbox (ObviousIdea)" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best AI plugin for Adobe Lightroom Classic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the task. For AI culling of weddings or events, Aftershoot and Narrative Select are mature, established options. For keywording and search, Excire Search and AnyVision are well established. For AI editing in your personal style, Imagen AI and Neurapix are widely used. LrGenius is a younger, free, open-source plugin currently in beta that aims to combine AI keywording, descriptions, semantic search, face recognition, edit training and culling — useful if you want an open alternative and are willing to work with a project that is still maturing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is LrGenius production-ready?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LrGenius is currently in beta and under active development. The installers are not yet code-signed, and individual features are at different levels of maturity. We recommend testing it on a copy of your catalog and verifying results before relying on it for paid client work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does LrGenius run fully offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you configure a local provider such as Ollama or LM Studio, image analysis runs on your own hardware and no photo data leaves your computer. Cloud providers (ChatGPT, Google Gemini, Vertex AI) are optional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is LrGenius free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. LrGenius is free and open-source. If you use a cloud AI provider, the provider's API usage is billed directly by that provider."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can LrGenius replace Excire Search today?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Possibly, depending on your needs and tolerance for beta software. LrGenius covers AI keywording, semantic search and face recognition in a similar problem space as Excire Search, and adds AI-generated captions, titles and experimental edit training. Excire is more polished and supported, with a curated keyword taxonomy and vendor support — many photographers will still prefer it for production work."
+        }
+      }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>LrGenius vs. Excire, AnyVision, Peakto, Aftershoot, Narrative &amp; Imagen</h1>
+    <p class="tagline">An honest comparison of AI tools around Adobe Lightroom Classic.</p>
+    <p class="meta">Last updated: {lastUpdated}</p>
+  </section>
+
+  <aside class="beta-notice">
+    <strong>⚠️ Heads up — LrGenius is currently in beta and under heavy development.</strong>
+    The features listed for LrGenius below describe the direction of the project and what the current
+    builds aim to do. Stability, quality and exact behaviour are still evolving from release to release,
+    and the installers are not yet code-signed.
+    Please <a href="https://github.com/LrGenius/LrGeniusAI/releases" target="_blank" rel="noopener">try the
+    latest build</a> and verify that a given feature meets your needs before committing your workflow to it.
+  </aside>
+
+  <section class="intro">
+    <p>
+      The AI photo-workflow market has split into specialised tools: some focus on <strong>keywording and search</strong>,
+      others on <strong>culling</strong>, others on <strong>editing in your personal style</strong>. This page summarises
+      how <strong>LrGenius</strong> compares to the best-known products in each of those niches, so you can pick the
+      right combination for your workflow.
+    </p>
+    <p>
+      Most of the commercial tools on this page are mature, well-supported products with paying customers and years
+      of polish. LrGenius is a much younger, free, open-source project — we are honest about that below and mark the
+      areas that are still maturing.
+    </p>
+    <p>
+      We try to stick to publicly verifiable facts. Features, pricing and product names change frequently — if you
+      spot something out of date or inaccurate, please <a href="/contact">let us know</a> and we will correct it.
+    </p>
+  </section>
+
+  <section class="categories">
+    <h2>What each tool actually does</h2>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <h3>LrGenius <span class="badge">beta</span></h3>
+        <p>Free, open-source Lightroom Classic plugin currently in active development. Aims to provide AI keywording,
+          captions, titles, alt-text and semantic search today, with face recognition, AI culling and edit training
+          ("Looks") evolving in newer builds. Works with local (Ollama, LM Studio) or cloud (ChatGPT, Gemini, Vertex AI)
+          back-ends.</p>
+      </div>
+      <div class="cat-card">
+        <h3>Excire Search / Foto</h3>
+        <p>Commercial keywording, search and culling. Search is a Lightroom Classic plugin; Foto is a standalone
+          DAM application. On-device AI, fixed trained keyword taxonomy, one-time purchase.</p>
+      </div>
+      <div class="cat-card">
+        <h3>AnyVision (John R. Ellis)</h3>
+        <p>Lightroom Classic plugin that uses Google Cloud Vision to tag photos, detect objects, logos, colours
+          and to generate keywords / descriptions via prompts. Requires a Google Cloud API key and a paid plugin
+          license.</p>
+      </div>
+      <div class="cat-card">
+        <h3>Peakto (CYME)</h3>
+        <p>Mac-focused universal photo organiser. Indexes Lightroom, Capture One, Apple Photos and many other
+          catalogs into one searchable library, with local AI tagging, semantic search and AI culling.
+          Subscription based.</p>
+      </div>
+      <div class="cat-card">
+        <h3>Aftershoot</h3>
+        <p>Dedicated AI culling (and increasingly editing/retouching) for high-volume photographers. Runs locally
+          on your machine, detects duplicates, blur and closed eyes. Subscription.</p>
+      </div>
+      <div class="cat-card">
+        <h3>Narrative Select</h3>
+        <p>AI culling tool with "Scenes" grouping, close-up face checks and Personal AI Presets that hand off to
+          Lightroom. Subscription, optional Pro tier for advanced features.</p>
+      </div>
+      <div class="cat-card">
+        <h3>Imagen AI</h3>
+        <p>Cloud-based AI editor that learns your personal editing style from your past Lightroom edits and applies
+          it to new shoots. Also offers culling, cropping and masking. Pay-per-photo pricing.</p>
+      </div>
+      <div class="cat-card">
+        <h3>Neurapix</h3>
+        <p>German AI editing plugin for Lightroom. Trains a "SmartPreset" from 500+ of your previously edited images
+          and applies your style to new shoots — up to ~600 images per minute. Also sells ready-made SmartPresets by
+          professional photographers. Pay-per-image or monthly subscription.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="comparison">
+    <h2>Feature comparison at a glance</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>LrGenius</th>
+            <th>Excire Search</th>
+            <th>AnyVision</th>
+            <th>Peakto</th>
+            <th>Aftershoot</th>
+            <th>Narrative Select</th>
+            <th>Imagen AI</th>
+            <th>Neurapix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary purpose</td>
+            <td>Keywording, captions, search, culling, edit training</td>
+            <td>Keywording &amp; search</td>
+            <td>Keywording &amp; tagging</td>
+            <td>Universal DAM &amp; search</td>
+            <td>Culling</td>
+            <td>Culling</td>
+            <td>AI editing</td>
+            <td>AI editing (SmartPresets)</td>
+          </tr>
+          <tr>
+            <td>Lightroom Classic integration</td>
+            <td>Plugin</td>
+            <td>Plugin (Search) / standalone (Foto)</td>
+            <td>Plugin</td>
+            <td>External + LR plugin</td>
+            <td>External, hands selections to LR</td>
+            <td>External, hands selections to LR</td>
+            <td>External, round-trips with LR</td>
+            <td>Plugin</td>
+          </tr>
+          <tr>
+            <td>Runs locally / offline</td>
+            <td>Yes with Ollama or LM Studio</td>
+            <td>Yes (on-device AI)</td>
+            <td>No — uses Google Cloud Vision</td>
+            <td>Yes (local AI)</td>
+            <td>Yes (local processing)</td>
+            <td>Mixed (cloud-assisted)</td>
+            <td>No — cloud only</td>
+            <td>No — cloud only</td>
+          </tr>
+          <tr>
+            <td>Keyword generation</td>
+            <td>Open-vocabulary, prompt-tunable</td>
+            <td>Fixed trained taxonomy</td>
+            <td>Google Vision labels + prompts</td>
+            <td>Local AI tags</td>
+            <td>Not primary feature</td>
+            <td>Not primary feature</td>
+            <td>Not primary feature</td>
+            <td>Not a feature</td>
+          </tr>
+          <tr>
+            <td>Captions / descriptions / alt text</td>
+            <td>Yes</td>
+            <td>Limited</td>
+            <td>Yes (via prompts)</td>
+            <td>Limited</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Semantic / natural-language search</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Indirect (via tags)</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Face recognition</td>
+            <td>Yes — clustering &amp; People dialog (beta)</td>
+            <td>Yes</td>
+            <td>Yes (Google Vision)</td>
+            <td>Yes</td>
+            <td>Yes (for culling)</td>
+            <td>Yes (close-ups panel)</td>
+            <td>Limited</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>AI culling</td>
+            <td>Yes, face-aware (beta)</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes (specialty, mature)</td>
+            <td>Yes (specialty, mature)</td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Learns your personal editing style</td>
+            <td>"Looks" — experimental</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Partly (preferences over time)</td>
+            <td>Partly (Personal AI Presets)</td>
+            <td>Yes (Personal AI Profile, mature)</td>
+            <td>Yes (SmartPreset, ~500 sample edits, mature)</td>
+          </tr>
+          <tr>
+            <td>Pricing model<sup>*</sup></td>
+            <td>Free, open-source<br/>(+ optional cloud API usage)</td>
+            <td>One-time purchase</td>
+            <td>Paid plugin license + Google API usage</td>
+            <td>Subscription</td>
+            <td>Subscription</td>
+            <td>Subscription</td>
+            <td>Pay-per-photo</td>
+            <td>Pay-per-image or subscription</td>
+          </tr>
+          <tr>
+            <td>Source code</td>
+            <td>Open</td>
+            <td>Closed</td>
+            <td>Closed</td>
+            <td>Closed</td>
+            <td>Closed</td>
+            <td>Closed</td>
+            <td>Closed</td>
+            <td>Closed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">
+      <sup>*</sup> Pricing and feature data reflect publicly available information at the time of writing
+      ({lastUpdated}) and may change. All product names are trademarks of their respective owners. This page
+      is not affiliated with or endorsed by Excire, John R. Ellis, CYME, Aftershoot, Narrative, Imagen AI,
+      Neurapix, ObviousIdea or any other vendor mentioned.
+    </p>
+  </section>
+
+  <section class="when-which">
+    <h2>Which combination is right for you?</h2>
+
+    <h3>If your bottleneck is keywording and finding old photos</h3>
+    <p>
+      <strong>Excire Search</strong> is the established choice with a curated taxonomy, a one-time price and years of
+      polish. <strong>AnyVision</strong> taps into Google's Vision API and is strong on objects, logos and colours.
+      <strong>LrGenius</strong> takes a different approach: generating open-vocabulary keywords plus full captions,
+      titles and alt text via vision-language models — useful for stock, editorial or accessibility work — and lets
+      you choose whether the analysis runs locally or in the cloud. Keep in mind LrGenius is still in beta, so output
+      quality depends on the chosen model and may need manual review.
+    </p>
+
+    <h3>If your bottleneck is culling thousands of frames</h3>
+    <p>
+      <strong>Aftershoot</strong> and <strong>Narrative Select</strong> are the dedicated, mature culling tools,
+      tightly integrated with Lightroom and trained specifically on this task. For high-volume professional culling
+      (weddings, events) they are the safer choice today. LrGenius includes a face-aware AI culling mode in the same
+      plugin you already use for keywording, but it is early-stage — convenient for smaller batches and personal
+      libraries while it matures.
+    </p>
+
+    <h3>If your bottleneck is editing time</h3>
+    <p>
+      <strong>Imagen AI</strong> and <strong>Neurapix</strong> are the most established options for learning your
+      personal editing style from past shoots, with mature workflows and (for Neurapix) a marketplace of ready-made
+      SmartPresets by professional photographers. LrGenius's <em>Looks</em> feature explores the same idea but is
+      currently experimental and not intended as a replacement for a production editing pipeline.
+    </p>
+
+    <h3>If your library is spread across many apps</h3>
+    <p>
+      <strong>Peakto</strong> is purpose-built for unifying Lightroom Classic, Capture One, Apple Photos, Luminar
+      and similar catalogs on macOS. LrGenius lives inside Lightroom Classic and does not try to be a cross-app DAM.
+    </p>
+
+    <h3>If privacy or cost is the deciding factor</h3>
+    <p>
+      LrGenius is the only option in this comparison that is fully open-source and that — once stable — can run
+      end-to-end on your own hardware with Ollama or LM Studio, at zero recurring cost. Excire and Aftershoot also
+      keep processing local but remain paid, closed-source products. If you need a finished, supported product today,
+      a commercial tool may still be the safer pick; LrGenius is the right choice if you want to follow (and possibly
+      contribute to) an open project.
+    </p>
+  </section>
+
+  <section class="related">
+    <h2>Related tools (different category)</h2>
+    <p>
+      Not every Lightroom helper competes with LrGenius — some sit alongside it and solve a different problem.
+      A few worth knowing:
+    </p>
+    <ul>
+      <li>
+        <strong><a href="https://www.obviousidea.com/windows-software/lrtoolbox/" target="_blank" rel="noopener">LrToolbox</a></strong>
+        by <a href="https://www.obviousidea.com/" target="_blank" rel="noopener">ObviousIdea</a> — a Windows utility
+        for working with Lightroom Classic catalogs without needing Lightroom installed: extract previews, convert
+        ratings to XMP sidecars, export RAW to JPEG, generate CSV catalog reports. Useful for catalog recovery,
+        archival and reporting workflows.
+      </li>
+      <li>
+        <strong><a href="https://wordroom.org/" target="_blank" rel="noopener">Wordroom</a></strong> — another
+        Lightroom Classic keywording plugin worth looking at if you want to compare approaches.
+      </li>
+      <li>
+        <strong><a href="https://www.phototag.ai/lightroom-plugin" target="_blank" rel="noopener">PhotoTag.ai</a></strong>
+        and
+        <strong><a href="https://www.photokeyworder.ai/pages/lightroom/" target="_blank" rel="noopener">PhotoKeyworder.ai</a></strong>
+        — keywording/titling tools aimed especially at microstock contributors.
+      </li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <h2>Try LrGenius</h2>
+    <p>
+      LrGenius is free to download and use. Start with the
+      <a href="https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started" target="_blank">Getting Started guide</a>,
+      grab the latest build from the
+      <a href="https://github.com/LrGenius/LrGeniusAI/releases" target="_blank">release page</a>, or browse the
+      source on <a href="https://github.com/LrGenius" target="_blank">GitHub</a>.
+    </p>
+  </section>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .meta {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  .intro, .categories, .comparison, .when-which, .related, .cta {
+    padding: 1.5rem 0;
+  }
+  .beta-notice {
+    background-color: #fff8e1;
+    border: 1px solid #f0d27a;
+    border-left: 4px solid #d8a73a;
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    margin: 1rem 0 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: #d8a73a;
+    color: #fff;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .related ul {
+    line-height: 1.6;
+  }
+  .related li {
+    margin-bottom: 0.6rem;
+  }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .cat-card {
+    padding: 1rem 1.2rem;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+  }
+  .cat-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .cat-card h3 {
+    margin-top: 0;
+    color: var(--color-primary);
+    font-size: 1.05rem;
+  }
+  .cat-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid #eaeaea;
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f7f7f9;
+    white-space: nowrap;
+  }
+  td:first-child, th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f7f7f9;
+    z-index: 1;
+  }
+  .note {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.75rem;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+</style>
