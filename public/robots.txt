@@ -1,4 +1,49 @@
+# robots.txt — lrgenius.com
+# All crawlers are welcome, including AI training and search bots.
+# Explicit allow rules for major AI crawlers are listed below so that
+# LrGeniusAI appears in LLM-powered search results and AI answers.
+
+# -----------------------------------------------------------------------
+# General rule: allow everything
+# -----------------------------------------------------------------------
 User-agent: *
 Allow: /
 
+# -----------------------------------------------------------------------
+# AI search & retrieval bots (explicitly allowed)
+# -----------------------------------------------------------------------
+
+# OpenAI — ChatGPT browsing and GPT training
+User-agent: GPTBot
+Allow: /
+
+# Perplexity AI — web search and answer engine
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic — Claude AI training and web search
+User-agent: ClaudeBot
+Allow: /
+
+# Google — Gemini / AI Overviews training data
+User-agent: Google-Extended
+Allow: /
+
+# Meta — Llama training crawler
+User-agent: meta-externalagent
+Allow: /
+
+# Amazon — Alexa and AWS AI services
+User-agent: Amazonbot
+Allow: /
+
+# Apple — Applebot for Siri and Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+# Common Crawl — open dataset used by many LLMs
+User-agent: CCBot
+Allow: /
+
+# -----------------------------------------------------------------------
 Sitemap: https://lrgenius.com/sitemap-index.xml

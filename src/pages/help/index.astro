@@ -1,8 +1,27 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  {
+    question: "Is LrGeniusAI really free and open-source?",
+    answer: "Yes. LrGeniusAI is published under the AGPL-3.0 license and the complete source code is available on GitHub at https://github.com/LrGenius/LrGeniusAI. There are no subscription fees, no usage limits imposed by LrGeniusAI itself, and no hidden paid tiers. If you choose to use a cloud AI provider such as OpenAI or Google Gemini, their API usage is billed directly by that provider — but switching to a fully local backend (Ollama or LM Studio) makes the entire pipeline cost-free."
+  },
+  {
+    question: "Can I run LrGeniusAI completely offline without internet?",
+    answer: "Yes. LrGeniusAI includes a local background service called geniusai-server that runs silently on your Mac or Windows machine. When you configure Ollama or LM Studio as your AI provider, all image analysis, keyword generation, semantic search indexing, and culling happen entirely on your own hardware. No internet connection is required after the initial model download. Cloud providers (ChatGPT, Gemini, Vertex AI) are optional and can be ignored if you prefer a fully offline setup."
+  },
+  {
+    question: "How does the AI Culling work compared to paid tools like Aftershoot or Narrative Select?",
+    answer: "LrGeniusAI's culling runs locally on your machine using a combination of face detection, sharpness analysis, and expression scoring powered by the same vision-language model you have configured. It flags closed eyes, soft focus, and duplicate frames and marks picks or rejects directly in Lightroom Classic — no round-trip to a cloud server. Dedicated commercial culling tools like Aftershoot and Narrative Select are more mature and better optimised for high-volume event and wedding workflows. LrGeniusAI's culling is currently in beta and is a good fit for photographers who want a single plugin that handles keywording, search, and culling together, without additional subscriptions."
+  },
+  {
+    question: "Does LrGeniusAI upload my RAW files or photos to any server?",
+    answer: "No — not by default. When using a local AI provider (Ollama or LM Studio), image data never leaves your computer. geniusai-server processes everything locally and communicates only with the Lightroom Classic plugin over localhost. If you configure a cloud provider, LrGeniusAI sends JPEG preview data (not your original RAW files) to that provider's API for analysis, exactly as described in the provider's own privacy policy. You are always in control of which provider is active and can switch to a local-only setup at any time."
+  }
+];
 ---
 
-<Layout title="Help - LrGeniusAI">
+<Layout title="Help & FAQ - LrGeniusAI">
   <section class="help-section">
     <h1>Documentation Has Moved</h1>
     <p>
@@ -26,6 +45,30 @@ import Layout from '../../layouts/Layout.astro';
       <li><a href="https://github.com/LrGenius/LrGeniusAI/wiki/Help-Ollama-Setup" target="_blank">Help: Ollama Setup</a></li>
       <li><a href="https://github.com/LrGenius/LrGeniusAI/wiki/Help-LM-Studio-Setup" target="_blank">Help: LM Studio Setup</a></li>
     </ul>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  })} />
+
+  <section class="help-section faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    {faqs.map(faq => (
+      <div class="faq-item">
+        <h3>{faq.question}</h3>
+        <p>{faq.answer}</p>
+      </div>
+    ))}
   </section>
 </Layout>
 
@@ -69,5 +112,28 @@ import Layout from '../../layouts/Layout.astro';
     max-width: 100%;
     height: auto;
     margin-top: 20px;
+  }
+  .faq-section {
+    border-top: 2px solid #eaeaea;
+    margin-top: 3rem;
+    padding-top: 2rem;
+  }
+  .faq-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+  .faq-item h3 {
+    margin-top: 0;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+  }
+  .faq-item p {
+    margin: 0.5rem 0 0;
+    line-height: 1.7;
+    color: #444;
   }
 </style>

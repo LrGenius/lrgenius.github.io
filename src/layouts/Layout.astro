@@ -50,16 +50,34 @@ const t = useTranslations(lang);
 			"@context": "https://schema.org",
 			"@type": "SoftwareApplication",
 			"name": "LrGeniusAI",
+			"alternateName": "LrGenius",
+			"url": "https://lrgenius.github.io",
+			"downloadUrl": "https://github.com/LrGenius/LrGeniusAI/releases",
 			"operatingSystem": "Windows, macOS",
 			"applicationCategory": "MultimediaApplication",
+			"applicationSubCategory": "Photography Plugin",
 			"softwareVersion": "2.5.0",
-			"offers": {
-				"@type": "Offer",
-				"price": "0",
-				"priceCurrency": "USD"
-			},
+			"softwareRequirements": "Adobe Lightroom Classic",
+			"license": "https://www.gnu.org/licenses/agpl-3.0.html",
+			"isAccessibleForFree": true,
+			"offers": [
+				{
+					"@type": "Offer",
+					"price": "0",
+					"priceCurrency": "USD"
+				},
+				{
+					"@type": "Offer",
+					"price": "0",
+					"priceCurrency": "EUR"
+				}
+			],
 			"description": t('seo.default_description'),
-			"applicationSubCategory": "Photography Plugin"
+			"author": {
+				"@type": "Organization",
+				"name": "LrGenius",
+				"url": "https://github.com/LrGenius"
+			}
 		})} />
 
 		<!-- Google Analytics with Consent Mode v2 (default denied; CookieBanner updates on accept) -->

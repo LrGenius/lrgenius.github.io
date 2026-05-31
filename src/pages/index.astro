@@ -2,70 +2,84 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="LrGeniusAI - Tag Smarter, Not Harder.">
+<Layout title="LrGeniusAI - Free & Open Source AI Workflow Suite for Lightroom Classic">
 
   <section class="hero">
-    <p></p>
-    <img src="/images/logo.png" alt="LrGeniusAI - AI-powered Lightroom Plugin Logo" width="500">
+    <img src="/images/logo.png" alt="LrGeniusAI - AI Workflow Suite for Lightroom Classic" width="500">
     <h1>LrGeniusAI</h1>
-    <p class="tagline">Tag Smarter, Not Harder.</p>
+    <p class="tagline">The Free & Open Source AI Workflow Suite for Lightroom Classic</p>
+
+    <div class="badges">
+      <span class="badge badge-free">100% Free &amp; Open Source</span>
+      <span class="badge badge-license">AGPL-3.0</span>
+      <span class="badge badge-local">Runs Fully Local via Ollama / LM Studio</span>
+    </div>
+
+    <p class="hero-intro">
+      LrGeniusAI is a powerful Lightroom Classic plugin that goes far beyond keyword tagging.
+      Cull your shoots with AI, apply your personal editing style automatically, search your entire library
+      with plain English, and get context-aware AI analysis — all without leaving Lightroom.
+      Runs 100% locally via <strong>Ollama</strong> or <strong>LM Studio</strong>, or connect to cloud
+      models like ChatGPT and Google Gemini. Your photos, your hardware, your choice.
+    </p>
+
+    <div class="core-features">
+      <div class="core-feature">
+        <h3>🎯 AI-Powered Culling</h3>
+        <p>Let the AI pre-select your best shots. Face-aware culling evaluates focus, expression, and composition so you spend less time rejecting and more time editing.</p>
+      </div>
+      <div class="core-feature">
+        <h3>🎨 Smart Editing Recipes</h3>
+        <p>Teach LrGeniusAI your editing style in Develop Mode. Save personal "Looks" from your previous edits and apply them to new photos with a single click.</p>
+      </div>
+      <div class="core-feature">
+        <h3>🔍 Semantic Free-Text Search</h3>
+        <p>Find any photo by describing it in plain language. No more hunting through keyword trees — just type what you remember and let AI find the shot.</p>
+      </div>
+      <div class="core-feature">
+        <h3>📝 Contextual AI Analysis</h3>
+        <p>Give the AI context before it analyzes — names, locations, project details. The model incorporates your hints for perfectly tailored keywords, captions, and metadata.</p>
+      </div>
+    </div>
 
     <section class="banner">
-      <p>LrGeniusAI is now free and open-source! Check out the <a href="https://github.com/LrGenius" target="_blank">GitHub repository</a>.</p>
+      <p>LrGeniusAI is <strong>free and open-source</strong> (AGPL-3.0). Check out the <a href="https://github.com/LrGenius" target="_blank">GitHub repository</a>.</p>
       <p>
-        <strong>⚠️ Warning:</strong> LrGeniusAI is currently <strong>under heavy development</strong>. 
-        Please note that the installers and binaries are <strong>not yet code-signed</strong>, which may trigger security warnings on your operating system.
+        <strong>⚠️ Note:</strong> LrGeniusAI is currently <strong>under active development</strong>.
+        Installers and binaries are <strong>not yet code-signed</strong>, which may trigger security warnings.
       </p>
       <p>
-        <strong>Zero-Setup Experience:</strong> LrGeniusAI runs as a silent background service on macOS and Windows. 
-        Start with the new <strong>Onboarding Wizard</strong> to configure your AI providers in minutes.
+        <strong>Zero-Setup Experience:</strong> LrGeniusAI runs as a silent background service on macOS and Windows.
+        Start with the <strong>Onboarding Wizard</strong> to configure your AI providers in minutes.
       </p>
-      <p>The documentation is now maintained in the <a href="https://github.com/LrGenius/LrGeniusAI/wiki" target="_blank">LrGeniusAI wiki</a>. Start with <a href="https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started" target="_blank">Getting Started</a> or browse the <a href="https://github.com/LrGenius/LrGeniusAI/wiki/Plugin-Guide" target="_blank">Plugin Guide</a>.</p>
+      <p>Documentation lives in the <a href="https://github.com/LrGenius/LrGeniusAI/wiki" target="_blank">LrGeniusAI wiki</a>. Start with <a href="https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started" target="_blank">Getting Started</a> or browse the <a href="https://github.com/LrGenius/LrGeniusAI/wiki/Plugin-Guide" target="_blank">Plugin Guide</a>.</p>
     </section>
-
-    <p>
-      LrGeniusAI is a powerful Lightroom Classic plugin that generates keywords, image descriptions, titles, and alt text using advanced AI models. Choose from 4 different AI providers: local models (Ollama, LM Studio) or cloud services (ChatGPT, Google Gemini). The results are unmatched in terms of precision and detail. Try it today.
-    </p>
   </section>
 
   <section class="features">
-    <h2>What's special about LrGeniusAI?</h2>
+    <h2>Everything you need in one plugin</h2>
     <p>
-      Thanks to the use of advanced vision-language models, the level of detail and precision of image descriptions and keywords is unparalleled. Forget superfluous, general keywords; from now on, the image content will be described precisely. Use semantic search to find any photo by simply describing what you're looking for. See our real world examples below.
+      Advanced vision-language models deliver unmatched precision for keywords, captions, and titles.
+      Beyond metadata, LrGeniusAI brings a full AI-powered editing and search workflow directly into Lightroom Classic.
+      See real-world examples below.
     </p>
-    
+
     <div class="feature-highlights">
       <div class="feature-item">
-        <h3>🚀 5+ AI Providers</h3>
-        <p>Choose between local models (Ollama, LM Studio) or cloud services (ChatGPT, Gemini, Vertex AI). Switch providers anytime based on your needs.</p>
-      </div>
-      <div class="feature-item">
         <h3>🔒 Complete Privacy</h3>
-        <p>Use Ollama or LM Studio for 100% local image analysis. Your photos never leave your computer. Run AI models privately on your own hardware.</p>
+        <p>Use Ollama or LM Studio for 100% local image analysis. Your photos never leave your computer.</p>
       </div>
       <div class="feature-item">
-        <h3>🔍 Semantic Search</h3>
-        <p>Search your entire photo library using natural language. Find images by describing what you're looking for, not just by keywords.</p>
-      </div>
-      <div class="feature-item">
-        <h3>🎨 AI Edit Training</h3>
-        <p>Teach the AI your unique editing style. Save custom 'Looks' based on your previous developments and apply them to new photos with unmatched accuracy.</p>
+        <h3>🚀 5+ AI Providers</h3>
+        <p>Switch between local models (Ollama, LM Studio) and cloud services (ChatGPT, Gemini, Vertex AI) anytime.</p>
       </div>
       <div class="feature-item">
         <h3>👥 Face Recognition</h3>
-        <p>Automatically cluster faces and find specific people across your entire catalog. Use the advanced People dialog for effortless library management.</p>
-      </div>
-      <div class="feature-item">
-        <h3>🎯 AI-Powered Culling</h3>
-        <p>Streamline your workflow with face-aware culling. The AI identifies your best shots based on focus, expression, and composition.</p>
-      </div>
-      <div class="feature-item">
-        <h3>📝 Contextual AI analysis</h3>
-        <p>Provide manual hints like names or specific details to the AI before analysis. The model incorporates your context for perfectly tailored metadata.</p>
+        <p>Automatically cluster faces and find specific people across your entire catalog with the advanced People dialog.</p>
       </div>
       <div class="feature-item">
         <h3>🎛️ Full Creative Control</h3>
-        <p>Review AI edit recipes, adjust style strength, or override suggestions. Customize system prompts and 'Temperature' for literal or creative results.</p>
+        <p>Review AI edit recipes, adjust style strength, or override suggestions. Customize prompts and temperature for precise or creative results.</p>
       </div>
     </div>
   </section>
@@ -159,6 +173,64 @@ import Layout from '../layouts/Layout.astro';
   }
  .cta-card p {
     min-height: 60px;
+  }
+ .hero-intro {
+    max-width: 720px;
+    margin: 1.5rem auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+  }
+ .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1rem 0 1.5rem;
+  }
+ .badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+ .badge-free {
+    background-color: #e6f4ea;
+    color: #1e7e34;
+    border: 1px solid #a8d5b5;
+  }
+ .badge-license {
+    background-color: #e8f0fe;
+    color: #1a56b0;
+    border: 1px solid #a8c4f5;
+  }
+ .badge-local {
+    background-color: #fff3e0;
+    color: #bf5a00;
+    border: 1px solid #f5c78a;
+  }
+ .core-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    text-align: left;
+  }
+ .core-feature {
+    padding: 1.5rem;
+    border: 2px solid var(--color-primary, #0066cc);
+    border-radius: 10px;
+    background-color: #f8fbff;
+    transition: box-shadow 0.3s ease;
+  }
+ .core-feature:hover {
+    box-shadow: 0 4px 16px rgba(0,102,204,0.15);
+  }
+ .core-feature h3 {
+    margin-top: 0;
+    font-size: 1.15rem;
+    color: var(--color-primary, #0066cc);
   }
  .banner {
     background-color: #f0f8ff;
