@@ -25,12 +25,14 @@ import Layout from '../layouts/Layout.astro';
 
     <div class="core-features">
       <div class="core-feature">
-        <h3>🎯 AI-Powered Culling</h3>
+        <h3>🎯 AI-Powered Culling <span class="badge-beta">Beta</span></h3>
         <p>Let the AI pre-select your best shots. Face-aware culling evaluates focus, expression, and composition so you spend less time rejecting and more time editing.</p>
+        <p class="beta-note">This feature is currently in beta — results may vary and we recommend verifying picks before applying to client work.</p>
       </div>
       <div class="core-feature">
-        <h3>🎨 Smart Editing Recipes</h3>
+        <h3>🎨 Smart Editing Recipes <span class="badge-beta">Beta</span></h3>
         <p>Teach LrGeniusAI your editing style in Develop Mode. Save personal "Looks" from your previous edits and apply them to new photos with a single click.</p>
+        <p class="beta-note">This feature is currently in beta — "Looks" training is experimental and still maturing.</p>
       </div>
       <div class="core-feature">
         <h3>🔍 Semantic Free-Text Search</h3>
@@ -231,6 +233,28 @@ import Layout from '../layouts/Layout.astro';
     margin-top: 0;
     font-size: 1.15rem;
     color: var(--color-primary, #0066cc);
+  }
+ .badge-beta {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #d8a73a;
+    color: #fff;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+ .beta-note {
+    font-size: 0.82rem;
+    color: #8a6500;
+    background: #fffbe6;
+    border-left: 3px solid #d8a73a;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0 4px 4px 0;
+    margin-top: 0.5rem;
   }
  .banner {
     background-color: #f0f8ff;
