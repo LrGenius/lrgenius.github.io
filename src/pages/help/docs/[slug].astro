@@ -1,0 +1,188 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs');
+  return docs.map((doc) => ({
+    params: { slug: doc.id },
+    props: { doc },
+  }));
+}
+
+const { doc } = Astro.props;
+const { Content } = await render(doc);
+const title = doc.data.title ?? doc.id;
+---
+
+<Layout title={`${title} - LrGeniusAI`} description={doc.data.description}>
+  <article class="doc-page">
+    <div class="doc-breadcrumb">
+      <a href="/help">Help</a> › {title}
+    </div>
+    <div class="doc-content">
+      <Content />
+    </div>
+    <div class="doc-footer">
+      <a
+        href={`https://github.com/LrGenius/LrGeniusAI/wiki/${doc.id}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >Edit this page on GitHub</a>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .doc-page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+  }
+
+  .doc-breadcrumb {
+    font-size: 0.875rem;
+    color: #888;
+    margin-bottom: 2rem;
+  }
+
+  .doc-breadcrumb a {
+    color: var(--color-primary, #0066cc);
+    text-decoration: none;
+  }
+
+  .doc-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .doc-content :global(h1) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .doc-content :global(h2) {
+    font-size: 1.4rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  .doc-content :global(h3) {
+    font-size: 1.15rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .doc-content :global(p) {
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .doc-content :global(ul),
+  .doc-content :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .doc-content :global(li) {
+    line-height: 1.7;
+    margin-bottom: 0.25rem;
+  }
+
+  .doc-content :global(a) {
+    color: var(--color-primary, #0066cc);
+    text-decoration: none;
+  }
+
+  .doc-content :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  .doc-content :global(code) {
+    background: #f5f5f5;
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.875em;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .doc-content :global(pre) {
+    background: #f5f5f5;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.25rem;
+  }
+
+  .doc-content :global(pre code) {
+    background: none;
+    padding: 0;
+    font-size: 0.85em;
+  }
+
+  .doc-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .doc-content :global(th) {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    font-weight: 600;
+  }
+
+  .doc-content :global(td) {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #e0e0e0;
+    vertical-align: top;
+  }
+
+  .doc-content :global(tr:nth-child(even) td) {
+    background: #fafafa;
+  }
+
+  .doc-content :global(blockquote) {
+    border-left: 4px solid #ddd;
+    padding: 0.5rem 1rem;
+    color: #666;
+    margin: 1rem 0 1.5rem;
+    background: #fafafa;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .doc-content :global(blockquote p) {
+    margin-bottom: 0;
+    color: #666;
+  }
+
+  .doc-content :global(hr) {
+    border: none;
+    border-top: 1px solid #eaeaea;
+    margin: 2rem 0;
+  }
+
+  .doc-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eaeaea;
+    font-size: 0.875rem;
+    color: #888;
+  }
+
+  .doc-footer a {
+    color: #888;
+    text-decoration: none;
+  }
+
+  .doc-footer a:hover {
+    color: var(--color-primary, #0066cc);
+    text-decoration: underline;
+  }
+</style>

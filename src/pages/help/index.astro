@@ -1,50 +1,84 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+const sections = [
+  {
+    heading: 'Getting Started',
+    items: [
+      { slug: 'Getting-Started', label: 'Getting Started' },
+      { slug: 'FAQ', label: 'FAQ — Frequently Asked Questions' },
+      { slug: 'Troubleshooting', label: 'Troubleshooting' },
+    ],
+  },
+  {
+    heading: 'Feature Guides',
+    items: [
+      { slug: 'Help-Analyze-and-Index', label: 'Analyze & Index Photos' },
+      { slug: 'Help-AI-Edit', label: 'AI Edit Photos (beta)' },
+      { slug: 'Help-Advanced-Search', label: 'Advanced Search' },
+      { slug: 'Help-Cull-Photos', label: 'Cull Photos (beta)' },
+      { slug: 'Help-People-Faces', label: 'People & Faces' },
+      { slug: 'Help-Find-Similar', label: 'Find Similar Images' },
+      { slug: 'Help-Keyword-Dedup-and-Declutter', label: 'Keyword Deduplication & De-Clutter' },
+      { slug: 'Help-Train-From-Edits', label: 'Save Edits as AI Training Examples' },
+    ],
+  },
+  {
+    heading: 'AI Model Setup',
+    items: [
+      { slug: 'Help-Choosing-AI-Model', label: 'Choosing an AI Model' },
+      { slug: 'Help-Ollama-Setup', label: 'Ollama Setup' },
+      { slug: 'Help-LM-Studio-Setup', label: 'LM Studio Setup' },
+      { slug: 'Google-Vertex-AI-Login', label: 'Google Vertex AI Login' },
+    ],
+  },
+];
+
 const faqs = [
   {
     question: "Is LrGeniusAI really free and open-source?",
-    answer: "Yes. LrGeniusAI is published under the AGPL-3.0 license and the complete source code is available on GitHub at https://github.com/LrGenius/LrGeniusAI. There are no subscription fees, no usage limits imposed by LrGeniusAI itself, and no hidden paid tiers. If you choose to use a cloud AI provider such as OpenAI or Google Gemini, their API usage is billed directly by that provider — but switching to a fully local backend (Ollama or LM Studio) makes the entire pipeline cost-free."
+    answer: "Yes. LrGeniusAI is published under the AGPL-3.0 license and the complete source code is available on GitHub. There are no subscription fees, no usage limits imposed by LrGeniusAI itself, and no hidden paid tiers. If you choose to use a cloud AI provider such as OpenAI or Google Gemini, their API usage is billed directly by that provider — but switching to a fully local backend (Ollama or LM Studio) makes the entire pipeline cost-free."
   },
   {
     question: "Can I run LrGeniusAI completely offline without internet?",
-    answer: "Yes. LrGeniusAI includes a local background service called geniusai-server that runs silently on your Mac or Windows machine. When you configure Ollama or LM Studio as your AI provider, all image analysis, keyword generation, semantic search indexing, and culling happen entirely on your own hardware. No internet connection is required after the initial model download. Cloud providers (ChatGPT, Gemini, Vertex AI) are optional and can be ignored if you prefer a fully offline setup."
-  },
-  {
-    question: "How does the AI Culling work compared to paid tools like Aftershoot or Narrative Select?",
-    answer: "LrGeniusAI's culling runs locally on your machine using a combination of face detection, sharpness analysis, and expression scoring powered by the same vision-language model you have configured. It flags closed eyes, soft focus, and duplicate frames and marks picks or rejects directly in Lightroom Classic — no round-trip to a cloud server. Dedicated commercial culling tools like Aftershoot and Narrative Select are more mature and better optimised for high-volume event and wedding workflows. LrGeniusAI's culling is currently in beta and is a good fit for photographers who want a single plugin that handles keywording, search, and culling together, without additional subscriptions."
+    answer: "Yes. When you configure Ollama or LM Studio as your AI provider, all image analysis, keyword generation, semantic search indexing, and culling happen entirely on your own hardware. No internet connection is required after the initial model download. Cloud providers (ChatGPT, Gemini, Vertex AI) are optional."
   },
   {
     question: "Does LrGeniusAI upload my RAW files or photos to any server?",
-    answer: "No — not by default. When using a local AI provider (Ollama or LM Studio), image data never leaves your computer. geniusai-server processes everything locally and communicates only with the Lightroom Classic plugin over localhost. If you configure a cloud provider, LrGeniusAI sends JPEG preview data (not your original RAW files) to that provider's API for analysis, exactly as described in the provider's own privacy policy. You are always in control of which provider is active and can switch to a local-only setup at any time."
+    answer: "No — not by default. When using a local AI provider (Ollama or LM Studio), image data never leaves your computer. If you configure a cloud provider, LrGeniusAI sends JPEG preview data (not your original RAW files) to that provider's API for analysis, exactly as described in the provider's own privacy policy."
+  },
+  {
+    question: "How does the AI Culling work compared to paid tools like Aftershoot or Narrative Select?",
+    answer: "LrGeniusAI's culling runs locally using a combination of face detection, sharpness analysis, and expression scoring. It flags closed eyes, soft focus, and duplicate frames and marks picks or rejects directly in Lightroom Classic. The culling feature is currently in beta and is a good fit for photographers who want a single plugin that handles keywording, search, and culling together, without additional subscriptions."
   }
 ];
 ---
 
-<Layout title="Help & FAQ - LrGeniusAI">
+<Layout title="Help & Documentation - LrGeniusAI">
   <section class="help-section">
-    <h1>Documentation Has Moved</h1>
-    <p>
-      The LrGeniusAI documentation is now maintained in the
-      <a href="https://github.com/LrGenius/LrGeniusAI/wiki" target="_blank">GitHub wiki</a>.
-      Please use the wiki for the latest guides and setup instructions.
+    <h1>Help & Documentation</h1>
+    <p class="intro">
+      Complete documentation for LrGeniusAI — the AI-powered Lightroom Classic plugin for tagging, search, editing, and more.
     </p>
 
-    <div class="highlight">
-      Open the <a href="https://github.com/LrGenius/LrGeniusAI/wiki" target="_blank">wiki home</a>
-      or jump directly to the most important pages below.
-    </div>
+    {sections.map(section => (
+      <div class="doc-section">
+        <h2>{section.heading}</h2>
+        <ul class="doc-list">
+          {section.items.map(item => (
+            <li>
+              <a href={`/help/docs/${item.slug}`}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
 
-    <h2>Quick Links</h2>
-    <ul>
-      <li><a href="https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started" target="_blank">Getting Started</a></li>
-      <li><a href="https://github.com/LrGenius/LrGeniusAI/wiki/Plugin-Guide" target="_blank">Plugin Guide</a></li>
-      <li><a href="https://github.com/LrGenius/LrGeniusAI/wiki/Help-Analyze-and-Index" target="_blank">Help: Analyze and Index</a></li>
-      <li><a href="https://github.com/LrGenius/LrGeniusAI/wiki/Help-Advanced-Search" target="_blank">Help: Advanced Search</a></li>
-      <li><a href="https://github.com/LrGenius/LrGeniusAI/wiki/Help-Choosing-AI-Model" target="_blank">Help: Choosing AI Model</a></li>
-      <li><a href="https://github.com/LrGenius/LrGeniusAI/wiki/Help-Ollama-Setup" target="_blank">Help: Ollama Setup</a></li>
-      <li><a href="https://github.com/LrGenius/LrGeniusAI/wiki/Help-LM-Studio-Setup" target="_blank">Help: LM Studio Setup</a></li>
-    </ul>
+    <div class="github-note">
+      These docs are also available in the
+      <a href="https://github.com/LrGenius/LrGeniusAI/wiki" target="_blank" rel="noopener noreferrer">GitHub wiki</a>
+      and are automatically synced from the source repository.
+    </div>
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -62,6 +96,9 @@ const faqs = [
 
   <section class="help-section faq-section">
     <h2>Frequently Asked Questions</h2>
+    <p class="faq-more">
+      For the complete FAQ, see <a href="/help/docs/FAQ">Help: FAQ</a>.
+    </p>
 
     {faqs.map(faq => (
       <div class="faq-item">
@@ -75,62 +112,102 @@ const faqs = [
 <style>
   .help-section {
     padding: 2rem 0;
-    max-width: 800px;
+    max-width: 860px;
     margin: 0 auto;
   }
-  ul, ol {
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
+
+  .intro {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.7;
   }
+
+  .doc-section {
+    margin-bottom: 2.5rem;
+  }
+
   h2 {
     margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
   }
+
   h3 {
     margin-top: 1.5rem;
   }
-  .highlight {
-    background-color: #f0f8ff;
+
+  .doc-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .doc-list li {
+    margin: 0;
+  }
+
+  .doc-list a {
+    display: block;
+    padding: 0.6rem 0.9rem;
+    background: #f8f8f8;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--color-primary, #0066cc);
+    font-size: 0.95rem;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .doc-list a:hover {
+    background: #f0f8ff;
+    border-color: #c0d8f0;
+  }
+
+  .github-note {
+    margin-top: 2rem;
+    padding: 0.875rem 1.1rem;
+    background: #f0f8ff;
     border: 1px solid #d6ebff;
     border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: #555;
   }
-  pre {
-    background-color: #f5f5f5;
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
+
+  .github-note a {
+    color: var(--color-primary, #0066cc);
   }
-  .container {
-    display: flex; /* Aktiviert Flexbox für den Container */
-    justify-content: space-around; /* Verteilt den verfügbaren Platz gleichmäßig */
-    gap: 20px; /* Fügt Abstand zwischen den Boxen hinzu */
-  }
-  .image-w-shadow {
-    box-shadow: 0 30px 48px rgba(0, 0, 0, 0.2);
-    border-radius: 16px;
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-  }
+
   .faq-section {
     border-top: 2px solid #eaeaea;
     margin-top: 3rem;
     padding-top: 2rem;
   }
+
+  .faq-more {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
   .faq-item {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #f0f0f0;
   }
+
   .faq-item:last-child {
     border-bottom: none;
   }
+
   .faq-item h3 {
     margin-top: 0;
-    color: var(--color-primary);
-    font-size: 1.1rem;
+    color: var(--color-primary, #0066cc);
+    font-size: 1.05rem;
   }
+
   .faq-item p {
     margin: 0.5rem 0 0;
     line-height: 1.7;
