@@ -22,6 +22,20 @@ import Layout from '../layouts/Layout.astro';
       Runs 100% locally via <strong>Ollama</strong> or <strong>LM Studio</strong>, or connect to cloud
       models like ChatGPT and Google Gemini. Your photos, your hardware, your choice.
     </p>
+  </section>
+
+  <section class="banner">
+    <p>LrGeniusAI is <strong>free and open-source</strong> (AGPL-3.0). Check out the <a href="https://github.com/LrGenius" target="_blank">GitHub repository</a>.</p>
+    <p>
+      <strong>⚠️ Note:</strong> LrGeniusAI is currently <strong>under active development</strong>.
+      Installers and binaries are <strong>not yet code-signed</strong>, which may trigger security warnings.
+    </p>
+    <p>
+      <strong>Zero-Setup Experience:</strong> LrGeniusAI runs as a silent background service on macOS and Windows.
+      Start with the <strong>Onboarding Wizard</strong> to configure your AI providers in minutes.
+    </p>
+    <p>Documentation lives in the <a href="https://github.com/LrGenius/LrGeniusAI/wiki" target="_blank">LrGeniusAI wiki</a>. Start with <a href="https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started" target="_blank">Getting Started</a> or browse the <a href="https://github.com/LrGenius/LrGeniusAI/wiki/Plugin-Guide" target="_blank">Plugin Guide</a>.</p>
+  </section>
 
     <div class="core-features">
       <div class="core-feature">
@@ -43,20 +57,6 @@ import Layout from '../layouts/Layout.astro';
         <p>Give the AI context before it analyzes — names, locations, project details. The model incorporates your hints for perfectly tailored keywords, captions, and metadata.</p>
       </div>
     </div>
-
-    <section class="banner">
-      <p>LrGeniusAI is <strong>free and open-source</strong> (AGPL-3.0). Check out the <a href="https://github.com/LrGenius" target="_blank">GitHub repository</a>.</p>
-      <p>
-        <strong>⚠️ Note:</strong> LrGeniusAI is currently <strong>under active development</strong>.
-        Installers and binaries are <strong>not yet code-signed</strong>, which may trigger security warnings.
-      </p>
-      <p>
-        <strong>Zero-Setup Experience:</strong> LrGeniusAI runs as a silent background service on macOS and Windows.
-        Start with the <strong>Onboarding Wizard</strong> to configure your AI providers in minutes.
-      </p>
-      <p>Documentation lives in the <a href="https://github.com/LrGenius/LrGeniusAI/wiki" target="_blank">LrGeniusAI wiki</a>. Start with <a href="https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started" target="_blank">Getting Started</a> or browse the <a href="https://github.com/LrGenius/LrGeniusAI/wiki/Plugin-Guide" target="_blank">Plugin Guide</a>.</p>
-    </section>
-  </section>
 
   <section class="features">
     <h2>Everything you need in one plugin</h2>
@@ -85,38 +85,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
-
-  <section class="examples">
-    <h2>Examples using LrGeniusAI</h2>
-    <div class="example-grid">
-      <div class="example-card">
-        <img src="/images/example-car.jpg" alt="Classic BMW 635CSi">
-        <h3>Car photography</h3>
-        <p><strong>Used AI Model:</strong> Gemini-2.0-flash</p>
-        <p>The car, a classic BMW 635CSi, is recognized in detail by the AI model with precise keywords and descriptions.</p>
-        <img src="/images/635CSi-keywords.png" alt="Keywords generated for BMW 635CSi">
-        <img src="/images/635CSi-caption.png" alt="Caption and title for BMW 635CSi">
-      </div>
-      <div class="example-card">
-        <img src="/images/example-nature.jpg" alt="Purple coneflower">
-        <h3>Nature photography</h3>
-        <p><strong>Used AI Model:</strong> ollama-gemma3:12b</p>
-        <p>Purple coneflower is correctly classified and noted in the keywords and description. Processed locally with complete privacy.</p>
-        <img src="/images/echinacea_keywords.png" alt="Keywords generated for purple coneflower">
-        <img src="/images/echinacea_caption.png" alt="Caption for purple coneflower">
-      </div>
-      <div class="example-card">
-        <img src="/images/example-travel.jpg" alt="Landmark in a city">
-        <h3>Travel photography</h3>
-        <p><strong>Used AI Model:</strong> gemini-2.0-pro</p>
-        <p>Gemini correctly identifies landmarks and architectural details, providing comprehensive metadata in seconds.</p>
-        <img src="/images/st-martin-keywords.png" alt="Keywords generated for St. Martin's Church photo">
-        <img src="/images/st-martin-caption-1.png" alt="Caption for St. Martin's Church photo">
-      </div>
-    </div>
-  </section>
-
-</Layout>
+ </Layout>
 
 <style>
  .hero {
