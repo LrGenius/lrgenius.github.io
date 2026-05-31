@@ -2,82 +2,120 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="LrGeniusAI - Contact Us.">
+<Layout title="Contact — LrGeniusAI" description="Get help, report bugs, or share ideas for LrGeniusAI — the free open-source AI workflow suite for Lightroom Classic.">
 
-    <p style="margin-top: 100px;">Please use GitHub discussions for contact or issues for bug reports:</p>
-    <ul>
-        <li><a href="https://github.com/LrGenius/LrGeniusAI/discussions/new/choose" target="_blank">Discussions</a></li>
-        <li><a href="https://github.com/LrGenius/LrGeniusAI/issues/new/choose" target="_blank">Issues</a></li>
-    </ul>
+  <section class="contact-hero">
+    <h1>Get in Touch</h1>
+    <p class="subtitle">LrGeniusAI is an open-source project — community happens on GitHub. Pick the right channel below and we'll get back to you as quickly as we can.</p>
+  </section>
+
+  <div class="contact-grid">
+
+    <a class="contact-card" href="https://github.com/LrGenius/LrGeniusAI/issues/new/choose" target="_blank" rel="noopener">
+      <div class="card-icon">🐛</div>
+      <h2>Bug Report</h2>
+      <p>Something not working as expected? Open a GitHub Issue and describe what happened, what you expected, and which OS / AI provider you're using.</p>
+      <span class="card-link">Open an Issue →</span>
+    </a>
+
+    <a class="contact-card" href="https://github.com/LrGenius/LrGeniusAI/discussions/new/choose" target="_blank" rel="noopener">
+      <div class="card-icon">💬</div>
+      <h2>Questions &amp; Ideas</h2>
+      <p>Have a question about setup, a feature request, or just want to share how you use LrGeniusAI? Start a GitHub Discussion — no account needed to read, just to post.</p>
+      <span class="card-link">Start a Discussion →</span>
+    </a>
+
+    <a class="contact-card" href="https://github.com/LrGenius/LrGeniusAI" target="_blank" rel="noopener">
+      <div class="card-icon">⭐</div>
+      <h2>Star &amp; Contribute</h2>
+      <p>LrGeniusAI is free and open-source (AGPL-3.0). If it saves you time, a GitHub star goes a long way. Pull requests, translations and docs improvements are very welcome.</p>
+      <span class="card-link">View on GitHub →</span>
+    </a>
+
+    <a class="contact-card" href="https://github.com/LrGenius/LrGeniusAI/wiki/Getting-Started" target="_blank" rel="noopener">
+      <div class="card-icon">📖</div>
+      <h2>Documentation</h2>
+      <p>Before opening an issue, check the wiki — installation, Ollama / LM Studio setup, and the plugin guide are all there and kept up to date with each release.</p>
+      <span class="card-link">Read the Docs →</span>
+    </a>
+
+  </div>
+
+  <aside class="note">
+    <strong>No email support.</strong> As a small open-source project we can only provide support via GitHub. This keeps everything transparent and searchable for other users who hit the same issue.
+  </aside>
 
 </Layout>
 
 <style>
- .hero {
+  .contact-hero {
     text-align: center;
-    padding: 4rem 0;
+    padding: 3.5rem 0 2rem;
+    max-width: 640px;
+    margin: 0 auto;
   }
- .tagline {
-    font-size: 1.5rem;
-    color: #666;
-    margin-bottom: 2rem;
+  .contact-hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
   }
- .features,.examples,.cta-section {
-    padding: 2rem 0;
+  .subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
   }
- .feature-highlights {
+  .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin: 1.5rem 0 2.5rem;
   }
- .feature-item {
-    padding: 1.5rem;
-    border: 1px solid #eaeaea;
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    background: #fff;
+  }
+  .contact-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
+    border-color: var(--color-primary, #0066cc);
+    transform: translateY(-2px);
+  }
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+  }
+  .contact-card h2 {
+    margin: 0 0 0.6rem;
+    font-size: 1.15rem;
+    color: var(--color-primary, #0066cc);
+  }
+  .contact-card p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.65;
+    flex: 1;
+    margin: 0 0 1.1rem;
+  }
+  .card-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary, #0066cc);
+  }
+  .note {
+    background: #f7f7f9;
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-  }
- .feature-item:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
- .feature-item h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: var(--color-primary);
-  }
- .example-grid,.cta-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
- .example-card,.cta-card {
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: box-shadow 0.3s ease;
-  }
- .example-card:hover,.cta-card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
- .example-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-  }
- .cta-card p {
-    min-height: 60px;
-  }
- .banner {
-    background-color: #f0f8ff;
-    padding: 1rem;
-    text-align: center;
-    font-weight: bold;
-    color: #333;
-    border-top: 1px solid #eaeaea;
-    border-bottom: 1px solid #eaeaea;
-    margin: 2rem 0;
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    color: #555;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
   }
 </style>
