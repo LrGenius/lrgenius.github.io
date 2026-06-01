@@ -13,9 +13,166 @@ export async function getStaticPaths() {
 const { doc } = Astro.props;
 const { Content } = await render(doc);
 const title = doc.data.title ?? doc.id;
+
+const isFaq = doc.id === 'faq';
+const isGettingStarted = doc.id === 'getting-started';
+
+const descriptionMap: Record<string, string> = {
+  'faq': 'Frequently asked questions about LrGeniusAI — the free, open-source AI plugin for Lightroom Classic. Covers installation, AI model setup, privacy, photo culling, keyword generation, and more.',
+  'getting-started': 'Step-by-step guide to installing and setting up LrGeniusAI for Adobe Lightroom Classic. Covers installation, bypassing security warnings, configuring AI providers, and indexing your first photos.',
+  'help-choosing-ai-model': 'How to choose the best AI model for LrGeniusAI — local models via Ollama and LM Studio vs cloud models from OpenAI, Google Gemini, and Vertex AI.',
+  'help-ollama-setup': 'How to set up Ollama as a local AI provider for LrGeniusAI. Run AI keywording and search 100% offline on your own hardware.',
+  'help-lm-studio-setup': 'How to set up LM Studio as a local AI provider for LrGeniusAI. Run AI photo analysis completely offline on macOS or Windows.',
+  'help-cull-photos': 'How to use LrGeniusAI AI culling to automatically select the best photos from your shoots using face-aware selection and sharpness analysis.',
+  'help-advanced-search': 'How to use semantic free-text search in LrGeniusAI to find any photo in your Lightroom Classic library by describing it in plain language.',
+  'help-people-faces': 'How to use LrGeniusAI face recognition and People dialog to cluster faces and find specific people across your entire Lightroom Classic catalog.',
+  'troubleshooting': 'Troubleshooting guide for LrGeniusAI — solving connection issues, installation problems, and AI analysis errors in Adobe Lightroom Classic.',
+};
+
+const pageDescription = doc.data.description || descriptionMap[doc.id];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": new URL('/', Astro.site).href
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Help & Documentation",
+      "item": new URL('/help', Astro.site).href
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": title,
+      "item": new URL(`/help/docs/${doc.id}`, Astro.site).href
+    }
+  ]
+};
+
+const faqSchema = isFaq ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is LrGeniusAI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LrGeniusAI is an AI extension for Adobe Lightroom Classic. It adds AI-powered metadata generation (keywords, titles, captions, alt-text), semantic free-text search, automatic develop edits, image culling, face/person management, and more — all running locally as a background server without freezing Lightroom."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does LrGeniusAI send my photos to the cloud?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if you choose a cloud provider (ChatGPT/OpenAI, Google Gemini, Vertex AI). With local providers (Ollama, LM Studio) your photos never leave your machine. For cloud providers, images are sent to the respective API for analysis. Embeddings and all generated metadata are always stored locally on your computer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is LrGeniusAI free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. LrGeniusAI is completely free and open-source under the AGPL-3.0 license. Cloud API usage (Gemini, OpenAI) incurs costs at the respective provider's standard rates. Local models via Ollama or LM Studio are completely free to run."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does LrGeniusAI work offline without internet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. When you configure Ollama or LM Studio as your AI provider, all image analysis, keyword generation, semantic search indexing, and culling happen entirely on your own hardware. No internet connection is required after the initial model download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Lightroom version does LrGeniusAI support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Adobe Lightroom Classic only. Lightroom CC (cloud) and other Lightroom versions are not supported, as the plugin relies on the Lightroom Classic SDK."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the LrGeniusAI installer safe even though it's blocked by Windows or macOS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The installers are not code-signed (cost and complexity for an open-source project), which causes OS security warnings. On Windows SmartScreen, click 'More info' then 'Run anyway'. On macOS Gatekeeper, right-click the .pkg installer, select Open, then click Open anyway. Alternatively go to System Settings → Privacy & Security → Open Anyway."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does 'Analyze & Index' do in LrGeniusAI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It does two things in one pass: (1) Sends each photo to the configured AI model to generate keywords, title, caption, and alt text. (2) Creates a semantic embedding using SigLIP2 locally, so the photo can be found by Advanced Search. Both steps are optional and can be run independently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does LrGeniusAI culling delete photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Culling is completely non-destructive. LrGeniusAI creates Lightroom collections (Picks, Alternates, Reject Candidates, optional Duplicates) — your original photos are never moved, renamed, or deleted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI models does LrGeniusAI support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LrGeniusAI supports local models via Ollama and LM Studio (such as qwen3-vl), and cloud models including OpenAI/ChatGPT (gpt-4o, gpt-5), Google Gemini (gemini-2.5-flash, gemini-2.5-pro), and Google Vertex AI. You can switch providers at any time from the Plug-in Manager."
+      }
+    }
+  ]
+} : null;
+
+const howToSchema = isGettingStarted ? {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Set Up LrGeniusAI for Adobe Lightroom Classic",
+  "description": "Step-by-step guide to installing and configuring LrGeniusAI, the free open-source AI plugin for Adobe Lightroom Classic.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Install Plugin and Server",
+      "text": "Download the latest release from https://github.com/LrGenius/LrGeniusAI/releases. Install both the Lightroom Classic plugin (.lrdevplugin) and the Python backend server. If your OS shows a security warning: on macOS, right-click the .pkg → Open → Open anyway; on Windows, click More info → Run anyway in the SmartScreen prompt."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure Plugin",
+      "text": "Open File → Plug-in Manager in Lightroom and find LrGeniusAI. Set the Backend Server URL (default: http://127.0.0.1:8000). Enter API keys for cloud providers (OpenAI, Google Gemini), or configure the URL for local providers (Ollama, LM Studio)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Index Your Photos",
+      "text": "Select one or more photos in the Lightroom Library grid. Navigate to Library → Plug-in Extras → Analyze & Index Photos. LrGeniusAI will generate keywords, captions, titles, alt-text, and semantic embeddings for each selected photo."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Use AI Search, Culling, and Metadata",
+      "text": "After indexing, use Library → Plug-in Extras → Advanced Search to find photos by plain-language descriptions. Run Cull Photos to let AI pre-select your best shots. Use Retrieve Metadata to write AI-generated tags back into your Lightroom catalog."
+    }
+  ]
+} : null;
 ---
 
-<Layout title={`${title} - LrGeniusAI`} description={doc.data.description}>
+<Layout title={`${title} - LrGeniusAI`} description={pageDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+  {howToSchema && <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />}
   <article class="doc-page">
     <div class="doc-breadcrumb">
       <a href="/help">Help</a> › {title}
