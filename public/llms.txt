@@ -1,0 +1,50 @@
+# LrGeniusAI
+
+LrGeniusAI is a free, open-source (AGPL-3.0) AI workflow plugin for Adobe Lightroom Classic.
+Maintained by Bastian Machek (Fokuspunk). GitHub org: https://github.com/LrGenius
+
+## Key Facts
+
+- **License:** AGPL-3.0 — completely free, no subscription, no usage limits
+- **Platforms:** macOS and Windows
+- **Requires:** Adobe Lightroom Classic (not Lightroom CC)
+- **Status:** Beta / active development (installers not yet code-signed)
+- **Runs 100% locally** with Ollama or LM Studio — photos never leave your computer
+- **Optional cloud AI:** OpenAI/ChatGPT, Google Gemini, Google Vertex AI
+
+## Features
+
+- AI keyword generation (open-vocabulary, prompt-tunable)
+- AI captions, titles, and alt-text for photos
+- Semantic free-text search across your entire Lightroom library
+- AI-powered photo culling with face-aware selection (beta)
+- Face recognition and People management dialog
+- Smart editing recipes ("Looks") trained on your personal editing style (beta)
+- Keyword deduplication and de-clutter
+
+## Supported AI Providers
+
+| Provider | Type | Notes |
+|---|---|---|
+| Ollama | Local | 100% private, free, runs on your hardware |
+| LM Studio | Local | 100% private, free, runs on your hardware |
+| OpenAI / ChatGPT | Cloud | Requires API key, billed by OpenAI |
+| Google Gemini | Cloud | Requires API key, billed by Google |
+| Google Vertex AI | Cloud | Requires GCP project, billed by Google |
+
+## Key Pages
+
+- Home: https://lrgenius.com
+- Getting Started: https://lrgenius.com/help/docs/Getting-Started
+- FAQ: https://lrgenius.com/help/docs/FAQ
+- Help & Documentation: https://lrgenius.com/help
+- Downloads / Releases: https://github.com/LrGenius/LrGeniusAI/releases
+- Compare AI plugins for Lightroom: https://lrgenius.com/compare
+- LrGenius vs Excire, Peakto, Aftershoot and more: https://lrgenius.com/lrgenius-vs-excire
+
+## Author / Maintainer
+
+Bastian Machek — https://blog.fokuspunk.de
+GitHub: https://github.com/fokuspunk
+GitHub org: https://github.com/LrGenius
+Twitter/X: https://x.com/lrgenius

@@ -1,0 +1,335 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Best AI Plugins for Adobe Lightroom Classic (2026)';
+const description = 'Compare LrGenius, Excire Search, Peakto, Aftershoot, Narrative Select, Imagen AI, and Neurapix — an honest feature-by-feature comparison of AI tools for Lightroom Classic photographers.';
+const lastUpdated = '2026-06-01';
+---
+
+<Layout title={`${title} — LrGenius`} description={description}>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": lastUpdated,
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "LrGenius", "url": "https://lrgenius.com" },
+    "about": [
+      { "@type": "SoftwareApplication", "name": "LrGeniusAI" },
+      { "@type": "Thing", "name": "Excire Search" },
+      { "@type": "Thing", "name": "Peakto" },
+      { "@type": "Thing", "name": "Aftershoot" },
+      { "@type": "Thing", "name": "Narrative Select" },
+      { "@type": "Thing", "name": "Imagen AI" },
+      { "@type": "Thing", "name": "Neurapix" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lrgenius.com" },
+      { "@type": "ListItem", "position": 2, "name": "Compare AI Plugins for Lightroom", "item": "https://lrgenius.com/compare" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best free AI plugin for Adobe Lightroom Classic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LrGeniusAI is the only completely free and open-source (AGPL-3.0) AI plugin for Lightroom Classic. It covers AI keywording, captions, semantic search, culling, and face recognition without any subscription. It can run 100% locally via Ollama or LM Studio so your photos never leave your computer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which AI plugin for Lightroom works offline without internet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LrGeniusAI (via Ollama or LM Studio), Excire Search, Aftershoot, and Peakto all offer local/offline processing. LrGeniusAI is the only one that is also free and open-source."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best AI culling tool for Lightroom Classic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For professional high-volume culling (weddings, events), Aftershoot and Narrative Select are the most mature, dedicated tools. LrGeniusAI includes AI culling in a broader free plugin — a good fit for photographers who also want keywording and search in one place without an additional subscription."
+        }
+      }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>Best AI Plugins for Adobe Lightroom Classic (2026)</h1>
+    <p class="tagline">An honest comparison of AI keywording, culling, search, and editing tools.</p>
+    <p class="meta">Last updated: {lastUpdated}</p>
+  </section>
+
+  <section class="intro">
+    <p>
+      <strong>LrGeniusAI</strong> is the only <strong>free, open-source</strong> (AGPL-3.0) AI plugin for
+      Lightroom Classic. It runs <strong>100% locally</strong> via Ollama or LM Studio — your photos never
+      leave your computer — or connects to cloud models (ChatGPT, Gemini, Vertex AI). No subscription, no usage
+      limits imposed by the plugin itself.
+    </p>
+    <p>
+      Below is a feature-by-feature comparison of the main AI tools in the Lightroom ecosystem.
+      Most commercial options are mature and well-supported; LrGeniusAI is younger and in beta, but uniquely
+      free and open. We aim to be factual and fair — if you spot something outdated, <a href="/contact">let us know</a>.
+    </p>
+  </section>
+
+  <section class="comparison">
+    <h2>Feature comparison at a glance</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>AI Keywording</th>
+            <th>AI Culling</th>
+            <th>Semantic Search</th>
+            <th>Edit Style AI</th>
+            <th>Local / Offline</th>
+            <th>Open Source</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong><a href="/">LrGeniusAI</a></strong> <span class="badge">beta</span></td>
+            <td>Yes — open-vocabulary</td>
+            <td>Yes (beta)</td>
+            <td>Yes</td>
+            <td>Yes, "Looks" (beta)</td>
+            <td>Yes (Ollama / LM Studio)</td>
+            <td>Yes (AGPL-3.0)</td>
+            <td>Free</td>
+          </tr>
+          <tr>
+            <td><strong><a href="/compare/lrgenius-vs-excire">Excire Search</a></strong></td>
+            <td>Yes — fixed taxonomy</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Yes (on-device AI)</td>
+            <td>No</td>
+            <td>One-time purchase <!-- TODO: confirm current price --></td>
+          </tr>
+          <tr>
+            <td><strong>AnyVision</strong></td>
+            <td>Yes — Google Vision</td>
+            <td>No</td>
+            <td>Indirect (via tags)</td>
+            <td>No</td>
+            <td>No (cloud only)</td>
+            <td>No</td>
+            <td>Paid license + API costs</td>
+          </tr>
+          <tr>
+            <td><strong><a href="/compare/lrgenius-vs-peakto">Peakto</a></strong></td>
+            <td>Yes — local AI</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Subscription (macOS only)</td>
+          </tr>
+          <tr>
+            <td><strong><a href="/compare/lrgenius-vs-aftershoot">Aftershoot</a></strong></td>
+            <td>No</td>
+            <td>Yes — mature</td>
+            <td>No</td>
+            <td>Yes (mature)</td>
+            <td>Yes (local)</td>
+            <td>No</td>
+            <td>Subscription</td>
+          </tr>
+          <tr>
+            <td><strong><a href="/compare/lrgenius-vs-narrative-select">Narrative Select</a></strong></td>
+            <td>No</td>
+            <td>Yes — mature</td>
+            <td>No</td>
+            <td>Partly (AI Presets)</td>
+            <td>Mixed (cloud-assisted)</td>
+            <td>No</td>
+            <td>Subscription</td>
+          </tr>
+          <tr>
+            <td><strong>Imagen AI</strong></td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Yes — mature</td>
+            <td>No (cloud only)</td>
+            <td>No</td>
+            <td>Pay-per-photo</td>
+          </tr>
+          <tr>
+            <td><strong>Neurapix</strong></td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Yes — SmartPresets</td>
+            <td>No (cloud only)</td>
+            <td>No</td>
+            <td>Pay-per-image or subscription</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">
+      Feature data reflects publicly available information as of {lastUpdated} and may change.
+      All product names are trademarks of their respective owners.
+    </p>
+  </section>
+
+  <section class="when-which">
+    <h2>Which tool fits your workflow?</h2>
+
+    <h3>You need AI keywording and search</h3>
+    <p>
+      <strong>Excire Search</strong> is the established choice — polished, on-device, one-time purchase.
+      <strong>LrGeniusAI</strong> generates open-vocabulary keywords plus captions, titles, and alt-text,
+      and adds semantic search — useful for stock, editorial, or accessibility work — at no cost.
+      LrGeniusAI is still in beta; Excire is production-ready.
+      → <a href="/compare/lrgenius-vs-excire">LrGenius vs. Excire — detailed comparison</a>
+    </p>
+
+    <h3>You need dedicated AI culling</h3>
+    <p>
+      <strong>Aftershoot</strong> and <strong>Narrative Select</strong> are the mature, specialized
+      culling tools for high-volume photographers (weddings, events). LrGeniusAI bundles culling
+      alongside keywording, search, and editing in one free plugin — convenient for smaller shoots and
+      personal libraries while the feature matures.
+    </p>
+    <p>
+      → <a href="/compare/lrgenius-vs-aftershoot">LrGenius vs. Aftershoot</a> ·
+      <a href="/compare/lrgenius-vs-narrative-select">LrGenius vs. Narrative Select</a>
+    </p>
+
+    <h3>You need AI editing in your personal style</h3>
+    <p>
+      <strong>Imagen AI</strong> and <strong>Neurapix</strong> are the most mature options for learning
+      your editing style and applying it to new shoots. LrGeniusAI's <em>Looks</em> feature is experimental
+      and not a production replacement for either.
+    </p>
+
+    <h3>Your library spans multiple apps (Mac only)</h3>
+    <p>
+      <strong>Peakto</strong> unifies Lightroom, Capture One, Apple Photos, and more into one searchable
+      library on macOS. LrGeniusAI is Lightroom Classic-specific and does not try to be a cross-app DAM.
+      → <a href="/compare/lrgenius-vs-peakto">LrGenius vs. Peakto</a>
+    </p>
+
+    <h3>Privacy and cost are your deciding factors</h3>
+    <p>
+      LrGeniusAI is the only fully open-source option in this list, and the only one that can run
+      end-to-end on your own hardware at zero recurring cost. Excire and Aftershoot also keep
+      processing local but are paid, closed-source tools.
+    </p>
+  </section>
+
+  <section class="individual-comparisons">
+    <h2>Detailed head-to-head comparisons</h2>
+    <ul class="compare-links">
+      <li><a href="/lrgenius-vs-excire">LrGenius vs. Excire, Peakto, Aftershoot, Narrative &amp; more — full overview</a></li>
+      <li><a href="/compare/lrgenius-vs-peakto">LrGenius vs. Peakto</a></li>
+      <li><a href="/compare/lrgenius-vs-aftershoot">LrGenius vs. Aftershoot</a></li>
+      <li><a href="/compare/lrgenius-vs-narrative-select">LrGenius vs. Narrative Select</a></li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <h2>Try LrGenius — free, no sign-up required</h2>
+    <p>
+      Download the latest release from <a href="https://github.com/LrGenius/LrGeniusAI/releases" target="_blank" rel="noopener">GitHub</a>,
+      follow the <a href="/help/docs/Getting-Started">Getting Started guide</a>, or browse the
+      <a href="/help/docs/FAQ">FAQ</a> to learn more.
+    </p>
+  </section>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .meta {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  .intro, .comparison, .when-which, .individual-comparisons, .cta {
+    padding: 1.5rem 0;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid #eaeaea;
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f7f7f9;
+    white-space: nowrap;
+  }
+  td:first-child, th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f7f7f9;
+    z-index: 1;
+  }
+  .note {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.75rem;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #d8a73a;
+    color: #fff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+  .compare-links {
+    list-style: none;
+    padding: 0;
+  }
+  .compare-links li {
+    margin-bottom: 0.6rem;
+  }
+  .compare-links a {
+    color: var(--color-primary, #0066cc);
+  }
+</style>
