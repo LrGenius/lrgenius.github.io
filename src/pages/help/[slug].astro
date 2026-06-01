@@ -2,19 +2,19 @@
 export function getStaticPaths() {
   const redirects: Record<string, string> = {
     // Legacy redirects — point to new /help/docs/ pages
-    'choosing-ai-model': '/help/docs/Help-Choosing-AI-Model',
-    'migration': '/help/docs/Getting-Started',
-    'installation': '/help/docs/Getting-Started',
-    'configuration': '/help/docs/Getting-Started',
-    'ollama-setup': '/help/docs/Help-Ollama-Setup',
-    'lmstudio-setup': '/help/docs/Help-LM-Studio-Setup',
-    'tips-tricks': '/help/docs/Help-Analyze-and-Index',
-    'faq': '/help/docs/FAQ',
-    'troubleshooting': '/help/docs/Troubleshooting',
-    'ai-edit': '/help/docs/Help-AI-Edit',
-    'cull-photos': '/help/docs/Help-Cull-Photos',
-    'advanced-search': '/help/docs/Help-Advanced-Search',
-    'analyze-and-index': '/help/docs/Help-Analyze-and-Index',
+    'choosing-ai-model': '/help/docs/help-choosing-ai-model',
+    'migration': '/help/docs/getting-started',
+    'installation': '/help/docs/getting-started',
+    'configuration': '/help/docs/getting-started',
+    'ollama-setup': '/help/docs/help-ollama-setup',
+    'lmstudio-setup': '/help/docs/help-lm-studio-setup',
+    'tips-tricks': '/help/docs/help-analyze-and-index',
+    'faq': '/help/docs/faq',
+    'troubleshooting': '/help/docs/troubleshooting',
+    'ai-edit': '/help/docs/help-ai-edit',
+    'cull-photos': '/help/docs/help-cull-photos',
+    'advanced-search': '/help/docs/help-advanced-search',
+    'analyze-and-index': '/help/docs/help-analyze-and-index',
   };
 
   return Object.entries(redirects).map(([slug, destination]) => ({

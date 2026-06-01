@@ -71,12 +71,21 @@ rewrite_links() {
   # Rewrite wiki-style relative links to /help/docs/<lowercase-slug>
   # Handles: [text](Slug) and [text](Slug#anchor)
   # Astro normalizes content IDs to lowercase, so links must also be lowercase.
+  # Special-case slugs that aren't hosted as docs pages are mapped to GitHub URLs.
   python3 -c "
 import sys, re
+
+GITHUB_REPO = 'https://github.com/LrGenius/LrGeniusAI'
+SLUG_OVERRIDES = {
+    'project-readme': f'{GITHUB_REPO}#readme',
+    'plugin-readme': f'{GITHUB_REPO}/blob/main/plugin/README.md',
+}
 
 def lower_slug(m):
     slug = m.group(1).lower()
     anchor = m.group(2) or ''
+    if slug in SLUG_OVERRIDES:
+        return f']({SLUG_OVERRIDES[slug]})'
     return f'](/help/docs/{slug}{anchor})'
 
 content = sys.stdin.read()
