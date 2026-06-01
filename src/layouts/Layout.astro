@@ -32,7 +32,7 @@ const t = useTranslations(lang);
 				basic: {
 					title: title,
 					type: 'website',
-					image: new URL('/images/og-image.png', Astro.site).href,
+					image: new URL('/lrgenius.png', Astro.site).href,
 					url: Astro.url,
 				},
 				image: {
@@ -51,15 +51,29 @@ const t = useTranslations(lang);
 			"@type": "SoftwareApplication",
 			"name": "LrGeniusAI",
 			"alternateName": "LrGenius",
-			"url": "https://lrgenius.github.io",
+			"url": "https://lrgenius.com",
 			"downloadUrl": "https://github.com/LrGenius/LrGeniusAI/releases",
 			"operatingSystem": "Windows, macOS",
 			"applicationCategory": "MultimediaApplication",
 			"applicationSubCategory": "Photography Plugin",
-			"softwareVersion": "2.5.0",
 			"softwareRequirements": "Adobe Lightroom Classic",
 			"license": "https://www.gnu.org/licenses/agpl-3.0.html",
+			"softwareLicense": "AGPL-3.0",
 			"isAccessibleForFree": true,
+			"featureList": [
+				"AI keyword generation for photos",
+				"AI captions, titles and alt-text",
+				"Semantic free-text search across photo library",
+				"AI-powered photo culling with face-aware selection",
+				"Face recognition and People management",
+				"Smart editing recipes trained on personal editing style",
+				"Keyword deduplication and de-clutter",
+				"Local AI processing via Ollama",
+				"Local AI processing via LM Studio",
+				"Cloud AI via OpenAI / ChatGPT",
+				"Cloud AI via Google Gemini",
+				"Cloud AI via Google Vertex AI"
+			],
 			"offers": [
 				{
 					"@type": "Offer",
@@ -74,9 +88,45 @@ const t = useTranslations(lang);
 			],
 			"description": t('seo.default_description'),
 			"author": {
+				"@type": "Person",
+				"name": "Bastian Machek",
+				"url": "https://blog.fokuspunk.de",
+				"sameAs": ["https://blog.fokuspunk.de", "https://github.com/fokuspunk"]
+			},
+			"publisher": {
 				"@type": "Organization",
 				"name": "LrGenius",
-				"url": "https://github.com/LrGenius"
+				"url": "https://lrgenius.com",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://lrgenius.com/lrgenius.png"
+				},
+				"sameAs": [
+					"https://github.com/LrGenius",
+					"https://x.com/lrgenius",
+					"https://blog.fokuspunk.de"
+				]
+			}
+		})} />
+
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "LrGenius",
+			"url": "https://lrgenius.com",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://lrgenius.com/lrgenius.png"
+			},
+			"sameAs": [
+				"https://github.com/LrGenius",
+				"https://x.com/lrgenius",
+				"https://blog.fokuspunk.de"
+			],
+			"founder": {
+				"@type": "Person",
+				"name": "Bastian Machek",
+				"url": "https://blog.fokuspunk.de"
 			}
 		})} />
 
