@@ -12,21 +12,47 @@ export async function getStaticPaths() {
 
 const { doc } = Astro.props;
 const { Content } = await render(doc);
-const title = doc.data.title ?? doc.id;
+const rawTitle = doc.data.title ?? doc.id;
 
 const isFaq = doc.id === 'faq';
 const isGettingStarted = doc.id === 'getting-started';
 
+const titleMap: Record<string, string> = {
+  'faq': 'LrGeniusAI FAQ — Frequently Asked Questions',
+  'getting-started': 'Getting Started with LrGeniusAI for Lightroom Classic',
+  'google-vertex-ai-login': 'Google Vertex AI Login & Setup for LrGeniusAI',
+  'help-advanced-search': 'Advanced Semantic Photo Search in Lightroom Classic',
+  'help-ai-edit': 'AI Edit Photos & Smart Develop Recipes in Lightroom',
+  'help-analyze-and-index': 'Analyze & Index Photos for AI Keywording and Search',
+  'help-choosing-ai-model': 'Choosing an AI Model: Local vs Cloud for Lightroom',
+  'help-cull-photos': 'AI Photo Culling & Best Shot Selection in Lightroom',
+  'help-find-similar': 'Find Similar Photos Across Your Lightroom Library',
+  'help-keyword-dedup-and-declutter': 'Keyword Deduplication & Tag Cleanup for Lightroom',
+  'help-lm-studio-setup': 'LM Studio Setup for Local AI in Lightroom Classic',
+  'help-ollama-setup': 'Ollama Setup for Local AI in Lightroom Classic',
+  'help-people-faces': 'Face Recognition & People Management in Lightroom',
+  'help-train-from-edits': 'Save Edits as AI Training Examples for Lightroom',
+  'troubleshooting': 'Troubleshooting LrGeniusAI — Common Errors & Fixes',
+};
+
+const title = titleMap[doc.id] ?? rawTitle;
+
 const descriptionMap: Record<string, string> = {
   'faq': 'Frequently asked questions about LrGeniusAI — the free, open-source AI plugin for Lightroom Classic. Covers installation, AI model setup, privacy, photo culling, keyword generation, and more.',
   'getting-started': 'Step-by-step guide to installing and setting up LrGeniusAI for Adobe Lightroom Classic. Covers installation, bypassing security warnings, configuring AI providers, and indexing your first photos.',
-  'help-choosing-ai-model': 'How to choose the best AI model for LrGeniusAI — local models via Ollama and LM Studio vs cloud models from OpenAI, Google Gemini, and Vertex AI.',
-  'help-ollama-setup': 'How to set up Ollama as a local AI provider for LrGeniusAI. Run AI keywording and search 100% offline on your own hardware.',
-  'help-lm-studio-setup': 'How to set up LM Studio as a local AI provider for LrGeniusAI. Run AI photo analysis completely offline on macOS or Windows.',
-  'help-cull-photos': 'How to use LrGeniusAI AI culling to automatically select the best photos from your shoots using face-aware selection and sharpness analysis.',
-  'help-advanced-search': 'How to use semantic free-text search in LrGeniusAI to find any photo in your Lightroom Classic library by describing it in plain language.',
-  'help-people-faces': 'How to use LrGeniusAI face recognition and People dialog to cluster faces and find specific people across your entire Lightroom Classic catalog.',
-  'troubleshooting': 'Troubleshooting guide for LrGeniusAI — solving connection issues, installation problems, and AI analysis errors in Adobe Lightroom Classic.',
+  'google-vertex-ai-login': 'How to authenticate with Google Vertex AI for LrGeniusAI in Lightroom Classic. Step-by-step gcloud login instructions, service account setup, and troubleshooting tips for Vertex AI integration.',
+  'help-advanced-search': 'How to use semantic free-text search in LrGeniusAI to find any photo in your Lightroom Classic library by describing it in plain language. Covers indexing, search tips, and compatible AI providers.',
+  'help-ai-edit': "How to use LrGeniusAI's AI Edit feature to apply smart develop recipes and personal editing styles to photos in Lightroom Classic. Create, apply, and refine AI-generated editing presets (beta).",
+  'help-analyze-and-index': "How to use LrGeniusAI's Analyze & Index feature to generate AI keywords, captions, titles, alt-text, and semantic embeddings for Lightroom Classic photos. Covers batch processing and provider options.",
+  'help-choosing-ai-model': 'How to choose the best AI model for LrGeniusAI — compare local models via Ollama and LM Studio with cloud providers OpenAI ChatGPT, Google Gemini, and Vertex AI. Privacy, cost, and quality trade-offs explained.',
+  'help-cull-photos': "How to use LrGeniusAI's AI photo culling to automatically select the best shots in Lightroom Classic. Covers face-aware selection, sharpness scoring, expression detection, and pick/reject workflows.",
+  'help-find-similar': "How to use LrGeniusAI's Find Similar Images feature to discover visually similar photos across your entire Lightroom Classic catalog using AI-powered semantic embeddings and image similarity search.",
+  'help-keyword-dedup-and-declutter': "How to use LrGeniusAI's keyword deduplication and de-clutter tools to merge duplicate tags, clean up keyword hierarchies, and tidy your Lightroom Classic keyword library for better catalog organization.",
+  'help-lm-studio-setup': 'Step-by-step guide to setting up LM Studio as a local AI provider for LrGeniusAI. Run AI photo analysis, keyword generation, and semantic search 100% offline on macOS or Windows — no cloud uploads.',
+  'help-ollama-setup': 'Step-by-step guide to setting up Ollama as a local AI provider for LrGeniusAI. Run AI keywording, semantic search, and photo culling 100% offline on your own hardware — no cloud subscription required.',
+  'help-people-faces': "How to use LrGeniusAI's face recognition and People dialog to automatically cluster faces, identify individuals, and find specific people across your entire Lightroom Classic photo catalog.",
+  'help-train-from-edits': 'How to save your Lightroom Classic develop edits as AI training examples in LrGeniusAI. Build a personal editing style that the plugin learns from and applies automatically to new photos.',
+  'troubleshooting': 'Fix connection errors, installation issues, AI analysis failures, and common plugin problems in LrGeniusAI for Adobe Lightroom Classic. Step-by-step troubleshooting for Windows and macOS.',
 };
 
 const pageDescription = doc.data.description || descriptionMap[doc.id];
