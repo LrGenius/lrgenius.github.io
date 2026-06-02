@@ -35,8 +35,8 @@ Maintained by Bastian Machek (Fokuspunk). GitHub org: https://github.com/LrGeniu
 ## Key Pages
 
 - Home: https://lrgenius.com
-- Getting Started: https://lrgenius.com/help/docs/Getting-Started
-- FAQ: https://lrgenius.com/help/docs/FAQ
+- Getting Started: https://lrgenius.com/help/docs/getting-started
+- FAQ: https://lrgenius.com/help/docs/faq
 - Help & Documentation: https://lrgenius.com/help
 - Downloads / Releases: https://github.com/LrGenius/LrGeniusAI/releases
 - Compare AI plugins for Lightroom: https://lrgenius.com/compare
@@ -45,6 +45,5 @@ Maintained by Bastian Machek (Fokuspunk). GitHub org: https://github.com/LrGeniu
 ## Author / Maintainer
 
 Bastian Machek — https://blog.fokuspunk.de
-GitHub: https://github.com/fokuspunk
+GitHub: https://github.com/bmachek
 GitHub org: https://github.com/LrGenius
-Twitter/X: https://x.com/lrgenius
