@@ -18,6 +18,9 @@ const base = `/${lang}`;
       <a href="/help">Help &amp; Docs</a>
     </div>
   </div>
+  <div class="container footer-disclosure">
+    We improve our products by using <a href="https://clarity.microsoft.com" target="_blank" rel="noopener">Microsoft Clarity</a> to see how you use our website. By using our site, you agree that we and Microsoft can collect and use this data. <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft Privacy Statement</a>.
+  </div>
 </footer>
 
 <style>
@@ -55,6 +58,24 @@ const base = `/${lang}`;
  .footer-links a:hover,.footer-social a:hover {
     color: var(--color-primary);
     text-decoration: underline;
+  }
+
+  .footer-disclosure {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eaeaea;
+    font-size: 0.8rem;
+    color: #999;
+    text-align: center;
+  }
+
+  .footer-disclosure a {
+    color: #999;
+    text-decoration: underline;
+  }
+
+  .footer-disclosure a:hover {
+    color: var(--color-primary);
   }
 
   @media (max-width: 768px) {
