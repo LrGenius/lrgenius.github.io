@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About LrGeniusAI — Free & Open Source AI Plugin for Lightroom Classic"
+  description="LrGeniusAI is a free, open-source AI plugin for Lightroom Classic. Learn about the project's mission, local-AI-first philosophy, AGPL-3.0 license, and how to contribute."
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lrgenius.com" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://lrgenius.com/about" }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>About LrGeniusAI</h1>
+    <p class="tagline">Free, open-source AI for every Lightroom Classic photographer.</p>
+  </section>
+
+  <section class="about-section">
+    <h2>What is LrGeniusAI?</h2>
+    <p>
+      LrGeniusAI is a plugin for Adobe Lightroom Classic that brings modern AI capabilities directly into your
+      photo management workflow — without requiring a subscription, a cloud account, or any photos leaving your
+      computer. It covers AI keywording, natural-language photo search, AI-assisted culling, face recognition,
+      and experimental editing recipes, all from inside Lightroom.
+    </p>
+    <p>
+      The plugin is free and open-source under the
+      <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener">AGPL-3.0 license</a>.
+      Source code lives on <a href="https://github.com/LrGenius" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Why free and open-source?</h2>
+    <p>
+      The tools photographers need to organize and find their work should not cost a monthly subscription on top
+      of an already expensive software stack. AI models powerful enough to describe and search photos now run on
+      consumer hardware — there is no technical reason these features should require a cloud subscription.
+    </p>
+    <p>
+      By releasing LrGeniusAI under the AGPL-3.0 license, the project commits to staying free and open.
+      Anyone can inspect the code, adapt it, or contribute improvements. Derivative works must also remain
+      open under the same terms — ensuring that the community's contributions stay in the commons.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Local AI first</h2>
+    <p>
+      LrGeniusAI is designed to run your photos entirely on your own hardware via
+      <a href="/help/docs/help-ollama-setup">Ollama</a> or <a href="/help/docs/help-lm-studio-setup">LM Studio</a>.
+      When running locally, no image data ever leaves your computer — no telemetry, no training on your
+      photos, no third-party access. This matters for photographers working with unpublished client work,
+      sensitive subjects, or simply anyone who values owning their data.
+    </p>
+    <p>
+      Cloud providers (ChatGPT, Google Gemini, Google Vertex AI) are also supported for those who want
+      maximum model quality or don't have suitable hardware for local inference. The choice is always yours.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Status and roadmap</h2>
+    <p>
+      LrGeniusAI is under active development. Core features — AI keywording, semantic search, and face
+      recognition — are stable and in daily use by photographers. AI culling and editing recipes are in
+      beta and still maturing.
+    </p>
+    <p>
+      Installers are currently not code-signed, which may trigger security warnings on macOS and Windows.
+      This is a known limitation that will be addressed as the project matures.
+      See the <a href="/help/docs/getting-started">Getting Started guide</a> for current installation
+      instructions and the <a href="/help/docs/faq">FAQ</a> for common questions.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>How to contribute</h2>
+    <p>
+      Contributions of all kinds are welcome — bug reports, feature requests, documentation improvements,
+      or code. The project is hosted on GitHub:
+    </p>
+    <ul>
+      <li><a href="https://github.com/LrGenius/LrGeniusAI/issues" target="_blank" rel="noopener">Report a bug or request a feature</a></li>
+      <li><a href="https://github.com/LrGenius/LrGeniusAI/discussions" target="_blank" rel="noopener">Ask questions and share ideas</a></li>
+      <li><a href="https://github.com/LrGenius" target="_blank" rel="noopener">Browse the source code</a></li>
+    </ul>
+    <p>
+      If LrGeniusAI saves you time, consider starring the repository on GitHub — it helps others discover
+      the project.
+    </p>
+  </section>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .about-section {
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+    max-width: 720px;
+  }
+  .about-section h2 {
+    margin-top: 0;
+    color: var(--color-primary, #0066cc);
+  }
+  .about-section p, .about-section li {
+    line-height: 1.75;
+    color: #333;
+  }
+  .about-section ul {
+    padding-left: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .about-section li {
+    margin-bottom: 0.4rem;
+  }
+</style>

@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const testimonials = await getCollection('testimonials');
 ---
 
 <Layout title="LrGeniusAI - Free & Open Source AI Workflow Suite for Lightroom Classic" description="Free open-source AI plugin for Adobe Lightroom Classic. AI keywording, semantic photo search, culling, and face recognition. Runs locally via Ollama or LM Studio, or with ChatGPT and Google Gemini.">
@@ -57,6 +60,19 @@ import Layout from '../layouts/Layout.astro';
         <p>Give the AI context before it analyzes — names, locations, project details. The model incorporates your hints for perfectly tailored keywords, captions, and metadata.</p>
       </div>
     </div>
+
+  <section class="social-proof">
+    <h2>Covered by photographers &amp; creators</h2>
+    <div class="testimonial-grid">
+      {testimonials.map(t => (
+        <a href={t.data.url} target="_blank" rel="noopener noreferrer" class={`testimonial-card type-${t.data.type}`}>
+          <span class="type-label">{t.data.type === 'video' ? 'Video' : t.data.type === 'blog' ? 'Blog post' : 'Community'}</span>
+          <p class="testimonial-title">{t.data.title}</p>
+          {t.data.author && <span class="testimonial-author">{t.data.author}</span>}
+        </a>
+      ))}
+    </div>
+  </section>
 
   <section class="features">
     <h2>Everything you need in one plugin</h2>
@@ -224,6 +240,54 @@ import Layout from '../layouts/Layout.astro';
     padding: 0.4rem 0.6rem;
     border-radius: 0 4px 4px 0;
     margin-top: 0.5rem;
+  }
+ .social-proof {
+    padding: 2.5rem 0;
+  }
+ .social-proof h2 {
+    margin-bottom: 1.5rem;
+  }
+ .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+ .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.1rem 1.2rem;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    color: inherit;
+    text-decoration: none;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+ .testimonial-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+    border-color: #c5d8f0;
+    text-decoration: none;
+  }
+ .type-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #888;
+  }
+ .type-video .type-label { color: #c0392b; }
+ .type-blog .type-label { color: #2980b9; }
+ .type-social .type-label { color: #27ae60; }
+ .testimonial-title {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #222;
+    flex-grow: 1;
+  }
+ .testimonial-author {
+    font-size: 0.8rem;
+    color: #888;
   }
  .banner {
     background-color: #f0f8ff;

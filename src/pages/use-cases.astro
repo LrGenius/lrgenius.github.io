@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="LrGeniusAI for Every Photographer — Use Cases & Workflows"
+  description="See how LrGeniusAI fits different photography workflows: wedding, stock, nature, hobbyist, and archival. Free AI keywording, culling, and semantic search for Lightroom Classic."
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lrgenius.com" },
+      { "@type": "ListItem", "position": 2, "name": "Use Cases", "item": "https://lrgenius.com/use-cases" }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>LrGeniusAI for Every Photographer</h1>
+    <p class="tagline">AI keywording, culling, and search — free, local, and built into Lightroom Classic.</p>
+  </section>
+
+  <section class="intro">
+    <p>
+      LrGeniusAI is a single free plugin that covers the full AI workflow inside Lightroom Classic — from
+      selecting the best shots to finding them years later. Below is how different photographer types use it.
+    </p>
+  </section>
+
+  <section class="use-cases">
+
+    <div class="use-case">
+      <h2>Wedding &amp; Event Photographers</h2>
+      <p class="pain-point">You shoot thousands of frames per event and spend hours culling before you can even start editing.</p>
+      <h3>How LrGeniusAI helps</h3>
+      <ul>
+        <li><strong>AI culling (beta)</strong> pre-selects the best frames with face-aware scoring — detecting focus, expression, and composition across large batches.</li>
+        <li><strong>Face recognition</strong> clusters guests and family members so you can quickly verify coverage of key people.</li>
+        <li><strong>Contextual analysis</strong> lets you provide names, venue, and event details before indexing — generating captions like "Bride and groom exchanging rings at sunset ceremony."</li>
+        <li><strong>Semantic search</strong> finds the "first dance with grandparents in background" shot years after delivery.</li>
+      </ul>
+      <p class="cta-links">
+        <a href="/help/docs/help-cull-photos">Cull Photos guide</a> ·
+        <a href="/help/docs/help-people-faces">People &amp; Faces guide</a>
+      </p>
+    </div>
+
+    <div class="use-case">
+      <h2>Stock &amp; Editorial Photographers</h2>
+      <p class="pain-point">Stock libraries require precise, comprehensive keywords for discoverability. Manual tagging is slow and inconsistent.</p>
+      <h3>How LrGeniusAI helps</h3>
+      <ul>
+        <li><strong>Open-vocabulary AI keywording</strong> generates descriptive, unrestricted tags — not a fixed taxonomy — matched to what is actually in each image.</li>
+        <li><strong>Bulk indexing</strong> processes your entire library in the background while you work on other tasks.</li>
+        <li><strong>Captions and alt-text</strong> give you ready-to-use descriptions for agency submissions and accessibility requirements.</li>
+        <li><strong>Keyword deduplication</strong> cleans up overlapping and redundant tags before submission.</li>
+      </ul>
+      <p class="cta-links">
+        <a href="/help/docs/help-analyze-and-index">Analyze &amp; Index guide</a> ·
+        <a href="/help/docs/help-keyword-dedup-and-declutter">Keyword Dedup guide</a>
+      </p>
+    </div>
+
+    <div class="use-case">
+      <h2>Nature &amp; Wildlife Photographers</h2>
+      <p class="pain-point">Species names, behaviors, and habitats need specific, accurate keywords — general-purpose tagging tools miss the details that matter.</p>
+      <h3>How LrGeniusAI helps</h3>
+      <ul>
+        <li><strong>Contextual hints</strong> let you specify the location, species, or situation before analysis — the AI incorporates your hints into keywords and captions for better accuracy.</li>
+        <li><strong>Open-vocabulary keywording</strong> captures behaviors ("bird in flight", "pair courting", "juvenile feeding") rather than just species labels.</li>
+        <li><strong>Semantic search</strong> finds "golden hour shots of red deer at the forest edge" without requiring exact keyword matches.</li>
+        <li>Works with <strong>local AI models</strong> via Ollama — no photos sent to external servers.</li>
+      </ul>
+      <p class="cta-links">
+        <a href="/help/docs/help-analyze-and-index">Analyze &amp; Index guide</a> ·
+        <a href="/help/docs/help-advanced-search">Advanced Search guide</a>
+      </p>
+    </div>
+
+    <div class="use-case">
+      <h2>Hobbyist &amp; Personal Photographers</h2>
+      <p class="pain-point">Your catalog has grown to tens of thousands of images and you can never find the shot you're thinking of.</p>
+      <h3>How LrGeniusAI helps</h3>
+      <ul>
+        <li><strong>Semantic free-text search</strong> lets you describe what you remember — "kids playing in the snow in red coats" — and find the photo instantly, without needing to have tagged it.</li>
+        <li><strong>AI keywording</strong> runs on your existing library in the background, building a searchable index over time.</li>
+        <li><strong>Find Similar</strong> starts from a photo you like and surfaces visually similar shots across your entire catalog.</li>
+        <li>Everything runs <strong>locally via Ollama or LM Studio</strong> — free, private, no subscription.</li>
+      </ul>
+      <p class="cta-links">
+        <a href="/help/docs/help-advanced-search">Advanced Search guide</a> ·
+        <a href="/help/docs/help-find-similar">Find Similar guide</a>
+      </p>
+    </div>
+
+    <div class="use-case">
+      <h2>Photo Archivists &amp; Library Managers</h2>
+      <p class="pain-point">Large legacy catalogs lack consistent metadata. Manual remediation at scale is impractical.</p>
+      <h3>How LrGeniusAI helps</h3>
+      <ul>
+        <li><strong>Bulk AI keywording</strong> processes thousands of untagged images and writes standardized keywords directly into Lightroom metadata.</li>
+        <li><strong>AI captions and alt-text</strong> improve accessibility and make images searchable by their descriptive content.</li>
+        <li><strong>Keyword deduplication</strong> consolidates variant spellings, synonyms, and legacy tags into a clean controlled vocabulary.</li>
+        <li><strong>Local processing</strong> keeps sensitive or confidential image collections off external servers.</li>
+      </ul>
+      <p class="cta-links">
+        <a href="/help/docs/help-analyze-and-index">Analyze &amp; Index guide</a> ·
+        <a href="/help/docs/help-keyword-dedup-and-declutter">Keyword Dedup guide</a>
+      </p>
+    </div>
+
+  </section>
+
+  <section class="cta">
+    <h2>Ready to try it?</h2>
+    <p>
+      LrGeniusAI is free, open-source, and runs inside Lightroom Classic on macOS and Windows.
+    </p>
+    <p>
+      <a href="https://github.com/LrGenius/LrGeniusAI/releases" target="_blank" rel="noopener">Download from GitHub</a> ·
+      <a href="/help/docs/getting-started">Getting Started guide</a> ·
+      <a href="/help/docs/faq">FAQ</a>
+    </p>
+  </section>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .intro {
+    padding: 1rem 0 0.5rem;
+    max-width: 720px;
+  }
+  .use-cases {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .use-case {
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+  }
+  .use-case h2 {
+    margin-top: 0;
+    color: var(--color-primary, #0066cc);
+  }
+  .pain-point {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  .use-case h3 {
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #444;
+  }
+  .use-case ul {
+    padding-left: 1.25rem;
+    line-height: 1.7;
+  }
+  .use-case li {
+    margin-bottom: 0.4rem;
+  }
+  .cta-links {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  .cta-links a {
+    color: var(--color-primary, #0066cc);
+  }
+  .cta {
+    padding: 2.5rem 0;
+    border-top: 1px solid #eaeaea;
+  }
+  .cta h2 {
+    margin-top: 0;
+  }
+</style>
