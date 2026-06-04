@@ -7,6 +7,12 @@ const testimonials = await getCollection('testimonials');
 
 <Layout title="LrGeniusAI - Free & Open Source AI Workflow Suite for Lightroom Classic" description="Free open-source AI plugin for Adobe Lightroom Classic. AI keywording, semantic photo search, culling, and face recognition. Runs locally via Ollama or LM Studio, or with ChatGPT and Google Gemini.">
 
+  <div class="notice-bar">
+    <a href="https://blog.fokuspunk.de/posts/taking-a-break-from-open-source/" target="_blank" rel="noopener noreferrer">
+      A personal note from the developer: I am taking a break from open source. Read more &rarr;
+    </a>
+  </div>
+
   <section class="hero">
     <img src="/images/logo.png" alt="LrGeniusAI - AI Workflow Suite for Lightroom Classic" width="500">
     <h1>LrGeniusAI</h1>
@@ -104,6 +110,21 @@ const testimonials = await getCollection('testimonials');
  </Layout>
 
 <style>
+ .notice-bar {
+    background-color: #fff8e1;
+    border-bottom: 1px solid #f0c040;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+ .notice-bar a {
+    color: #7a5800;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+ .notice-bar a:hover {
+    color: #4a3300;
+  }
  .hero {
     text-align: center;
     padding: 4rem 0;
