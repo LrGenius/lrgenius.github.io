@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^6.4.2",
+    "astro": "^6.4.8",
     "astro-seo": "^0.8.4"
   },
   "overrides": {
-    "yaml": "^2.8.3"
+    "yaml": "^2.8.3",
+    "vite": "^7.3.5",
+    "js-yaml": "^4.2.0",
+    "esbuild": "^0.28.1"
   }
 }
