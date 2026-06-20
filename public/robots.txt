@@ -46,4 +46,26 @@ User-agent: CCBot
 Allow: /
 
 # -----------------------------------------------------------------------
+# Legacy redirect pages — canonical content lives at /help/docs/
+# Disallow crawling to prevent duplicate-title/description audit noise.
+# -----------------------------------------------------------------------
+User-agent: *
+Disallow: /downloads/
+Disallow: /help/faq/
+Disallow: /help/troubleshooting/
+Disallow: /help/faq
+Disallow: /help/troubleshooting
+Disallow: /help/choosing-ai-model/
+Disallow: /help/migration/
+Disallow: /help/installation/
+Disallow: /help/configuration/
+Disallow: /help/ollama-setup/
+Disallow: /help/lmstudio-setup/
+Disallow: /help/tips-tricks/
+Disallow: /help/ai-edit/
+Disallow: /help/cull-photos/
+Disallow: /help/advanced-search/
+Disallow: /help/analyze-and-index/
+
+# -----------------------------------------------------------------------
 Sitemap: https://lrgenius.com/sitemap-index.xml
