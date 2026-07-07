@@ -1,3 +1,199 @@
 ---
-return Astro.redirect('https://github.com/LrGenius/LrGeniusAI/releases', 301);
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Downloads — LrGeniusAI & LrGeniusTagAI';
+const description = 'Download LrGeniusAI, the free full AI workflow suite for Lightroom Classic, or LrGeniusTagAI, a minimalist AI keywording-only plugin. Compare the two to pick the right fit.';
 ---
+
+<Layout title={title} description={description}>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lrgenius.com" },
+      { "@type": "ListItem", "position": 2, "name": "Downloads", "item": "https://lrgenius.com/downloads" }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>Downloads</h1>
+    <p class="tagline">Two free, open-source plugins for Adobe Lightroom Classic. Pick the one that fits your workflow.</p>
+  </section>
+
+  <section class="download-grid">
+    <div class="download-card">
+      <h2>LrGeniusAI</h2>
+      <p class="card-tagline">The full AI workflow suite — keywording, search, culling, face recognition, and editing recipes.</p>
+      <div class="badges">
+        <span class="badge badge-free">Free &amp; Open Source</span>
+        <span class="badge badge-beta">Active development</span>
+      </div>
+      <ul class="feature-list">
+        <li>AI keywords, captions, titles, and alt-text</li>
+        <li>Semantic free-text search across your library</li>
+        <li>AI-powered culling (beta)</li>
+        <li>Face recognition and People management</li>
+        <li>Smart editing recipes / "Looks" (beta)</li>
+        <li>Runs locally via Ollama or LM Studio, or with ChatGPT, Gemini, Vertex AI</li>
+        <li>Requires a local background service</li>
+      </ul>
+      <a class="download-btn" href="https://github.com/LrGenius/LrGeniusAI/releases" target="_blank" rel="noopener">Download LrGeniusAI</a>
+      <p class="card-links">
+        <a href="/help/docs/getting-started">Getting Started guide</a> ·
+        <a href="https://github.com/LrGenius/LrGeniusAI" target="_blank" rel="noopener">Source code</a>
+      </p>
+    </div>
+
+    <div class="download-card">
+      <h2>LrGeniusTagAI</h2>
+      <p class="card-tagline">A minimalist plugin focused purely on AI keywording — no server, no extra moving parts.</p>
+      <div class="badges">
+        <span class="badge badge-free">Free &amp; Open Source</span>
+        <span class="badge badge-simple">Lightweight</span>
+      </div>
+      <ul class="feature-list">
+        <li>AI keywords, captions, titles, and alt-text</li>
+        <li>Simple, quick setup directly in Lightroom</li>
+        <li>No local background service required</li>
+        <li>No semantic search, culling, or editing features</li>
+        <li>No face recognition</li>
+      </ul>
+      <a class="download-btn" href="https://github.com/LrGenius/LrGeniusTagAI/releases" target="_blank" rel="noopener">Download LrGeniusTagAI</a>
+      <p class="card-links">
+        <a href="https://github.com/LrGenius/LrGeniusTagAI" target="_blank" rel="noopener">Source code &amp; setup instructions</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="which-section">
+    <h2>Which one should I choose?</h2>
+    <p>
+      Both plugins are free, open-source (AGPL-3.0), and generate AI keywords, captions, and titles for your
+      photos. The difference is scope:
+    </p>
+    <ul>
+      <li>
+        Choose <strong>LrGeniusAI</strong> if you also want semantic search, AI culling, face recognition, or
+        editing recipes — and don't mind running a local background service to power those features.
+      </li>
+      <li>
+        Choose <strong>LrGeniusTagAI</strong> if you only want fast, accurate AI keywording with the
+        simplest possible setup, and don't need the rest of the workflow suite.
+      </li>
+    </ul>
+    <p>
+      You can install either one first and switch later — your Lightroom catalog and keywords aren't tied to
+      a specific plugin. See the <a href="/help/docs/faq">FAQ</a> for more details.
+    </p>
+  </section>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+  .download-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    border: 2px solid var(--color-primary, #0066cc);
+    border-radius: 10px;
+    background-color: #f8fbff;
+  }
+  .download-card h2 {
+    margin-top: 0;
+    color: var(--color-primary, #0066cc);
+  }
+  .card-tagline {
+    color: #444;
+    line-height: 1.6;
+  }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0 1rem;
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .badge-free {
+    background-color: #e6f4ea;
+    color: #1e7e34;
+    border: 1px solid #a8d5b5;
+  }
+  .badge-beta {
+    background-color: #fff3e0;
+    color: #bf5a00;
+    border: 1px solid #f5c78a;
+  }
+  .badge-simple {
+    background-color: #e8f0fe;
+    color: #1a56b0;
+    border: 1px solid #a8c4f5;
+  }
+  .feature-list {
+    flex-grow: 1;
+    padding-left: 1.25rem;
+    margin: 0 0 1.5rem;
+  }
+  .feature-list li {
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 0.3rem;
+  }
+  .download-btn {
+    display: inline-block;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary, #0066cc);
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .download-btn:hover {
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .card-links {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .which-section {
+    padding: 1.5rem 0 3rem;
+    max-width: 720px;
+  }
+  .which-section h2 {
+    color: var(--color-primary, #0066cc);
+  }
+  .which-section p, .which-section li {
+    line-height: 1.75;
+    color: #333;
+  }
+  .which-section ul {
+    padding-left: 1.25rem;
+  }
+  .which-section li {
+    margin-bottom: 0.5rem;
+  }
+</style>
