@@ -1,7 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
-const sections = [
+const curatedSections = [
   {
     heading: 'Getting Started',
     items: [
@@ -21,6 +22,7 @@ const sections = [
       { slug: 'help-find-similar', label: 'Find Similar Images' },
       { slug: 'help-keyword-dedup-and-declutter', label: 'Keyword Deduplication & De-Clutter' },
       { slug: 'help-train-from-edits', label: 'Save Edits as AI Training Examples' },
+      { slug: 'plugin-guide', label: 'Plugin Guide — Complete Menu Reference' },
     ],
   },
   {
@@ -34,6 +36,22 @@ const sections = [
     ],
   },
 ];
+
+// The doc pages come from the LrGeniusAI wiki (see scripts/fetch-docs.sh) and
+// the groups above are curated by hand, so a newly added page would otherwise
+// exist at its URL but be linked from nowhere. Anything not placed in a group
+// is listed here instead — visible and indexable from day one, and a nudge to
+// file it properly.
+const docs = await getCollection('docs');
+const curatedSlugs = new Set(curatedSections.flatMap((s) => s.items.map((i) => i.slug)));
+const ungrouped = docs
+  .filter((doc) => !curatedSlugs.has(doc.id))
+  .map((doc) => ({ slug: doc.id, label: doc.data.title ?? doc.id }))
+  .sort((a, b) => a.label.localeCompare(b.label));
+
+const sections = ungrouped.length
+  ? [...curatedSections, { heading: 'More Guides', items: ungrouped }]
+  : curatedSections;
 
 const faqs = [
   {
