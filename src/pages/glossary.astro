@@ -28,19 +28,43 @@ const terms = [
   },
   {
     term: "Vision-Language Model (VLM)",
-    definition: "An AI model that understands both images and text simultaneously. Instead of only recognizing objects from a fixed list, a VLM can describe what it sees in natural language, answer questions about an image, and generate contextually rich keywords and captions. LrGeniusAI supports multiple VLMs — local models via Ollama or LM Studio, and cloud models like GPT-4o and Gemini.",
+    definition: "An AI model that understands both images and text simultaneously. Instead of only recognizing objects from a fixed list, a VLM can describe what it sees in natural language, answer questions about an image, and generate contextually rich keywords and captions. LrGeniusAI supports multiple VLMs — models it runs itself (Gemma 4, Qwen3-VL, Qwen2.5-VL), models served by Ollama or LM Studio, and cloud models like GPT-4o and Gemini.",
     link: "/help/docs/help-choosing-ai-model",
     linkText: "Choosing an AI Model guide"
   },
   {
+    term: "llama.cpp",
+    definition: "An open-source C++ inference engine for running language and vision models efficiently on ordinary consumer hardware. LrGeniusAI embeds llama.cpp directly in its backend, so it can run a local vision model in-process without Ollama, LM Studio, or any other AI app installed. It works on macOS, Windows, and Linux, with GPU acceleration via Metal on macOS and Vulkan on Windows.",
+    link: "/help/docs/help-local-ai-models",
+    linkText: "Built-In Local AI Models guide"
+  },
+  {
+    term: "MLX",
+    definition: "Apple's machine-learning framework built specifically for Apple silicon, using the unified memory architecture of M-series chips to run models efficiently on the GPU. On Apple silicon Macs, LrGeniusAI can run vision models through MLX as an alternative to llama.cpp — it is Apple's native inference stack, so it is worth benchmarking both on your own photos.",
+    link: "/help/docs/help-local-ai-models",
+    linkText: "Built-In Local AI Models guide"
+  },
+  {
+    term: "GGUF",
+    definition: "The model file format used by llama.cpp — a single file containing the model weights, quantized to reduce size and memory use. For vision models a GGUF comes as a pair: the weights plus an 'mmproj' vision projector, the part that lets the model actually see an image. LrGeniusAI downloads both automatically when you pick a local model.",
+    link: "/help/docs/help-local-ai-models",
+    linkText: "Built-In Local AI Models guide"
+  },
+  {
+    term: "Quantization",
+    definition: "Compressing an AI model by storing its weights at lower numerical precision — for example 4 bits per weight instead of 16. A quantized model uses far less RAM and runs faster, at a small cost in output quality. Quantization is what makes it practical to run a capable vision model on a laptop, and it is why LrGeniusAI's local models are a few gigabytes rather than tens of gigabytes.",
+    link: "/help/docs/help-local-ai-models",
+    linkText: "Built-In Local AI Models guide"
+  },
+  {
     term: "Ollama",
-    definition: "An open-source runtime for running large language and vision models on your own hardware. Ollama handles model downloading, management, and a local API server, so applications like LrGeniusAI can send images to a local AI model without any internet connection. Running AI locally via Ollama means your photos never leave your computer.",
+    definition: "An open-source runtime for running large language and vision models on your own hardware. Ollama handles model downloading, management, and a local API server, so applications like LrGeniusAI can send images to a local AI model without any internet connection. LrGeniusAI can also run local models itself via llama.cpp and MLX, so Ollama is an option rather than a requirement — useful if you already run it for other tools.",
     link: "/help/docs/help-ollama-setup",
     linkText: "Ollama Setup guide"
   },
   {
     term: "LM Studio",
-    definition: "A desktop application for running AI language and vision models locally on your own hardware, with a user-friendly interface for model management. LM Studio provides a local API compatible with the OpenAI format, which LrGeniusAI can connect to as an alternative to Ollama. Both Ollama and LM Studio allow fully offline, private AI processing.",
+    definition: "A desktop application for running AI language and vision models locally on your own hardware, with a user-friendly interface for model management. LM Studio provides a local API compatible with the OpenAI format, which LrGeniusAI can connect to as an alternative to Ollama. LrGeniusAI also reuses models already downloaded in LM Studio when running them through its own built-in engines, so you are not storing a second copy.",
     link: "/help/docs/help-lm-studio-setup",
     linkText: "LM Studio Setup guide"
   },
@@ -85,7 +109,7 @@ const terms = [
 
 <Layout
   title="Photography AI Glossary — Key Terms for LrGeniusAI & Lightroom"
-  description="Plain-English definitions of AI photography terms: semantic search, culling, embeddings, vision-language models, Ollama, CLIP, and more. Relevant to LrGeniusAI and Lightroom Classic."
+  description="Plain-English definitions of AI photography terms: semantic search, culling, embeddings, vision-language models, llama.cpp, MLX, quantization, Ollama, CLIP, and more. Relevant to LrGeniusAI and Lightroom Classic."
 >
 
   <script type="application/ld+json" set:html={JSON.stringify({

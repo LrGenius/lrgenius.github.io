@@ -41,7 +41,7 @@ const lastUpdated = '2026-06-01';
         "name": "Is LrGenius a good alternative to AnyVision for Lightroom keywording?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "LrGenius is a strong alternative, especially for photographers concerned about privacy or cost. Both tools add AI-generated keywords to photos inside Lightroom. AnyVision routes images through Google Cloud Vision, which means photos are uploaded to an external server and you pay ongoing API costs. LrGenius can run entirely on your own hardware via Ollama or LM Studio — no cloud upload, no recurring fee. LrGenius also adds semantic free-text search, captions, culling, and face recognition that AnyVision does not provide."
+          "text": "LrGenius is a strong alternative, especially for photographers concerned about privacy or cost. Both tools add AI-generated keywords to photos inside Lightroom. AnyVision routes images through Google Cloud Vision, which means photos are uploaded to an external server and you pay ongoing API costs. LrGenius can run entirely on your own hardware, using AI models built into the plugin or an existing Ollama or LM Studio server — no cloud upload, no recurring fee. LrGenius also adds semantic free-text search, captions, culling, and face recognition that AnyVision does not provide."
         }
       },
       {
@@ -57,7 +57,7 @@ const lastUpdated = '2026-06-01';
         "name": "Is AnyVision free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. AnyVision requires a paid plugin license plus Google Cloud Vision API costs for each image processed. LrGeniusAI is completely free and open-source (AGPL-3.0). Local processing via Ollama or LM Studio has no per-image cost."
+          "text": "No. AnyVision requires a paid plugin license plus Google Cloud Vision API costs for each image processed. LrGeniusAI is completely free and open-source (AGPL-3.0). Local processing has no per-image cost, whether you use the plugin's built-in AI models or Ollama and LM Studio."
         }
       }
     ]
@@ -138,7 +138,7 @@ const lastUpdated = '2026-06-01';
           </tr>
           <tr>
             <td>Runs locally / offline</td>
-            <td>Yes (Ollama, LM Studio)</td>
+            <td>Yes (built in, or Ollama / LM Studio)</td>
             <td>No — cloud only (Google Vision)</td>
           </tr>
           <tr>

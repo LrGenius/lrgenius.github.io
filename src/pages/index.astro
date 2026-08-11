@@ -5,13 +5,7 @@ import { getCollection } from 'astro:content';
 const testimonials = await getCollection('testimonials');
 ---
 
-<Layout title="LrGeniusAI - Free & Open Source AI Workflow Suite for Lightroom Classic" description="Free open-source AI plugin for Adobe Lightroom Classic. AI keywording, semantic photo search, culling, and face recognition. Runs locally via Ollama or LM Studio, or with ChatGPT and Google Gemini.">
-
-  <div class="notice-bar">
-    <a href="https://blog.fokuspunk.de/posts/taking-a-break-from-open-source/" target="_blank" rel="noopener noreferrer">
-      A personal note from the developer: I am taking a break from open source. Read more &rarr;
-    </a>
-  </div>
+<Layout title="LrGeniusAI - Free & Open Source AI Workflow Suite for Lightroom Classic" description="Free open-source AI plugin for Adobe Lightroom Classic. AI keywording, semantic photo search, culling, and face recognition. Runs AI models on your own machine with no extra software, or connect ChatGPT and Google Gemini.">
 
   <section class="hero">
     <img src="/images/logo.png" alt="LrGeniusAI - AI Workflow Suite for Lightroom Classic" width="500">
@@ -21,15 +15,17 @@ const testimonials = await getCollection('testimonials');
     <div class="badges">
       <span class="badge badge-free">100% Free &amp; Open Source</span>
       <span class="badge badge-license">AGPL-3.0</span>
-      <span class="badge badge-local">Runs Fully Local via Ollama / LM Studio</span>
+      <span class="badge badge-local">Built-In Local AI — No Extra Software</span>
     </div>
 
     <p class="hero-intro">
       LrGeniusAI is a powerful Lightroom Classic plugin that goes far beyond keyword tagging.
       Cull your shoots with AI, apply your personal editing style automatically, search your entire library
       with plain English, and get context-aware AI analysis — all without leaving Lightroom.
-      Runs 100% locally via <strong>Ollama</strong> or <strong>LM Studio</strong>, or connect to cloud
-      models like ChatGPT and Google Gemini. Your photos, your hardware, your choice.
+      It runs vision models <strong>on your own machine out of the box</strong> — pick one in the
+      Plug-in Manager and click download, no Ollama, no LM Studio, nothing else to install. Prefer a
+      different setup? Connect an existing Ollama or LM Studio server, or cloud models like ChatGPT and
+      Google Gemini. Your photos, your hardware, your choice.
     </p>
   </section>
 
@@ -40,13 +36,18 @@ const testimonials = await getCollection('testimonials');
       Installers and binaries are <strong>not yet code-signed</strong>, which may trigger security warnings.
     </p>
     <p>
-      <strong>Zero-Setup Experience:</strong> LrGeniusAI runs as a silent background service on macOS and Windows.
-      Start with the <strong>Onboarding Wizard</strong> to configure your AI providers in minutes.
+      <strong>Zero-Setup Experience:</strong> LrGeniusAI runs as a silent background service on macOS and Windows,
+      written in Rust for low memory overhead. Pick a local AI model in the Plug-in Manager and click
+      <strong>Download</strong> — see <a href="/help/docs/help-local-ai-models">Built-In Local AI Models</a>.
     </p>
       <p>Browse the <a href="/help">Help &amp; Documentation</a> or jump straight to <a href="/help/docs/getting-started">Getting Started</a> and the <a href="/help/docs/faq">FAQ</a>.</p>
   </section>
 
     <div class="core-features">
+      <div class="core-feature">
+        <h3>🏠 Built-In Local AI</h3>
+        <p>The backend runs vision models itself — <strong>llama.cpp</strong> on macOS, Windows, and Linux, and <strong>MLX</strong> on Apple silicon. Choose a model, click download, and everything happens on your machine. No Ollama, no LM Studio, no second app to keep running.</p>
+      </div>
       <div class="core-feature">
         <h3>🎯 AI-Powered Culling <span class="badge-beta">Beta</span></h3>
         <p>Let the AI pre-select your best shots. Face-aware culling evaluates focus, expression, and composition so you spend less time rejecting and more time editing.</p>
@@ -91,11 +92,11 @@ const testimonials = await getCollection('testimonials');
     <div class="feature-highlights">
       <div class="feature-item">
         <h3>🔒 Complete Privacy</h3>
-        <p>Use Ollama or LM Studio for 100% local image analysis. Your photos never leave your computer.</p>
+        <p>Run a local model for 100% local image analysis — built in, or via Ollama and LM Studio. Your photos never leave your computer.</p>
       </div>
       <div class="feature-item">
         <h3>🚀 5+ AI Providers</h3>
-        <p>Switch between local models (Ollama, LM Studio) and cloud services (ChatGPT, Gemini, Vertex AI) anytime.</p>
+        <p>Switch between built-in local engines (llama.cpp, MLX), external local servers (Ollama, LM Studio), and cloud services (ChatGPT, Gemini, Vertex AI) anytime.</p>
       </div>
       <div class="feature-item">
         <h3>👥 Face Recognition</h3>
@@ -110,21 +111,6 @@ const testimonials = await getCollection('testimonials');
  </Layout>
 
 <style>
- .notice-bar {
-    background-color: #fff8e1;
-    border-bottom: 1px solid #f0c040;
-    text-align: center;
-    padding: 0.75rem 1rem;
-    font-size: 0.95rem;
-  }
- .notice-bar a {
-    color: #7a5800;
-    font-weight: 600;
-    text-decoration: underline;
-  }
- .notice-bar a:hover {
-    color: #4a3300;
-  }
  .hero {
     text-align: center;
     padding: 4rem 0;

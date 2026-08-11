@@ -9,11 +9,15 @@ Maintained by Bastian Machek (Fokuspunk). GitHub org: https://github.com/LrGeniu
 - **Platforms:** macOS and Windows
 - **Requires:** Adobe Lightroom Classic (not Lightroom CC)
 - **Status:** Beta / active development (installers not yet code-signed)
-- **Runs 100% locally** with Ollama or LM Studio — photos never leave your computer
+- **Runs 100% locally out of the box** — the backend runs vision models itself via built-in
+  llama.cpp and MLX engines, with no external AI app to install. Photos never leave your computer.
+- **Also supports external local servers:** Ollama, LM Studio
 - **Optional cloud AI:** OpenAI/ChatGPT, Google Gemini, Google Vertex AI
+- **Backend:** `geniusai-server`, a single Rust binary (default `http://127.0.0.1:19819`)
 
 ## Features
 
+- Built-in local vision models — pick one in the Plug-in Manager and click Download
 - AI keyword generation (open-vocabulary, prompt-tunable)
 - AI captions, titles, and alt-text for photos
 - Semantic free-text search across your entire Lightroom library
@@ -26,8 +30,10 @@ Maintained by Bastian Machek (Fokuspunk). GitHub org: https://github.com/LrGeniu
 
 | Provider | Type | Notes |
 |---|---|---|
-| Ollama | Local | 100% private, free, runs on your hardware |
-| LM Studio | Local | 100% private, free, runs on your hardware |
+| llama.cpp (built in) | Local | In-process GGUF engine, no external app. macOS/Windows/Linux; Metal on macOS, Vulkan on Windows |
+| MLX (built in) | Local | Apple silicon only, via a small Metal helper process |
+| Ollama | Local | External server, 100% private, free, runs on your hardware |
+| LM Studio | Local | External server, 100% private, free, runs on your hardware |
 | OpenAI / ChatGPT | Cloud | Requires API key, billed by OpenAI |
 | Google Gemini | Cloud | Requires API key, billed by Google |
 | Google Vertex AI | Cloud | Requires GCP project, billed by Google |
@@ -36,6 +42,7 @@ Maintained by Bastian Machek (Fokuspunk). GitHub org: https://github.com/LrGeniu
 
 - Home: https://lrgenius.com
 - Getting Started: https://lrgenius.com/help/docs/getting-started
+- Built-In Local AI Models (llama.cpp & MLX): https://lrgenius.com/help/docs/help-local-ai-models
 - FAQ: https://lrgenius.com/help/docs/faq
 - Help & Documentation: https://lrgenius.com/help
 - Downloads / Releases: https://github.com/LrGenius/LrGeniusAI/releases

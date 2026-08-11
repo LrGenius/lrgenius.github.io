@@ -19,9 +19,9 @@
   "footer.instagram": "Instagram",
   "footer.facebook": "Facebook",
   "alt.logo": "LrGenius Logo",
-  "seo.default_description": "LrGeniusAI — free, open-source AI plugin for Lightroom Classic. AI keywording, semantic search, photo culling, and face recognition. Runs locally via Ollama or LM Studio, or via cloud AI.",
-  "seo.keywords": "Lightroom Classic, AI Plugin, Keywording, Semantic Search, Ollama, ChatGPT, Photo Management, Image Description, Face Recognition, Local AI",
-  "cookie.message": "We use Google Analytics and Microsoft Clarity (session recordings, heatmaps) to understand how you use our site. By clicking 'Accept', you agree that we and Microsoft may collect and use this data.",
+  "seo.default_description": "LrGeniusAI — free, open-source AI plugin for Lightroom Classic. AI keywording, semantic search, photo culling, and face recognition. Runs AI models on your own machine with no extra software, or via Ollama, LM Studio, or cloud AI.",
+  "seo.keywords": "Lightroom Classic, AI Plugin, Keywording, Semantic Search, llama.cpp, MLX, Ollama, ChatGPT, Photo Management, Image Description, Face Recognition, Local AI, Offline AI",
+  "cookie.message": "We use Google Analytics to understand how you use our site. By clicking 'Accept', you agree that we may collect and use this data.",
   "cookie.accept": "Accept",
   "cookie.decline": "Decline"
 }

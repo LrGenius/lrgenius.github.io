@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
   title="About LrGeniusAI — Free & Open Source AI Plugin for Lightroom Classic"
-  description="LrGeniusAI is a free, open-source AI plugin for Lightroom Classic. Learn about the project's mission, local-AI-first philosophy, AGPL-3.0 license, and how to contribute."
+  description="LrGeniusAI is a free, open-source AI plugin for Lightroom Classic. Learn about the project's mission, local-AI-first philosophy with built-in llama.cpp and MLX engines, AGPL-3.0 license, and how to contribute."
 >
 
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -53,8 +53,15 @@ import Layout from '../layouts/Layout.astro';
   <section class="about-section">
     <h2>Local AI first</h2>
     <p>
-      LrGeniusAI is designed to run your photos entirely on your own hardware via
-      <a href="/help/docs/help-ollama-setup">Ollama</a> or <a href="/help/docs/help-lm-studio-setup">LM Studio</a>.
+      LrGeniusAI is designed to run your photos entirely on your own hardware — and it does so without
+      asking you to install anything else. The backend runs vision models itself through
+      <a href="/help/docs/help-local-ai-models">built-in llama.cpp and MLX engines</a>: pick a model in the
+      Plug-in Manager, click download, and analysis happens on your machine. If you already run
+      <a href="/help/docs/help-ollama-setup">Ollama</a> or <a href="/help/docs/help-lm-studio-setup">LM Studio</a>,
+      the plugin talks to those too, and reuses models you have already downloaded rather than fetching a
+      second copy.
+    </p>
+    <p>
       When running locally, no image data ever leaves your computer — no telemetry, no training on your
       photos, no third-party access. This matters for photographers working with unpublished client work,
       sensitive subjects, or simply anyone who values owning their data.
@@ -70,7 +77,8 @@ import Layout from '../layouts/Layout.astro';
     <p>
       LrGeniusAI is under active development. Core features — AI keywording, semantic search, and face
       recognition — are stable and in daily use by photographers. AI culling and editing recipes are in
-      beta and still maturing.
+      beta and still maturing. The backend was rewritten in Rust, which cut its memory footprint and
+      sped up indexing considerably.
     </p>
     <p>
       Installers are currently not code-signed, which may trigger security warnings on macOS and Windows.
