@@ -28,6 +28,7 @@ const titleMap: Record<string, string> = {
   'help-cull-photos': 'AI Photo Culling & Best Shot Selection in Lightroom',
   'help-find-similar': 'Find Similar Photos Across Your Lightroom Library',
   'help-keyword-dedup-and-declutter': 'Keyword Deduplication & Tag Cleanup for Lightroom',
+  'help-local-ai-models': 'Built-In Local AI Models — llama.cpp & MLX in Lightroom',
   'help-lm-studio-setup': 'LM Studio Setup for Local AI in Lightroom Classic',
   'help-ollama-setup': 'Ollama Setup for Local AI in Lightroom Classic',
   'help-people-faces': 'Face Recognition & People Management in Lightroom',
@@ -44,10 +45,11 @@ const descriptionMap: Record<string, string> = {
   'help-advanced-search': 'How to use semantic free-text search in LrGeniusAI to find any photo in your Lightroom Classic library by describing it in plain language. Covers indexing, search tips, and compatible AI providers.',
   'help-ai-edit': "How to use LrGeniusAI's AI Edit feature to apply smart develop recipes and personal editing styles to photos in Lightroom Classic. Create, apply, and refine AI-generated editing presets (beta).",
   'help-analyze-and-index': "How to use LrGeniusAI's Analyze & Index feature to generate AI keywords, captions, titles, alt-text, and semantic embeddings for Lightroom Classic photos. Covers batch processing and provider options.",
-  'help-choosing-ai-model': 'How to choose the best AI model for LrGeniusAI — compare local models via Ollama and LM Studio with cloud providers OpenAI ChatGPT, Google Gemini, and Vertex AI. Privacy, cost, and quality trade-offs explained.',
+  'help-choosing-ai-model': 'How to choose the best AI model for LrGeniusAI — compare the built-in local engines (llama.cpp, MLX) and external servers like Ollama and LM Studio with cloud providers OpenAI ChatGPT, Google Gemini, and Vertex AI. Privacy, cost, and quality trade-offs explained.',
   'help-cull-photos': "How to use LrGeniusAI's AI photo culling to automatically select the best shots in Lightroom Classic. Covers face-aware selection, sharpness scoring, expression detection, and pick/reject workflows.",
   'help-find-similar': "How to use LrGeniusAI's Find Similar Images feature to discover visually similar photos across your entire Lightroom Classic catalog using AI-powered semantic embeddings and image similarity search.",
   'help-keyword-dedup-and-declutter': "How to use LrGeniusAI's keyword deduplication and de-clutter tools to merge duplicate tags, clean up keyword hierarchies, and tidy your Lightroom Classic keyword library for better catalog organization.",
+  'help-local-ai-models': 'Run AI photo analysis fully offline with the local models built into LrGeniusAI — llama.cpp (GGUF, Windows/macOS/Linux) and MLX on Apple silicon. Download a vision model straight from the Lightroom Plug-in Manager; no Ollama or LM Studio required.',
   'help-lm-studio-setup': 'Step-by-step guide to setting up LM Studio as a local AI provider for LrGeniusAI. Run AI photo analysis, keyword generation, and semantic search 100% offline on macOS or Windows — no cloud uploads.',
   'help-ollama-setup': 'Step-by-step guide to setting up Ollama as a local AI provider for LrGeniusAI. Run AI keywording, semantic search, and photo culling 100% offline on your own hardware — no cloud subscription required.',
   'help-people-faces': "How to use LrGeniusAI's face recognition and People dialog to automatically cluster faces, identify individuals, and find specific people across your entire Lightroom Classic photo catalog.",
@@ -99,7 +101,7 @@ const faqSchema = isFaq ? {
       "name": "Does LrGeniusAI send my photos to the cloud?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only if you choose a cloud provider (ChatGPT/OpenAI, Google Gemini, Vertex AI). With local providers (Ollama, LM Studio) your photos never leave your machine. For cloud providers, images are sent to the respective API for analysis. Embeddings and all generated metadata are always stored locally on your computer."
+        "text": "Only if you choose a cloud provider (ChatGPT/OpenAI, Google Gemini, Vertex AI). With a local provider — the built-in llama.cpp and MLX engines, or an external Ollama or LM Studio server — your photos never leave your machine. For cloud providers, images are sent to the respective API for analysis. Embeddings and all generated metadata are always stored locally on your computer."
       }
     },
     {
@@ -107,7 +109,7 @@ const faqSchema = isFaq ? {
       "name": "Is LrGeniusAI free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. LrGeniusAI is completely free and open-source under the AGPL-3.0 license. Cloud API usage (Gemini, OpenAI) incurs costs at the respective provider's standard rates. Local models via Ollama or LM Studio are completely free to run."
+        "text": "Yes. LrGeniusAI is completely free and open-source under the AGPL-3.0 license. Cloud API usage (Gemini, OpenAI) incurs costs at the respective provider's standard rates. Local models are completely free to run, including the ones the plugin's backend downloads and runs itself."
       }
     },
     {
@@ -115,7 +117,7 @@ const faqSchema = isFaq ? {
       "name": "Does LrGeniusAI work offline without internet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. When you configure Ollama or LM Studio as your AI provider, all image analysis, keyword generation, semantic search indexing, and culling happen entirely on your own hardware. No internet connection is required after the initial model download."
+        "text": "Yes. With a local AI provider — the llama.cpp and MLX engines built into the backend, or an external Ollama or LM Studio server — all image analysis, keyword generation, semantic search indexing, and culling happen entirely on your own hardware. No internet connection is required after the initial model download."
       }
     },
     {
@@ -155,7 +157,7 @@ const faqSchema = isFaq ? {
       "name": "Which AI models does LrGeniusAI support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "LrGeniusAI supports local models via Ollama and LM Studio (such as qwen3-vl), and cloud models including OpenAI/ChatGPT (gpt-4o, gpt-5), Google Gemini (gemini-2.5-flash, gemini-2.5-pro), and Google Vertex AI. You can switch providers at any time from the Plug-in Manager."
+        "text": "LrGeniusAI runs local vision models itself — llama.cpp (GGUF) on Windows, macOS and Linux, and MLX on Apple silicon — with models such as Gemma 4 and Qwen3-VL downloadable straight from the Plug-in Manager. It also supports external local servers (Ollama, LM Studio) and cloud models including OpenAI/ChatGPT (gpt-4.1, gpt-5), Google Gemini (gemini-2.5-flash, gemini-2.5-pro), and Google Vertex AI. You can switch providers at any time from the Plug-in Manager."
       }
     }
   ]
@@ -171,13 +173,13 @@ const howToSchema = isGettingStarted ? {
       "@type": "HowToStep",
       "position": 1,
       "name": "Install Plugin and Server",
-      "text": "Download the latest release from https://github.com/LrGenius/LrGeniusAI/releases. Install both the Lightroom Classic plugin (.lrdevplugin) and the Python backend server. If your OS shows a security warning: on macOS, right-click the .pkg → Open → Open anyway; on Windows, click More info → Run anyway in the SmartScreen prompt."
+      "text": "Download the latest release from https://github.com/LrGenius/LrGeniusAI/releases. Install both the Lightroom Classic plugin (.lrdevplugin) and the backend server. If your OS shows a security warning: on macOS, right-click the .pkg → Open → Open anyway; on Windows, click More info → Run anyway in the SmartScreen prompt."
     },
     {
       "@type": "HowToStep",
       "position": 2,
       "name": "Configure Plugin",
-      "text": "Open File → Plug-in Manager in Lightroom and find LrGeniusAI. Set the Backend Server URL (default: http://127.0.0.1:8000). Enter API keys for cloud providers (OpenAI, Google Gemini), or configure the URL for local providers (Ollama, LM Studio)."
+      "text": "Open File → Plug-in Manager in Lightroom and find LrGeniusAI. Set the Backend Server URL (default: http://127.0.0.1:19819). Enter API keys for cloud providers (OpenAI, Google Gemini), download a built-in local model (llama.cpp or MLX) from the Local AI Model section, or configure the URL of an external Ollama or LM Studio server."
     },
     {
       "@type": "HowToStep",
