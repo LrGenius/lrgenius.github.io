@@ -27,6 +27,7 @@ const sections = [
     heading: 'AI Model Setup',
     items: [
       { slug: 'help-choosing-ai-model', label: 'Choosing an AI Model' },
+      { slug: 'help-local-ai-models', label: 'Built-In Local AI Models (llama.cpp & MLX)' },
       { slug: 'help-ollama-setup', label: 'Ollama Setup' },
       { slug: 'help-lm-studio-setup', label: 'LM Studio Setup' },
       { slug: 'google-vertex-ai-login', label: 'Google Vertex AI Login' },
@@ -37,15 +38,15 @@ const sections = [
 const faqs = [
   {
     question: "Is LrGeniusAI really free and open-source?",
-    answer: "Yes. LrGeniusAI is published under the AGPL-3.0 license and the complete source code is available on GitHub. There are no subscription fees, no usage limits imposed by LrGeniusAI itself, and no hidden paid tiers. If you choose to use a cloud AI provider such as OpenAI or Google Gemini, their API usage is billed directly by that provider — but switching to a fully local backend (Ollama or LM Studio) makes the entire pipeline cost-free."
+    answer: "Yes. LrGeniusAI is published under the AGPL-3.0 license and the complete source code is available on GitHub. There are no subscription fees, no usage limits imposed by LrGeniusAI itself, and no hidden paid tiers. If you choose to use a cloud AI provider such as OpenAI or Google Gemini, their API usage is billed directly by that provider — but switching to a local model — one the backend runs itself, or an external Ollama or LM Studio server — makes the entire pipeline cost-free."
   },
   {
     question: "Can I run LrGeniusAI completely offline without internet?",
-    answer: "Yes. When you configure Ollama or LM Studio as your AI provider, all image analysis, keyword generation, semantic search indexing, and culling happen entirely on your own hardware. No internet connection is required after the initial model download. Cloud providers (ChatGPT, Gemini, Vertex AI) are optional."
+    answer: "Yes. When you use a local model — llama.cpp or MLX built into the backend, or an external Ollama or LM Studio server — all image analysis, keyword generation, semantic search indexing, and culling happen entirely on your own hardware. No internet connection is required after the initial model download. Cloud providers (ChatGPT, Gemini, Vertex AI) are optional."
   },
   {
     question: "Does LrGeniusAI upload my RAW files or photos to any server?",
-    answer: "No — not by default. When using a local AI provider (Ollama or LM Studio), image data never leaves your computer. If you configure a cloud provider, LrGeniusAI sends JPEG preview data (not your original RAW files) to that provider's API for analysis, exactly as described in the provider's own privacy policy."
+    answer: "No — not by default. When using a local AI provider — the built-in llama.cpp and MLX engines, or an external Ollama or LM Studio server — image data never leaves your computer. If you configure a cloud provider, LrGeniusAI sends JPEG preview data (not your original RAW files) to that provider's API for analysis, exactly as described in the provider's own privacy policy."
   },
   {
     question: "How does the AI Culling work compared to paid tools like Aftershoot or Narrative Select?",

@@ -37,6 +37,7 @@ get_title() {
     Help-Keyword-Dedup-and-Declutter) echo "Help: Keyword Deduplication and De-Clutter" ;;
     Help-Train-From-Edits) echo "Help: Save Edits as AI Training Examples" ;;
     Help-Choosing-AI-Model) echo "Help: Choosing an AI Model" ;;
+    Help-Local-AI-Models) echo "Help: Built-In Local AI Models" ;;
     Help-Ollama-Setup) echo "Help: Ollama Setup" ;;
     Help-LM-Studio-Setup) echo "Help: LM Studio Setup" ;;
     Google-Vertex-AI-Login) echo "Google Vertex AI Login" ;;
@@ -59,6 +60,7 @@ USER_DOCS=(
   Help-Keyword-Dedup-and-Declutter
   Help-Train-From-Edits
   Help-Choosing-AI-Model
+  Help-Local-AI-Models
   Help-Ollama-Setup
   Help-LM-Studio-Setup
   Google-Vertex-AI-Login
@@ -76,9 +78,17 @@ rewrite_links() {
 import sys, re
 
 GITHUB_REPO = 'https://github.com/LrGenius/LrGeniusAI'
+# Slugs that are not hosted as docs pages (dev docs are excluded from
+# USER_DOCS) are mapped to GitHub instead, so the link resolves rather than
+# 404ing. The wiki pages carry a 'Dev-' prefix; the un-prefixed keys are the
+# older names and are kept so historical links keep working.
 SLUG_OVERRIDES = {
+    'dev-project-readme': f'{GITHUB_REPO}#readme',
     'project-readme': f'{GITHUB_REPO}#readme',
+    'dev-plugin-readme': f'{GITHUB_REPO}/blob/main/plugin/README.md',
     'plugin-readme': f'{GITHUB_REPO}/blob/main/plugin/README.md',
+    'dev-server-readme': f'{GITHUB_REPO}/blob/main/server-rs/README.md',
+    'server-readme': f'{GITHUB_REPO}/blob/main/server-rs/README.md',
 }
 
 def lower_slug(m):
