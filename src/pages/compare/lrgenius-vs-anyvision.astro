@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 
 const title = 'LrGenius vs. AnyVision (2026)';
 const description = 'AnyVision uses Google Cloud Vision to tag photos in Lightroom. LrGenius is free, open-source, and can run local AI keywording without sending photos to the cloud — plus semantic search, culling, and more.';
-const lastUpdated = '2026-06-01';
+const lastUpdated = '2026-08-17';
 ---
 
 <Layout title={`${title} — AI Keywording Comparison for Lightroom`} description={description}>
@@ -78,9 +78,9 @@ const lastUpdated = '2026-06-01';
     </p>
     <p>
       <strong>Choose LrGeniusAI</strong> if you want to keep your photos on your own hardware, avoid ongoing
-      API costs, and get open-vocabulary keywords plus captions, semantic search, culling, and face recognition —
-      all in one free, open-source plugin. LrGeniusAI's local models can match or exceed Google Vision's keyword
-      quality for many photography genres.
+      API costs, and get open-vocabulary keywords plus captions, semantic search, culling, face recognition, and
+      taxonomic species identification — all in one free, open-source plugin. LrGeniusAI's local models can match
+      or exceed Google Vision's keyword quality for many photography genres.
     </p>
   </section>
 
@@ -98,7 +98,7 @@ const lastUpdated = '2026-06-01';
         <tbody>
           <tr>
             <td>Primary purpose</td>
-            <td>Keywording, captions, search, culling, edit training</td>
+            <td>Keywording, captions, search, species ID, culling, edit training</td>
             <td>AI keyword tagging via Google Cloud Vision</td>
           </tr>
           <tr>
@@ -122,6 +122,11 @@ const lastUpdated = '2026-06-01';
             <td>Indirect only (via generated tags)</td>
           </tr>
           <tr>
+            <td>Species identification (taxonomic)</td>
+            <td>Yes — BioCLIP 2 on-device, with rank &amp; confidence</td>
+            <td>Indirect — Google Vision labels, no ranks</td>
+          </tr>
+          <tr>
             <td>AI culling</td>
             <td>Yes, face-aware (beta)</td>
             <td>No</td>
@@ -133,7 +138,7 @@ const lastUpdated = '2026-06-01';
           </tr>
           <tr>
             <td>Learns personal editing style</td>
-            <td>"Looks" — experimental</td>
+            <td>AI Edit — from your own saved edits (beta)</td>
             <td>No</td>
           </tr>
           <tr>
@@ -184,6 +189,13 @@ const lastUpdated = '2026-06-01';
       (wildlife, wedding, stock) and choose whether to use a local model (free, private) or a cloud API
       (ChatGPT, Gemini). Beyond keywording, LrGeniusAI adds semantic free-text search, captions
       for accessibility, culling, and face recognition — none of which AnyVision provides.
+    </p>
+    <p>
+      For nature work the difference is sharper still. Google Vision returns labels; LrGeniusAI runs
+      <strong>BioCLIP 2</strong> on your own machine and writes an actual taxonomic identification — scientific
+      name, common name, rank, confidence and the full Linnean hierarchy — into searchable Lightroom fields,
+      with no API call and no per-photo cost. Where it is not confident of the species it reports the deepest
+      rank it is sure of instead of guessing a binomial.
     </p>
     <p>
       See the <a href="/help/docs/help-analyze-and-index">Analyze &amp; Index guide</a> and the

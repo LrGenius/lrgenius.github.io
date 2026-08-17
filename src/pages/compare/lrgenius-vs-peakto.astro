@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 
 const title = 'LrGenius vs. Peakto (2026)';
 const description = 'Peakto is a Mac-only catalog aggregator that spans Lightroom, Capture One, and Apple Photos. LrGenius is a Lightroom Classic plugin for Windows and macOS. AI features, platform support, and pricing compared.';
-const lastUpdated = '2026-06-01';
+const lastUpdated = '2026-08-17';
 ---
 
 <Layout title={`${title} — AI Plugin Comparison for Lightroom`} description={description}>
@@ -41,7 +41,7 @@ const lastUpdated = '2026-06-01';
         "name": "Is LrGenius better than Peakto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "They serve different purposes. Peakto is a Mac-only universal photo organiser that unifies Lightroom, Capture One, Apple Photos, and other catalogs in one searchable library — ideal for photographers who work across multiple apps. LrGeniusAI is a free, open-source Lightroom Classic plugin that adds AI keywording, captions, semantic search, culling, and editing in one place — available on both macOS and Windows. If you are committed to Lightroom Classic and want Windows support, LrGenius is the stronger fit; if you work across many apps on a Mac, Peakto covers more ground."
+          "text": "They serve different purposes. Peakto is a Mac-only universal photo organiser that unifies Lightroom, Capture One, Apple Photos, and other catalogs in one searchable library — ideal for photographers who work across multiple apps. LrGeniusAI is a free, open-source Lightroom Classic plugin that adds AI keywording, captions, semantic search, on-device species identification, culling, and editing in one place — available on both macOS and Windows. If you are committed to Lightroom Classic and want Windows support, LrGenius is the stronger fit; if you work across many apps on a Mac, Peakto covers more ground."
         }
       },
       {
@@ -77,8 +77,9 @@ const lastUpdated = '2026-06-01';
     </p>
     <p>
       <strong>Choose LrGeniusAI</strong> if you are committed to Lightroom Classic, need Windows support, and want
-      AI keywording, captions, semantic search, culling, and editing in one free, open-source plugin — with the
-      option to run everything 100% locally, with AI models built into the plugin or via Ollama and LM Studio.
+      AI keywording, captions, semantic search, species identification, culling, and editing in one free,
+      open-source plugin — with the option to run everything 100% locally, with AI models built into the plugin
+      or via Ollama and LM Studio.
     </p>
   </section>
 
@@ -125,6 +126,11 @@ const lastUpdated = '2026-06-01';
             <td>Yes</td>
           </tr>
           <tr>
+            <td>Species identification (taxonomic)</td>
+            <td>Yes — BioCLIP 2 on-device, with rank &amp; confidence</td>
+            <td>No — generic subject tags</td>
+          </tr>
+          <tr>
             <td>Face recognition</td>
             <td>Yes — clustering and People dialog (beta)</td>
             <td>Yes</td>
@@ -136,7 +142,7 @@ const lastUpdated = '2026-06-01';
           </tr>
           <tr>
             <td>Learns personal editing style</td>
-            <td>"Looks" — experimental</td>
+            <td>AI Edit — from your own saved edits (beta)</td>
             <td>No</td>
           </tr>
           <tr>
@@ -176,6 +182,12 @@ const lastUpdated = '2026-06-01';
       captions, titles, and alt-text directly into your catalog via the Lightroom SDK, and its semantic
       search shows results in a standard Lightroom collection so you never leave the app. It is also the
       only free, open-source option in this comparison, and the only one that runs on both macOS and Windows.
+    </p>
+    <p>
+      It is also the only one that identifies species taxonomically: <strong>BioCLIP 2</strong> runs on your own
+      machine and writes the scientific name, common name, rank, confidence and full Linnean taxonomy into
+      searchable metadata fields, optionally as a keyword hierarchy too. Peakto's local AI produces subject tags
+      such as "bird" or "flower", which is a different job.
     </p>
     <p>
       Because LrGeniusAI is in beta, results vary by model and feature maturity — check the

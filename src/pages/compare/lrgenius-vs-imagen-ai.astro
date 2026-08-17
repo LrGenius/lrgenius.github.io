@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 
 const title = 'LrGenius vs. Imagen AI (2026)';
 const description = 'Imagen AI is a cloud-based AI editing tool that learns your personal retouching style. LrGenius is free, open-source, and adds AI keywording, semantic search, and culling inside Lightroom Classic — at no cost.';
-const lastUpdated = '2026-06-01';
+const lastUpdated = '2026-08-17';
 ---
 
 <Layout title={`${title} — AI Editing Comparison for Lightroom`} description={description}>
@@ -78,9 +78,11 @@ const lastUpdated = '2026-06-01';
     </p>
     <p>
       <strong>Choose LrGeniusAI</strong> if you need more than just editing: AI keywording, semantic free-text
-      search, photo culling, face recognition, and captions — all in a single free, open-source Lightroom plugin.
-      LrGeniusAI can run 100% locally, with AI models built into the plugin or via Ollama and LM Studio. Its editing "Looks" feature is experimental but
-      costs nothing to try alongside your existing editing workflow.
+      search, photo culling, face recognition, on-device species identification, and captions — all in a single
+      free, open-source Lightroom plugin.
+      LrGeniusAI can run 100% locally, with AI models built into the plugin or via Ollama and LM Studio. Its
+      <em>AI Edit</em> feature builds recipes from your own saved edits; it is still in beta but costs nothing to
+      try alongside your existing editing workflow.
     </p>
   </section>
 
@@ -98,7 +100,7 @@ const lastUpdated = '2026-06-01';
         <tbody>
           <tr>
             <td>Primary purpose</td>
-            <td>Keywording, captions, search, culling, edit training</td>
+            <td>Keywording, captions, search, species ID, culling, edit training</td>
             <td>AI editing — learn and apply personal retouching style</td>
           </tr>
           <tr>
@@ -128,7 +130,7 @@ const lastUpdated = '2026-06-01';
           </tr>
           <tr>
             <td>Learns personal editing style</td>
-            <td>"Looks" — experimental</td>
+            <td>AI Edit — from your own saved edits (beta)</td>
             <td>Yes — mature, cloud-trained</td>
           </tr>
           <tr>
@@ -180,9 +182,10 @@ const lastUpdated = '2026-06-01';
       alongside editing, LrGeniusAI covers more ground for less money.
     </p>
     <p>
-      LrGeniusAI's editing "Looks" feature is still experimental and not a production replacement for Imagen AI's
-      mature style-transfer engine. See the <a href="/help/docs/help-ai-edit">AI Edit guide</a> for current
-      capabilities and limitations.
+      LrGeniusAI's <em>AI Edit</em> is still in beta and not a production replacement for Imagen AI's
+      mature style-transfer engine. It also works differently: every recipe is blended from the edits you saved
+      yourself, so it needs at least five training examples before it will run and calls no language model at all.
+      See the <a href="/help/docs/help-ai-edit">AI Edit guide</a> for current capabilities and limitations.
     </p>
   </section>
 

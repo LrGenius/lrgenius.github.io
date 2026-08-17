@@ -2,8 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 
 const title = 'Best AI Plugins for Adobe Lightroom Classic (2026)';
-const description = 'Compare LrGenius, Excire Search, Peakto, Aftershoot, Narrative Select, Imagen AI, and Neurapix — an honest feature-by-feature comparison of AI tools for Lightroom Classic photographers.';
-const lastUpdated = '2026-06-01';
+const description = 'Compare LrGenius, Excire Search, Peakto, Aftershoot, Narrative Select, Imagen AI, and Neurapix — an honest feature-by-feature comparison of AI tools for Lightroom Classic photographers, including on-device species identification.';
+const lastUpdated = '2026-08-17';
 ---
 
 <Layout title={`${title} — LrGenius`} description={description}>
@@ -45,7 +45,7 @@ const lastUpdated = '2026-06-01';
         "name": "What is the best free AI plugin for Adobe Lightroom Classic?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "LrGeniusAI is the only completely free and open-source (AGPL-3.0) AI plugin for Lightroom Classic. It covers AI keywording, captions, semantic search, culling, and face recognition without any subscription. It can run 100% locally, with AI models built into the plugin or via Ollama and LM Studio, so your photos never leave your computer."
+          "text": "LrGeniusAI is the only completely free and open-source (AGPL-3.0) AI plugin for Lightroom Classic. It covers AI keywording, captions, semantic search, culling, face recognition, and on-device species identification without any subscription. It can run 100% locally, with AI models built into the plugin or via Ollama and LM Studio, so your photos never leave your computer."
         }
       },
       {
@@ -53,7 +53,15 @@ const lastUpdated = '2026-06-01';
         "name": "Which AI plugin for Lightroom works offline without internet?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "LrGeniusAI, Excire Search, Aftershoot, and Peakto all offer local/offline processing. LrGeniusAI runs vision models directly in its own backend via llama.cpp and MLX, so no separate AI app is required, and it can also use an existing Ollama or LM Studio server. It is the only one of these that is free and open-source."
+          "text": "LrGeniusAI, Excire Search, Aftershoot, and Peakto all offer local/offline processing. LrGeniusAI runs vision models directly in its own backend — MLX on Apple silicon Macs and llama.cpp on Windows — so no separate AI app is required, and it can also use an existing Ollama or LM Studio server. Semantic search, face detection, and species identification always run on-device regardless of which provider you pick. It is the only one of these that is free and open-source."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Lightroom plugin can identify animal and plant species?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LrGeniusAI identifies animals, plants, and fungi with BioCLIP 2, which runs entirely on your own machine. It writes the scientific name, common name, taxonomic rank, confidence, and the full Linnean taxonomy into searchable Lightroom metadata fields, and can optionally write the taxonomy as a keyword hierarchy under a Species root. When it is not confident of the species it reports the deepest rank it is sure of — for example the order or class — instead of guessing a binomial. Other Lightroom AI tools tag generic subjects such as 'bird' or 'flower' rather than producing a taxonomic identification."
         }
       },
       {
@@ -78,7 +86,8 @@ const lastUpdated = '2026-06-01';
       <strong>LrGeniusAI</strong> is the only <strong>free, open-source</strong> (AGPL-3.0) AI plugin for
       Lightroom Classic. It runs <strong>100% locally</strong>, with AI models built right into the plugin — your photos never
       leave your computer — or connects to cloud models (ChatGPT, Gemini). No subscription, no usage
-      limits imposed by the plugin itself.
+      limits imposed by the plugin itself. It is also the only tool here that does
+      <strong>taxonomic species identification on-device</strong>, using BioCLIP 2.
     </p>
     <p>
       Below is a feature-by-feature comparison of the main AI tools in the Lightroom ecosystem.
@@ -97,6 +106,7 @@ const lastUpdated = '2026-06-01';
             <th>AI Keywording</th>
             <th>AI Culling</th>
             <th>Semantic Search</th>
+            <th>Species ID</th>
             <th>Edit Style AI</th>
             <th>Local / Offline</th>
             <th>Open Source</th>
@@ -109,7 +119,8 @@ const lastUpdated = '2026-06-01';
             <td>Yes — open-vocabulary</td>
             <td>Yes (beta)</td>
             <td>Yes</td>
-            <td>Yes, "Looks" (beta)</td>
+            <td>Yes — BioCLIP 2, on-device</td>
+            <td>Yes — learns from your own edits (beta)</td>
             <td>Yes (built in, or Ollama / LM Studio)</td>
             <td>Yes (AGPL-3.0)</td>
             <td>Free</td>
@@ -119,6 +130,7 @@ const lastUpdated = '2026-06-01';
             <td>Yes — fixed taxonomy</td>
             <td>Yes</td>
             <td>Yes</td>
+            <td>No — generic subject tags</td>
             <td>No</td>
             <td>Yes (on-device AI)</td>
             <td>No</td>
@@ -129,6 +141,7 @@ const lastUpdated = '2026-06-01';
             <td>Yes — Google Vision</td>
             <td>No</td>
             <td>Indirect (via tags)</td>
+            <td>Indirect — cloud labels, no ranks</td>
             <td>No</td>
             <td>No (cloud only)</td>
             <td>No</td>
@@ -139,6 +152,7 @@ const lastUpdated = '2026-06-01';
             <td>Yes — local AI</td>
             <td>Yes</td>
             <td>Yes</td>
+            <td>No — generic subject tags</td>
             <td>No</td>
             <td>Yes</td>
             <td>No</td>
@@ -148,6 +162,7 @@ const lastUpdated = '2026-06-01';
             <td><strong><a href="/compare/lrgenius-vs-aftershoot">Aftershoot</a></strong></td>
             <td>No</td>
             <td>Yes — mature</td>
+            <td>No</td>
             <td>No</td>
             <td>Yes (mature)</td>
             <td>Yes (local)</td>
@@ -159,6 +174,7 @@ const lastUpdated = '2026-06-01';
             <td>No</td>
             <td>Yes — mature</td>
             <td>No</td>
+            <td>No</td>
             <td>Partly (AI Presets)</td>
             <td>Mixed (cloud-assisted)</td>
             <td>No</td>
@@ -168,6 +184,7 @@ const lastUpdated = '2026-06-01';
             <td><strong><a href="/compare/lrgenius-vs-imagen-ai">Imagen AI</a></strong></td>
             <td>No</td>
             <td>Yes</td>
+            <td>No</td>
             <td>No</td>
             <td>Yes — mature</td>
             <td>No (cloud only)</td>
@@ -179,6 +196,7 @@ const lastUpdated = '2026-06-01';
             <td>No</td>
             <td>No</td>
             <td>No</td>
+            <td>No</td>
             <td>Yes — SmartPresets</td>
             <td>No (cloud only)</td>
             <td>No</td>
@@ -187,6 +205,11 @@ const lastUpdated = '2026-06-01';
         </tbody>
       </table>
     </div>
+    <p class="note">
+      <strong>Species ID</strong> means a <em>taxonomic</em> identification — a scientific name with its
+      rank and its place in the Linnean hierarchy — not a generic subject tag such as "bird" or "flower",
+      which most of these tools produce.
+    </p>
     <p class="note">
       Feature data reflects publicly available information as of {lastUpdated} and may change.
       All product names are trademarks of their respective owners.
@@ -200,7 +223,8 @@ const lastUpdated = '2026-06-01';
     <p>
       <strong>Excire Search</strong> is the established choice — polished, on-device, one-time purchase.
       <strong>LrGeniusAI</strong> generates open-vocabulary keywords plus captions, titles, and alt-text,
-      and adds semantic search — useful for stock, editorial, or accessibility work — at no cost.
+      and adds semantic search and on-device species identification — useful for stock, editorial,
+      accessibility, or nature work — at no cost.
       LrGeniusAI is still in beta; Excire is production-ready.
       → <a href="/lrgenius-vs-excire">LrGenius vs. Excire — detailed comparison</a>
     </p>
@@ -217,11 +241,23 @@ const lastUpdated = '2026-06-01';
       <a href="/compare/lrgenius-vs-narrative-select">LrGenius vs. Narrative Select</a>
     </p>
 
+    <h3>You shoot wildlife, birds, plants or macro</h3>
+    <p>
+      This is where <strong>LrGeniusAI</strong> has no direct equivalent in the list. Its species
+      identification runs <strong>BioCLIP 2</strong> on your own machine and writes the scientific name,
+      common name, rank, confidence, and the full taxonomy into searchable Lightroom fields — so you can
+      build a Smart Collection on a family, or export the leaf name as an IPTC keyword. Every other tool
+      here stops at a generic subject tag. An organism pre-filter keeps the large model off your portraits
+      and architecture, so a mixed library still indexes in reasonable time.
+      → <a href="/help/docs/help-analyze-and-index">How species identification works</a>
+    </p>
+
     <h3>You need AI editing in your personal style</h3>
     <p>
       <strong>Imagen AI</strong> and <strong>Neurapix</strong> are the most mature options for learning
-      your editing style and applying it to new shoots. LrGeniusAI's <em>Looks</em> feature is experimental
-      and not a production replacement for either.
+      your editing style and applying it to new shoots. LrGeniusAI's <em>AI Edit</em> builds each develop
+      recipe from your own saved edits — no language model, no preset marketplace — but it is still in
+      beta and needs a handful of training examples before it will run at all.
     </p>
 
     <h3>Your library spans multiple apps (Mac only)</h3>

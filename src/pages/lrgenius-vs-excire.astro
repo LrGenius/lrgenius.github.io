@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 
 const title = 'LrGenius vs. Excire, AnyVision, Peakto, Aftershoot, Narrative, Imagen & Neurapix — Honest Comparison';
-const description = 'How LrGenius compares to Excire Search, AnyVision, Peakto, Aftershoot, Narrative Select, Imagen AI and Neurapix for AI-powered keywording, search, culling and editing in Adobe Lightroom Classic.';
+const description = 'How LrGenius compares to Excire Search, AnyVision, Peakto, Aftershoot, Narrative Select, Imagen AI and Neurapix for AI-powered keywording, search, species identification, culling and editing in Adobe Lightroom Classic.';
 
-const lastUpdated = '2026-05-26';
+const lastUpdated = '2026-08-17';
 ---
 
 <Layout title={title} description={description}>
@@ -39,7 +39,7 @@ const lastUpdated = '2026-05-26';
         "name": "What is the best AI plugin for Adobe Lightroom Classic?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It depends on the task. For AI culling of weddings or events, Aftershoot and Narrative Select are mature, established options. For keywording and search, Excire Search and AnyVision are well established. For AI editing in your personal style, Imagen AI and Neurapix are widely used. LrGenius is a younger, free, open-source plugin currently in beta that aims to combine AI keywording, descriptions, semantic search, face recognition, edit training and culling — useful if you want an open alternative and are willing to work with a project that is still maturing."
+          "text": "It depends on the task. For AI culling of weddings or events, Aftershoot and Narrative Select are mature, established options. For keywording and search, Excire Search and AnyVision are well established. For AI editing in your personal style, Imagen AI and Neurapix are widely used. For nature and wildlife work, LrGenius is currently the only one that identifies animal, plant and fungus species taxonomically on-device. LrGenius is a younger, free, open-source plugin currently in beta that aims to combine AI keywording, descriptions, semantic search, face recognition, species identification, edit training and culling — useful if you want an open alternative and are willing to work with a project that is still maturing."
         }
       },
       {
@@ -55,7 +55,15 @@ const lastUpdated = '2026-05-26';
         "name": "Does LrGenius run fully offline?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. LrGenius runs vision models in its own backend through built-in llama.cpp and MLX engines, so image analysis happens on your own hardware with no extra AI software installed and no photo data leaving your computer. External local servers (Ollama, LM Studio) and cloud providers (ChatGPT, Google Gemini) are optional alternatives."
+          "text": "Yes. LrGenius runs vision models in its own backend — MLX on Apple silicon Macs, llama.cpp on Windows — so image analysis happens on your own hardware with no extra AI software installed and no photo data leaving your computer. Semantic search embeddings, face detection and species identification always run on-device, whichever provider you pick. External local servers (Ollama, LM Studio) and cloud providers (ChatGPT, Google Gemini) are optional alternatives for the keyword and caption pass."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can LrGenius identify bird, animal or plant species?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. LrGenius runs BioCLIP 2 on your own machine and writes a taxonomic identification for animals, plants and fungi: scientific name, common name, rank, confidence and the full Linnean taxonomy, all in searchable Lightroom metadata fields. It can optionally also write the taxonomy as a keyword hierarchy under a separate Species root, with only the leaf marked for export. Where it is not confident of the species it reports the deepest rank it is sure of rather than guessing a binomial."
         }
       },
       {
@@ -71,7 +79,7 @@ const lastUpdated = '2026-05-26';
         "name": "Can LrGenius replace Excire Search today?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Possibly, depending on your needs and tolerance for beta software. LrGenius covers AI keywording, semantic search and face recognition in a similar problem space as Excire Search, and adds AI-generated captions, titles and experimental edit training. Excire is more polished and supported, with a curated keyword taxonomy and vendor support — many photographers will still prefer it for production work."
+          "text": "Possibly, depending on your needs and tolerance for beta software. LrGenius covers AI keywording, semantic search and face recognition in a similar problem space as Excire Search, and adds AI-generated captions, titles, on-device species identification and experimental edit training. Excire is more polished and supported, with a curated keyword taxonomy and vendor support — many photographers will still prefer it for production work."
         }
       }
     ]
@@ -116,10 +124,10 @@ const lastUpdated = '2026-05-26';
       <div class="cat-card">
         <h3>LrGenius <span class="badge">beta</span></h3>
         <p>Free, open-source Lightroom Classic plugin currently in active development. Aims to provide AI keywording,
-          captions, titles, alt-text and semantic search today, with face recognition, AI culling and edit training
-          ("Looks") evolving in newer builds. Runs local vision models itself (llama.cpp, and MLX on Apple silicon)
-          and also works with external local servers (Ollama, LM Studio) or cloud back-ends (ChatGPT,
-          Gemini).</p>
+          captions, titles, alt-text, semantic search and on-device species identification (BioCLIP 2) today, with
+          face recognition, AI culling and style-based AI Edit evolving in newer builds. Runs local vision models
+          itself (MLX on Apple silicon, llama.cpp on Windows) and also works with external local servers
+          (Ollama, LM Studio) or cloud back-ends (ChatGPT, Gemini).</p>
       </div>
       <div class="cat-card">
         <h3>Excire Search / Foto</h3>
@@ -182,7 +190,7 @@ const lastUpdated = '2026-05-26';
         <tbody>
           <tr>
             <td>Primary purpose</td>
-            <td>Keywording, captions, search, culling, edit training</td>
+            <td>Keywording, captions, search, species ID, culling, edit training</td>
             <td>Keywording &amp; search</td>
             <td>Keywording &amp; tagging</td>
             <td>Universal DAM &amp; search</td>
@@ -247,6 +255,17 @@ const lastUpdated = '2026-05-26';
             <td>No</td>
           </tr>
           <tr>
+            <td>Species identification (taxonomic)</td>
+            <td>Yes — BioCLIP 2, on-device, with rank &amp; confidence</td>
+            <td>No — generic subject tags</td>
+            <td>Indirect — cloud labels, no ranks</td>
+            <td>No — generic subject tags</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+          </tr>
+          <tr>
             <td>Face recognition</td>
             <td>Yes — clustering &amp; People dialog (beta)</td>
             <td>Yes</td>
@@ -270,7 +289,7 @@ const lastUpdated = '2026-05-26';
           </tr>
           <tr>
             <td>Learns your personal editing style</td>
-            <td>"Looks" — experimental</td>
+            <td>AI Edit — from your own saved edits (beta)</td>
             <td>No</td>
             <td>No</td>
             <td>No</td>
@@ -325,6 +344,20 @@ const lastUpdated = '2026-05-26';
       quality depends on the chosen model and may need manual review.
     </p>
 
+    <h3>If you shoot wildlife, birds, plants or macro</h3>
+    <p>
+      None of the commercial tools on this page identifies species taxonomically — they tag "bird",
+      "flower" or "insect". <strong>LrGenius</strong> runs <strong>BioCLIP 2</strong> on your own machine and
+      writes the scientific name, common name, rank, confidence and the full Linnean taxonomy into searchable
+      Lightroom metadata fields, optionally also as a keyword hierarchy under a separate <code>Species</code>
+      root. Two properties matter in practice: when the model is not confident of the species it reports the
+      deepest rank it <em>is</em> sure of (an order or a class) instead of a plausible-looking wrong binomial,
+      and an organism pre-filter keeps the large model off the photos with no plant or animal in them, which
+      is what makes running it over a mixed catalog practical.
+      Common names come from GBIF's vernacular data and are not always English; the scientific name always is.
+      → <a href="/help/docs/help-analyze-and-index">Species identification in the docs</a>
+    </p>
+
     <h3>If your bottleneck is culling thousands of frames</h3>
     <p>
       <strong>Aftershoot</strong> and <strong>Narrative Select</strong> are the dedicated, mature culling tools,
@@ -338,8 +371,10 @@ const lastUpdated = '2026-05-26';
     <p>
       <strong>Imagen AI</strong> and <strong>Neurapix</strong> are the most established options for learning your
       personal editing style from past shoots, with mature workflows and (for Neurapix) a marketplace of ready-made
-      SmartPresets by professional photographers. LrGenius's <em>Looks</em> feature explores the same idea but is
-      currently experimental and not intended as a replacement for a production editing pipeline.
+      SmartPresets by professional photographers. LrGenius's <em>AI Edit</em> explores the same idea from the other
+      end: it calls no language model and buys no preset, but builds each develop recipe out of the edits you saved
+      yourself, capped by what the individual frame can take. It is still in beta, needs at least five saved training
+      examples before it will run, and is not intended as a replacement for a production editing pipeline.
     </p>
 
     <h3>If your library is spread across many apps</h3>
@@ -507,6 +542,12 @@ const lastUpdated = '2026-05-26';
     font-size: 0.85rem;
     color: #666;
     margin-top: 0.75rem;
+  }
+  code {
+    background: #f2f4f7;
+    padding: 0.05rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.9em;
   }
   h3 {
     margin-top: 1.5rem;

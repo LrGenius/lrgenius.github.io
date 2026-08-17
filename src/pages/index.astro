@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 const testimonials = await getCollection('testimonials');
 ---
 
-<Layout title="LrGeniusAI - Free & Open Source AI Workflow Suite for Lightroom Classic" description="Free open-source AI plugin for Adobe Lightroom Classic. AI keywording, semantic photo search, culling, and face recognition. Runs AI models on your own machine with no extra software, or connect ChatGPT and Google Gemini.">
+<Layout title="LrGeniusAI - Free & Open Source AI Workflow Suite for Lightroom Classic" description="Free open-source AI plugin for Adobe Lightroom Classic. AI keywording, semantic photo search, culling, face recognition, and on-device species identification with BioCLIP 2. Runs AI models on your own machine with no extra software, or connect ChatGPT and Google Gemini.">
 
   <section class="hero">
     <img src="/images/logo.png" alt="LrGeniusAI - AI Workflow Suite for Lightroom Classic" width="500">
@@ -20,8 +20,9 @@ const testimonials = await getCollection('testimonials');
 
     <p class="hero-intro">
       LrGeniusAI is a powerful Lightroom Classic plugin that goes far beyond keyword tagging.
-      Cull your shoots with AI, apply your personal editing style automatically, search your entire library
-      with plain English, and get context-aware AI analysis — all without leaving Lightroom.
+      Cull your shoots with AI, apply your own editing style automatically, search your entire library
+      with plain English, identify the wildlife in your frames down to the species, and get
+      context-aware AI analysis — all without leaving Lightroom.
       It runs vision models <strong>on your own machine out of the box</strong> — pick one in the
       Plug-in Manager and click download, no Ollama, no LM Studio, nothing else to install. Prefer a
       different setup? Connect an existing Ollama or LM Studio server, or cloud models like ChatGPT and
@@ -46,17 +47,22 @@ const testimonials = await getCollection('testimonials');
     <div class="core-features">
       <div class="core-feature">
         <h3>🏠 Built-In Local AI</h3>
-        <p>The backend runs vision models itself — <strong>llama.cpp</strong> on macOS, Windows, and Linux, and <strong>MLX</strong> on Apple silicon. Choose a model, click download, and everything happens on your machine. No Ollama, no LM Studio, no second app to keep running.</p>
+        <p>The backend runs vision models itself — <strong>MLX</strong> on Apple silicon Macs and <strong>llama.cpp</strong> on Windows. Choose a model, click download, and everything happens on your machine. No Ollama, no LM Studio, no second app to keep running.</p>
+      </div>
+      <div class="core-feature">
+        <h3>🦉 On-Device Species ID <span class="badge-new">New</span></h3>
+        <p>Identify animals, plants, and fungi with <strong>BioCLIP 2</strong>, running entirely on your own hardware — no API key, no upload, no internet. Every checked photo gets a scientific name, a common name, the full Linnean taxonomy, and a confidence value in searchable metadata fields, plus an optional <code>Species</code> keyword branch.</p>
+        <p>When the model is not certain, it reports the deepest rank it <em>is</em> sure of — <em>Aves</em> rather than a confidently wrong binomial. See <a href="/help/docs/help-analyze-and-index">Analyze &amp; Index</a>.</p>
       </div>
       <div class="core-feature">
         <h3>🎯 AI-Powered Culling <span class="badge-beta">Beta</span></h3>
-        <p>Let the AI pre-select your best shots. Face-aware culling evaluates focus, expression, and composition so you spend less time rejecting and more time editing.</p>
+        <p>Let the AI pre-select your best shots. Face-aware culling evaluates subject sharpness, expression, and composition, groups bursts and near-duplicates, and builds Lightroom collections for picks, alternates, and rejects.</p>
         <p class="beta-note">This feature is currently in beta — results may vary and we recommend verifying picks before applying to client work.</p>
       </div>
       <div class="core-feature">
-        <h3>🎨 Smart Editing Recipes <span class="badge-beta">Beta</span></h3>
-        <p>Teach LrGeniusAI your editing style in Develop Mode. Save personal "Looks" from your previous edits and apply them to new photos with a single click.</p>
-        <p class="beta-note">This feature is currently in beta — "Looks" training is experimental and still maturing.</p>
+        <h3>🎨 AI Edit — Your Own Style <span class="badge-beta">Beta</span></h3>
+        <p>Save your own Lightroom edits as training examples, and AI Edit builds a develop recipe for each new photo from the closest matches. No language model, no prompt, no preset marketplace — just your edits, and a frame-aware budget that pulls back contrast or clarity a given scene cannot take.</p>
+        <p class="beta-note">This feature is currently in beta. It needs at least five saved training examples before it will run, and we recommend keeping "Review each proposed edit" on.</p>
       </div>
       <div class="core-feature">
         <h3>🔍 Semantic Free-Text Search</h3>
@@ -84,7 +90,8 @@ const testimonials = await getCollection('testimonials');
   <section class="features">
     <h2>Everything you need in one plugin</h2>
     <p>
-      Advanced vision-language models deliver unmatched precision for keywords, captions, and titles.
+      Advanced vision-language models deliver unmatched precision for keywords, captions, and titles,
+      while dedicated on-device models handle semantic search, faces, and species identification.
       Beyond metadata, LrGeniusAI brings a full AI-powered editing and search workflow directly into Lightroom Classic.
       See real-world examples below.
     </p>
@@ -96,15 +103,19 @@ const testimonials = await getCollection('testimonials');
       </div>
       <div class="feature-item">
         <h3>🚀 5+ AI Providers</h3>
-        <p>Switch between built-in local engines (llama.cpp, MLX), external local servers (Ollama, LM Studio), and cloud services (ChatGPT, Gemini) anytime.</p>
+        <p>Switch between built-in local engines (MLX, llama.cpp), external local servers (Ollama, LM Studio), and cloud services (ChatGPT, Gemini) anytime.</p>
       </div>
       <div class="feature-item">
         <h3>👥 Face Recognition</h3>
         <p>Automatically cluster faces and find specific people across your entire catalog with the advanced People dialog.</p>
       </div>
       <div class="feature-item">
+        <h3>🦋 Species Taxonomy</h3>
+        <p>Scientific name, common name, rank, confidence, and the full taxonomy written into searchable fields — build a Smart Collection on a family, or export the leaf as an IPTC keyword.</p>
+      </div>
+      <div class="feature-item">
         <h3>🎛️ Full Creative Control</h3>
-        <p>Review AI edit recipes, adjust style strength, or override suggestions. Customize prompts and temperature for precise or creative results.</p>
+        <p>Review every AI edit before it is applied, or send it to a virtual copy. Customize prompts and temperature to make analysis precise or creative.</p>
       </div>
     </div>
   </section>
@@ -226,7 +237,8 @@ const testimonials = await getCollection('testimonials');
     font-size: 1.15rem;
     color: var(--color-primary, #0066cc);
   }
- .badge-beta {
+ .badge-beta,
+ .badge-new {
     display: inline-block;
     font-size: 0.65rem;
     font-weight: 700;
@@ -238,6 +250,15 @@ const testimonials = await getCollection('testimonials');
     margin-left: 0.3rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
+  }
+ .badge-new {
+    background: #1e7e34;
+  }
+ .core-feature code {
+    background: #eef4fb;
+    padding: 0.05rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.9em;
   }
  .beta-note {
     font-size: 0.82rem;
