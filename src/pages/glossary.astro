@@ -34,13 +34,13 @@ const terms = [
   },
   {
     term: "llama.cpp",
-    definition: "An open-source C++ inference engine for running language and vision models efficiently on ordinary consumer hardware. LrGeniusAI embeds llama.cpp directly in its backend, so it can run a local vision model in-process without Ollama, LM Studio, or any other AI app installed. It works on macOS, Windows, and Linux, with GPU acceleration via Metal on macOS and Vulkan on Windows.",
+    definition: "An open-source C++ inference engine for running language and vision models efficiently on ordinary consumer hardware. LrGeniusAI embeds llama.cpp directly in its backend, so it can run a local vision model in-process without Ollama, LM Studio, or any other AI app installed. In LrGeniusAI it is the engine that ships on Windows, with GPU acceleration via Vulkan; Apple silicon Macs use MLX instead.",
     link: "/help/docs/help-local-ai-models",
     linkText: "Built-In Local AI Models guide"
   },
   {
     term: "MLX",
-    definition: "Apple's machine-learning framework built specifically for Apple silicon, using the unified memory architecture of M-series chips to run models efficiently on the GPU. On Apple silicon Macs, LrGeniusAI can run vision models through MLX as an alternative to llama.cpp — it is Apple's native inference stack, so it is worth benchmarking both on your own photos.",
+    definition: "Apple's machine-learning framework built specifically for Apple silicon, using the unified memory architecture of M-series chips to run models efficiently on the GPU. On Apple silicon Macs it is the built-in engine LrGeniusAI ships, running vision models through a small Metal helper process; Windows uses llama.cpp instead.",
     link: "/help/docs/help-local-ai-models",
     linkText: "Built-In Local AI Models guide"
   },

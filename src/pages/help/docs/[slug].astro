@@ -21,7 +21,7 @@ const titleMap: Record<string, string> = {
   'credits': 'Credits & Open-Source Dependencies of LrGeniusAI',
   'faq': 'LrGeniusAI FAQ — Frequently Asked Questions',
   'getting-started': 'Getting Started with LrGeniusAI for Lightroom Classic',
-  'google-vertex-ai-login': 'Google Vertex AI Login & Setup for LrGeniusAI',
+  'google-vertex-ai-login': 'Removed Feature — Legacy Vertex AI Setup Notes for LrGeniusAI',
   'help-advanced-search': 'Advanced Semantic Photo Search in Lightroom Classic',
   'help-ai-edit': 'AI Edit Photos & Smart Develop Recipes in Lightroom',
   'help-analyze-and-index': 'Analyze & Index Photos for AI Keywording and Search',
@@ -44,15 +44,15 @@ const descriptionMap: Record<string, string> = {
   'credits': 'The open-source projects, AI models, and libraries that LrGeniusAI is built on, with their licenses and attributions.',
   'faq': 'Frequently asked questions about LrGeniusAI — the free, open-source AI plugin for Lightroom Classic. Covers installation, AI model setup, privacy, photo culling, keyword generation, and more.',
   'getting-started': 'Step-by-step guide to installing and setting up LrGeniusAI for Adobe Lightroom Classic. Covers installation, bypassing security warnings, configuring AI providers, and indexing your first photos.',
-  'google-vertex-ai-login': 'How to authenticate with Google Vertex AI for LrGeniusAI in Lightroom Classic. Step-by-step gcloud login instructions, service account setup, and troubleshooting tips for Vertex AI integration.',
+  'google-vertex-ai-login': 'This provider was removed from LrGeniusAI in August 2026 and the page is kept only as historical reference. To pick a provider that LrGeniusAI actually supports, see Choosing an AI Model.',
   'help-advanced-search': 'How to use semantic free-text search in LrGeniusAI to find any photo in your Lightroom Classic library by describing it in plain language. Covers indexing, search tips, and compatible AI providers.',
   'help-ai-edit': "How to use LrGeniusAI's AI Edit feature to apply smart develop recipes and personal editing styles to photos in Lightroom Classic. Create, apply, and refine AI-generated editing presets (beta).",
   'help-analyze-and-index': "How to use LrGeniusAI's Analyze & Index feature to generate AI keywords, captions, titles, alt-text, and semantic embeddings for Lightroom Classic photos. Covers batch processing and provider options.",
-  'help-choosing-ai-model': 'How to choose the best AI model for LrGeniusAI — compare the built-in local engines (llama.cpp, MLX) and external servers like Ollama and LM Studio with cloud providers OpenAI ChatGPT, Google Gemini, and Vertex AI. Privacy, cost, and quality trade-offs explained.',
+  'help-choosing-ai-model': 'How to choose the best AI model for LrGeniusAI — compare the built-in local engines (MLX on Apple silicon, llama.cpp on Windows) and external servers like Ollama and LM Studio with cloud providers OpenAI ChatGPT and Google Gemini. Privacy, cost, and quality trade-offs explained.',
   'help-cull-photos': "How to use LrGeniusAI's AI photo culling to automatically select the best shots in Lightroom Classic. Covers face-aware selection, sharpness scoring, expression detection, and pick/reject workflows.",
   'help-find-similar': "How to use LrGeniusAI's Find Similar Images feature to discover visually similar photos across your entire Lightroom Classic catalog using AI-powered semantic embeddings and image similarity search.",
   'help-keyword-dedup-and-declutter': "How to use LrGeniusAI's keyword deduplication and de-clutter tools to merge duplicate tags, clean up keyword hierarchies, and tidy your Lightroom Classic keyword library for better catalog organization.",
-  'help-local-ai-models': 'Run AI photo analysis fully offline with the local models built into LrGeniusAI — llama.cpp (GGUF, Windows/macOS/Linux) and MLX on Apple silicon. Download a vision model straight from the Lightroom Plug-in Manager; no Ollama or LM Studio required.',
+  'help-local-ai-models': 'Run AI photo analysis fully offline with the local models built into LrGeniusAI — MLX on Apple silicon Macs and llama.cpp (GGUF) on Windows. Download a vision model straight from the Lightroom Plug-in Manager; no Ollama or LM Studio required.',
   'help-lm-studio-setup': 'Step-by-step guide to setting up LM Studio as a local AI provider for LrGeniusAI. Run AI photo analysis, keyword generation, and semantic search 100% offline on macOS or Windows — no cloud uploads.',
   'help-ollama-setup': 'Step-by-step guide to setting up Ollama as a local AI provider for LrGeniusAI. Run AI keywording, semantic search, and photo culling 100% offline on your own hardware — no cloud subscription required.',
   'help-people-faces': "How to use LrGeniusAI's face recognition and People dialog to automatically cluster faces, identify individuals, and find specific people across your entire Lightroom Classic photo catalog.",
@@ -105,7 +105,7 @@ const faqSchema = isFaq ? {
       "name": "Does LrGeniusAI send my photos to the cloud?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only if you choose a cloud provider (ChatGPT/OpenAI, Google Gemini, Vertex AI). With a local provider — the built-in llama.cpp and MLX engines, or an external Ollama or LM Studio server — your photos never leave your machine. For cloud providers, images are sent to the respective API for analysis. Embeddings and all generated metadata are always stored locally on your computer."
+        "text": "Only if you choose a cloud provider (ChatGPT/OpenAI, Google Gemini). With a local provider — the built-in MLX and llama.cpp engines, or an external Ollama or LM Studio server — your photos never leave your machine. For cloud providers, images are sent to the respective API for analysis. Embeddings and all generated metadata are always stored locally on your computer."
       }
     },
     {
@@ -161,7 +161,7 @@ const faqSchema = isFaq ? {
       "name": "Which AI models does LrGeniusAI support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "LrGeniusAI runs local vision models itself — llama.cpp (GGUF) on Windows, macOS and Linux, and MLX on Apple silicon — with models such as Gemma 4 and Qwen3-VL downloadable straight from the Plug-in Manager. It also supports external local servers (Ollama, LM Studio) and cloud models including OpenAI/ChatGPT (gpt-4.1, gpt-5), Google Gemini (gemini-2.5-flash, gemini-2.5-pro), and Google Vertex AI. You can switch providers at any time from the Plug-in Manager."
+        "text": "LrGeniusAI runs local vision models itself — MLX on Apple silicon Macs and llama.cpp (GGUF) on Windows — with models such as Gemma 4, Ministral 3 and Qwen3-VL downloadable straight from the Plug-in Manager. It also supports external local servers (Ollama, LM Studio) and cloud models including OpenAI/ChatGPT (gpt-4.1, gpt-5) and Google Gemini (gemini-2.5-flash, gemini-2.5-pro). You can switch providers at any time from the Plug-in Manager."
       }
     }
   ]

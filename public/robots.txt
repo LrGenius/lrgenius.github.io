@@ -68,4 +68,11 @@ Disallow: /help/advanced-search/
 Disallow: /help/analyze-and-index/
 
 # -----------------------------------------------------------------------
+# Removed features — kept reachable so old links do not 404, but not
+# advertised in search. Vertex AI support was removed in August 2026.
+# -----------------------------------------------------------------------
+Disallow: /help/docs/google-vertex-ai-login/
+Disallow: /help/docs/google-vertex-ai-login
+
+# -----------------------------------------------------------------------
 Sitemap: https://lrgenius.com/sitemap-index.xml

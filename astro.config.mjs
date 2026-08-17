@@ -9,6 +9,9 @@ export default defineConfig({
       filter: (page) => {
         // Exclude legacy /help/[slug]/ redirects (keep /help/ index and /help/docs/...)
         if (/\/help\/[^/]+\/$/.test(page) && !page.includes('/help/docs/')) return false;
+        // Vertex AI support was removed in August 2026. The page stays reachable
+        // so old links do not 404, but it should not be advertised in search.
+        if (page.includes('/help/docs/google-vertex-ai-login')) return false;
         return true;
       },
     }),
