@@ -1,0 +1,332 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const testimonials = await getCollection('testimonials');
+---
+
+<Layout title="LrGeniusAI – Kostenlose Open-Source-KI-Workflow-Suite für Lightroom Classic" description="Kostenloses Open-Source-KI-Plugin für Adobe Lightroom Classic. KI-Verschlagwortung, semantische Fotosuche, Culling, Gesichtserkennung und Artenerkennung auf dem eigenen Gerät mit BioCLIP 2. KI-Modelle laufen direkt auf deinem Rechner ohne Zusatzsoftware, oder verbinde ChatGPT und Google Gemini." translatedPath="/">
+
+  <section class="hero">
+    <img src="/images/logo.png" alt="LrGeniusAI - AI Workflow Suite for Lightroom Classic" width="500">
+    <h1>LrGeniusAI</h1>
+    <p class="tagline">Die kostenlose Open-Source-KI-Workflow-Suite für Lightroom Classic</p>
+
+    <div class="badges">
+      <span class="badge badge-free">100 % kostenlos &amp; Open Source</span>
+      <span class="badge badge-license">AGPL-3.0</span>
+      <span class="badge badge-local">Integrierte lokale KI — keine Zusatzsoftware</span>
+    </div>
+
+    <p class="hero-intro">
+      LrGeniusAI ist ein leistungsstarkes Lightroom-Classic-Plugin, das weit über reine
+      Stichwortvergabe hinausgeht. Culle deine Shootings per KI, wende deinen eigenen
+      Bearbeitungsstil automatisch an, durchsuche deine gesamte Bibliothek in ganz normaler Sprache,
+      bestimme das Wild in deinen Aufnahmen bis auf Artniveau und erhalte kontextbewusste
+      KI-Analysen — ganz ohne Lightroom zu verlassen.
+      Vision-Modelle laufen <strong>direkt out of the box auf deinem eigenen Rechner</strong> —
+      wähle eines im Plug-in-Manager aus und klicke auf Herunterladen, kein Ollama, kein LM Studio,
+      nichts weiter zu installieren. Bevorzugst du ein anderes Setup? Verbinde einen bestehenden
+      Ollama- oder LM-Studio-Server oder Cloud-Modelle wie ChatGPT und Google Gemini. Deine Fotos,
+      deine Hardware, deine Wahl.
+    </p>
+  </section>
+
+  <section class="banner">
+    <p>LrGeniusAI ist <strong>kostenlos und Open Source</strong> (AGPL-3.0). Wirf einen Blick ins <a href="https://github.com/LrGenius" target="_blank">GitHub-Repository</a>.</p>
+    <p>
+      <strong>⚠️ Hinweis:</strong> LrGeniusAI befindet sich derzeit in <strong>aktiver Entwicklung</strong>.
+      Installer und Binärdateien sind <strong>noch nicht code-signiert</strong>, was Sicherheitswarnungen auslösen kann.
+    </p>
+    <p>
+      <strong>Zero-Setup-Erlebnis:</strong> LrGeniusAI läuft als unauffälliger Hintergrunddienst unter macOS und Windows,
+      geschrieben in Rust für geringen Speicherbedarf. Wähle ein lokales KI-Modell im Plug-in-Manager aus und klicke auf
+      <strong>Herunterladen</strong> — siehe <a href="/help/docs/help-local-ai-models">Integrierte lokale KI-Modelle</a>.
+    </p>
+      <p>Durchstöbere die <a href="/help">Hilfe &amp; Dokumentation</a> oder starte direkt mit <a href="/help/docs/getting-started">Erste Schritte</a> und den <a href="/help/docs/faq">FAQ</a>.</p>
+  </section>
+
+    <div class="core-features">
+      <div class="core-feature">
+        <h3>🏠 Integrierte lokale KI</h3>
+        <p>Das Backend führt Vision-Modelle selbst aus — <strong>MLX</strong> auf Apple-Silicon-Macs und <strong>llama.cpp</strong> unter Windows. Wähle ein Modell, klicke auf Herunterladen, und alles läuft auf deinem eigenen Rechner. Kein Ollama, kein LM Studio, keine zweite App, die dauerhaft laufen muss.</p>
+      </div>
+      <div class="core-feature">
+        <h3>🦉 Artenerkennung auf dem Gerät <span class="badge-new">Neu</span></h3>
+        <p>Bestimme Tiere, Pflanzen und Pilze mit <strong>BioCLIP 2</strong>, das vollständig auf deiner eigenen Hardware läuft — kein API-Key, kein Upload, kein Internet nötig. Jedes geprüfte Foto erhält einen wissenschaftlichen Namen, einen gebräuchlichen Namen, die vollständige linnésche Taxonomie und einen Konfidenzwert in durchsuchbaren Metadatenfeldern, plus einen optionalen <code>Species</code>-Stichwortzweig.</p>
+        <p>Ist sich das Modell nicht sicher, meldet es die tiefste Rangstufe, der es sich <em>sicher</em> ist — <em>Aves</em> statt eines selbstsicher falschen Artnamens. Siehe <a href="/help/docs/help-analyze-and-index">Analysieren &amp; Indizieren</a>.</p>
+      </div>
+      <div class="core-feature">
+        <h3>🎯 KI-gestütztes Culling <span class="badge-beta">Beta</span></h3>
+        <p>Lass die KI deine besten Aufnahmen vorauswählen. Das gesichtsbewusste Culling bewertet Schärfe, Ausdruck und Bildkomposition des Motivs, gruppiert Serienaufnahmen und Beinahe-Duplikate und erstellt Lightroom-Sammlungen für Favoriten, Alternativen und Ablehnungen.</p>
+        <p class="beta-note">Diese Funktion befindet sich derzeit in der Beta-Phase — die Ergebnisse können variieren, wir empfehlen dir, die Auswahl vor dem Einsatz in Kundenprojekten zu überprüfen.</p>
+      </div>
+      <div class="core-feature">
+        <h3>🎨 KI-Edit — dein eigener Stil <span class="badge-beta">Beta</span></h3>
+        <p>Speichere deine eigenen Lightroom-Bearbeitungen als Trainingsbeispiele, und KI-Edit erstellt für jedes neue Foto ein Entwicklungsrezept aus den ähnlichsten Treffern. Kein Sprachmodell, kein Prompt, kein Preset-Marktplatz — nur deine eigenen Bearbeitungen und ein bildbewusstes Budget, das Kontrast oder Klarheit zurücknimmt, wenn eine Szene sie nicht verträgt.</p>
+        <p class="beta-note">Diese Funktion befindet sich derzeit in der Beta-Phase. Sie benötigt mindestens fünf gespeicherte Trainingsbeispiele, bevor sie läuft, und wir empfehlen, die Option „Jede vorgeschlagene Bearbeitung überprüfen“ aktiviert zu lassen.</p>
+      </div>
+      <div class="core-feature">
+        <h3>🔍 Semantische Freitextsuche</h3>
+        <p>Finde jedes Foto, indem du es einfach in eigenen Worten beschreibst. Kein mühsames Durchsuchen von Stichwortbäumen mehr — tippe einfach, woran du dich erinnerst, und lass die KI die Aufnahme finden.</p>
+      </div>
+      <div class="core-feature">
+        <h3>📝 Kontextbezogene KI-Analyse</h3>
+        <p>Gib der KI Kontext, bevor sie analysiert — Namen, Orte, Projektdetails. Das Modell bezieht deine Hinweise mit ein und liefert so perfekt zugeschnittene Stichwörter, Bildunterschriften und Metadaten.</p>
+      </div>
+    </div>
+
+  <section class="social-proof">
+    <h2>Vorgestellt von Fotografen &amp; Creators</h2>
+    <div class="testimonial-grid">
+      {testimonials.map(t => (
+        <a href={t.data.url} target="_blank" rel="noopener noreferrer" class={`testimonial-card type-${t.data.type}`}>
+          <span class="type-label">{t.data.type === 'video' ? 'Video' : t.data.type === 'blog' ? 'Blogbeitrag' : 'Community'}</span>
+          <p class="testimonial-title">{t.data.title}</p>
+          {t.data.author && <span class="testimonial-author">{t.data.author}</span>}
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Alles, was du brauchst, in einem Plugin</h2>
+    <p>
+      Fortschrittliche Vision-Language-Modelle liefern unübertroffene Präzision bei Stichwörtern, Bildunterschriften
+      und Titeln, während spezialisierte On-Device-Modelle semantische Suche, Gesichter und Artenerkennung übernehmen.
+      Über Metadaten hinaus bringt LrGeniusAI einen vollständigen KI-gestützten Bearbeitungs- und Such-Workflow direkt
+      in Lightroom Classic. Praxisbeispiele findest du weiter unten.
+    </p>
+
+    <div class="feature-highlights">
+      <div class="feature-item">
+        <h3>🔒 Vollständige Privatsphäre</h3>
+        <p>Nutze ein lokales Modell für eine 100 % lokale Bildanalyse — integriert oder über Ollama und LM Studio. Deine Fotos verlassen niemals deinen Computer.</p>
+      </div>
+      <div class="feature-item">
+        <h3>🚀 5+ KI-Anbieter</h3>
+        <p>Wechsle jederzeit zwischen integrierten lokalen Engines (MLX, llama.cpp), externen lokalen Servern (Ollama, LM Studio) und Cloud-Diensten (ChatGPT, Gemini).</p>
+      </div>
+      <div class="feature-item">
+        <h3>👥 Gesichtserkennung</h3>
+        <p>Gruppiere Gesichter automatisch und finde bestimmte Personen in deinem gesamten Katalog mit dem erweiterten Personen-Dialog.</p>
+      </div>
+      <div class="feature-item">
+        <h3>🦋 Artentaxonomie</h3>
+        <p>Wissenschaftlicher Name, gebräuchlicher Name, Rangstufe, Konfidenz und die vollständige Taxonomie werden in durchsuchbare Felder geschrieben — erstelle eine Smart Collection für eine Familie oder exportiere die tiefste Ebene als IPTC-Stichwort.</p>
+      </div>
+      <div class="feature-item">
+        <h3>🎛️ Volle kreative Kontrolle</h3>
+        <p>Überprüfe jede KI-Bearbeitung, bevor sie angewendet wird, oder sende sie an eine virtuelle Kopie. Passe Prompts und Temperatur an, um die Analyse präzise oder kreativ zu gestalten.</p>
+      </div>
+    </div>
+  </section>
+ </Layout>
+
+<style>
+ .hero {
+    text-align: center;
+    padding: 4rem 0;
+  }
+ .tagline {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+ .features,.examples,.cta-section {
+    padding: 2rem 0;
+  }
+ .feature-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+ .feature-item {
+    padding: 1.5rem;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+  }
+ .feature-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+ .feature-item h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+  }
+ .example-grid,.cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+ .example-card,.cta-card {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+  }
+ .example-card:hover,.cta-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+ .example-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+ .cta-card p {
+    min-height: 60px;
+  }
+ .hero-intro {
+    max-width: 720px;
+    margin: 1.5rem auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+  }
+ .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1rem 0 1.5rem;
+  }
+ .badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+ .badge-free {
+    background-color: #e6f4ea;
+    color: #1e7e34;
+    border: 1px solid #a8d5b5;
+  }
+ .badge-license {
+    background-color: #e8f0fe;
+    color: #1a56b0;
+    border: 1px solid #a8c4f5;
+  }
+ .badge-local {
+    background-color: #fff3e0;
+    color: #bf5a00;
+    border: 1px solid #f5c78a;
+  }
+ .core-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    text-align: left;
+  }
+ .core-feature {
+    padding: 1.5rem;
+    border: 2px solid var(--color-primary, #0066cc);
+    border-radius: 10px;
+    background-color: #f8fbff;
+    transition: box-shadow 0.3s ease;
+  }
+ .core-feature:hover {
+    box-shadow: 0 4px 16px rgba(0,102,204,0.15);
+  }
+ .core-feature h3 {
+    margin-top: 0;
+    font-size: 1.15rem;
+    color: var(--color-primary, #0066cc);
+  }
+ .badge-beta,
+ .badge-new {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #d8a73a;
+    color: #fff;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+ .badge-new {
+    background: #1e7e34;
+  }
+ .core-feature code {
+    background: #eef4fb;
+    padding: 0.05rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+ .beta-note {
+    font-size: 0.82rem;
+    color: #8a6500;
+    background: #fffbe6;
+    border-left: 3px solid #d8a73a;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0 4px 4px 0;
+    margin-top: 0.5rem;
+  }
+ .social-proof {
+    padding: 2.5rem 0;
+  }
+ .social-proof h2 {
+    margin-bottom: 1.5rem;
+  }
+ .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+ .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.1rem 1.2rem;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    color: inherit;
+    text-decoration: none;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+ .testimonial-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+    border-color: #c5d8f0;
+    text-decoration: none;
+  }
+ .type-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #888;
+  }
+ .type-video .type-label { color: #c0392b; }
+ .type-blog .type-label { color: #2980b9; }
+ .type-social .type-label { color: #27ae60; }
+ .testimonial-title {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #222;
+    flex-grow: 1;
+  }
+ .testimonial-author {
+    font-size: 0.8rem;
+    color: #888;
+  }
+ .banner {
+    background-color: #f0f8ff;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    margin: 2rem 0;
+  }
+</style>

@@ -1,0 +1,273 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = 'LrGenius vs. Imagen AI (2026)';
+const description = 'Imagen AI ist ein Cloud-basiertes KI-Bearbeitungstool, das deinen persönlichen Bearbeitungsstil lernt. LrGenius ist kostenlos, Open Source und bietet KI-Verschlagwortung, semantische Suche und Culling direkt in Lightroom Classic.';
+const lastUpdated = '2026-08-17';
+---
+
+<Layout title={`${title} — KI-Bearbeitungsvergleich für Lightroom`} description={description} translatedPath="/compare/lrgenius-vs-imagen-ai">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": lastUpdated,
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "LrGenius", "url": "https://lrgenius.com" },
+    "about": [
+      { "@type": "SoftwareApplication", "name": "LrGeniusAI" },
+      { "@type": "SoftwareApplication", "name": "Imagen AI" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://lrgenius.com/de" },
+      { "@type": "ListItem", "position": 2, "name": "KI-Plugins vergleichen", "item": "https://lrgenius.com/de/compare" },
+      { "@type": "ListItem", "position": 3, "name": "LrGenius vs. Imagen AI", "item": "https://lrgenius.com/de/compare/lrgenius-vs-imagen-ai" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist LrGenius eine gute Alternative zu Imagen AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LrGenius und Imagen AI lösen unterschiedliche Hauptprobleme. Imagen AI ist ein ausgereiftes, Cloud-basiertes Tool, das darauf spezialisiert ist, deinen persönlichen Bearbeitungsstil zu lernen und in großem Maßstab anzuwenden — ideal für Fotografinnen und Fotografen, die hunderte Bilder im Batch bearbeiten und ihren Look automatisch reproduzieren lassen möchten. LrGenius ist kostenlos, Open Source und bündelt KI-Verschlagwortung, semantische Suche, Culling und experimentelle Bearbeitungsrezepte in einem einzigen Lightroom-Plugin. Wenn dir die Übertragung deines Bearbeitungsstils am wichtigsten ist, ist Imagen AI die ausgereiftere Wahl. Wenn du einen breiteren, kostenlosen KI-Workflow mit lokaler Verarbeitung willst, passt LrGenius besser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bietet Imagen AI KI-Verschlagwortung oder semantische Suche?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Imagen AI konzentriert sich ausschließlich auf KI-Bearbeitung — die Anwendung deines persönlichen Bearbeitungsstils auf neue Fotos. Es generiert keine Schlagworte oder Bildunterschriften und bietet keine semantische Suche. LrGeniusAI deckt all diese Funktionen ab."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist Imagen AI kostenlos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Imagen AI berechnet Kosten pro Foto oder über ein Abo-Modell. LrGeniusAI ist komplett kostenlos und Open Source (AGPL-3.0). Du zahlst nur, wenn du einen Cloud-KI-Anbieter wie OpenAI oder Google Gemini nutzen möchtest — die lokalen Optionen sind kostenlos, sowohl die eingebauten KI-Modelle als auch Ollama oder LM Studio."
+        }
+      }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>LrGenius vs. Imagen AI</h1>
+    <p class="tagline">Kostenloses All-in-One-KI-Plugin vs. ausgereiftes Tool für KI-Bearbeitungsstile.</p>
+    <p class="meta">Zuletzt aktualisiert: {lastUpdated}</p>
+  </section>
+
+  <section class="verdict">
+    <h2>Kurzfazit</h2>
+    <p>
+      <strong>Wähle Imagen AI</strong>, wenn dein Hauptengpass die Bearbeitung ist — insbesondere wenn du einen
+      bewährten Cloud-Dienst möchtest, der deinen Bearbeitungsstil lernt und konsistent auf hunderte oder tausende
+      Bilder anwendet. Imagen AI ist fokussiert, ausgereift und wird von vielen professionellen Fotografinnen und
+      Fotografen für die Batch-Bearbeitung genutzt.
+    </p>
+    <p>
+      <strong>Wähle LrGeniusAI</strong>, wenn du mehr als nur Bearbeitung brauchst: KI-Verschlagwortung, semantische
+      Freitextsuche, Culling, Gesichtserkennung, KI-Artenerkennung auf dem Gerät und Bildunterschriften — alles
+      in einem einzigen kostenlosen, Open-Source-Plugin für Lightroom.
+      LrGeniusAI kann zu 100&nbsp;% lokal laufen, mit KI-Modellen, die direkt ins Plugin eingebaut sind, oder über
+      Ollama und LM Studio. Die Funktion <em>AI Edit</em> erstellt Bearbeitungsrezepte aus deinen eigenen gespeicherten
+      Bearbeitungen; sie befindet sich noch in der Beta-Phase, kostet aber nichts, um sie neben deinem bestehenden
+      Bearbeitungs-Workflow auszuprobieren.
+    </p>
+  </section>
+
+  <section class="comparison">
+    <h2>Funktionsvergleich</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspekt</th>
+            <th>LrGeniusAI <span class="badge">beta</span></th>
+            <th>Imagen AI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hauptzweck</td>
+            <td>Verschlagwortung, Bildunterschriften, Suche, Artenerkennung, Culling, Bearbeitungstraining</td>
+            <td>KI-Bearbeitung — persönlichen Bearbeitungsstil lernen und anwenden</td>
+          </tr>
+          <tr>
+            <td>Lightroom-Integration</td>
+            <td>Plugin (läuft direkt in Lightroom)</td>
+            <td>Cloud-Dienst mit Lightroom-Plugin zur Übergabe</td>
+          </tr>
+          <tr>
+            <td>KI-Verschlagwortung</td>
+            <td>Ja — offenes Vokabular, per Prompt anpassbar</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>KI-Bildunterschriften / Titel / Alt-Text</td>
+            <td>Ja</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Semantische / natürlichsprachliche Suche</td>
+            <td>Ja</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>KI-Culling</td>
+            <td>Ja, gesichtsbewusst (beta)</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <td>Lernt persönlichen Bearbeitungsstil</td>
+            <td>AI Edit — aus deinen eigenen gespeicherten Bearbeitungen (beta)</td>
+            <td>Ja — ausgereift, Cloud-trainiert</td>
+          </tr>
+          <tr>
+            <td>Läuft lokal / offline</td>
+            <td>Ja (eingebaut oder über Ollama / LM Studio)</td>
+            <td>Nein — nur Cloud</td>
+          </tr>
+          <tr>
+            <td>Datenschutz</td>
+            <td>Vollständig lokale Option — Fotos verlassen nie deinen Rechner</td>
+            <td>Fotos werden zur Verarbeitung in die Cloud hochgeladen</td>
+          </tr>
+          <tr>
+            <td>Plattform</td>
+            <td>macOS + Windows</td>
+            <td>macOS + Windows</td>
+          </tr>
+          <tr>
+            <td>Open Source</td>
+            <td>Ja (AGPL-3.0)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Preis</td>
+            <td>Kostenlos</td>
+            <td>Pro Foto oder im Abo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="detail">
+    <h2>Wo jedes Tool glänzt</h2>
+
+    <h3>Imagen AI: gezielte KI-Bearbeitung im großen Maßstab</h3>
+    <p>
+      Imagen AI ist für Fotografinnen und Fotografen konzipiert, die große Mengen an Bildern bearbeiten — Hochzeits-,
+      Porträt- und Werbefotografen, die ihren persönlichen Stil konsistent angewendet haben möchten, ohne Stunden im
+      Develop-Modul zu verbringen. Nach einer Trainingsphase anhand deiner bisherigen Bearbeitungen wendet Imagen AI
+      deinen Look in der Cloud auf neue Fotos an. Das Ergebnis ist ein ausgereifter, Cloud-beschleunigter
+      Bearbeitungs-Workflow, der sich sauber in Lightroom Classic einfügt.
+    </p>
+
+    <h3>LrGeniusAI: breiterer Workflow, keine Kosten</h3>
+    <p>
+      LrGeniusAI bündelt KI-Verschlagwortung, Bildunterschriften, semantische Freitextsuche, Gesichtserkennung,
+      Culling und experimentelle Bearbeitung in einem Lightroom-nativen Plugin — kostenlos und ohne deine
+      Fotos an einen externen Server zu senden (bei Nutzung eines lokalen KI-Modells, eingebaut oder über
+      Ollama/LM Studio). Für Fotografinnen und Fotografen, die den kompletten KI-Metadaten-Workflow zusätzlich zur
+      Bearbeitung brauchen, deckt LrGeniusAI mehr Boden für weniger Geld ab.
+    </p>
+    <p>
+      Der <em>AI Edit</em>-Modus von LrGeniusAI befindet sich noch in der Beta-Phase und ist kein produktionsreifer
+      Ersatz für die ausgereifte Stilübertragungs-Engine von Imagen AI. Er funktioniert auch anders: Jedes Rezept
+      wird aus den Bearbeitungen gemischt, die du selbst gespeichert hast, daher braucht er mindestens fünf
+      Trainingsbeispiele, bevor er läuft, und ruft dabei überhaupt kein Sprachmodell auf. Siehe die
+      <a href="/help/docs/help-ai-edit">AI-Edit-Anleitung</a> für aktuelle Funktionen und Einschränkungen.
+    </p>
+  </section>
+
+  <nav class="related-comparisons">
+    <h2>Weitere Vergleiche</h2>
+    <ul>
+      <li><a href="/de/compare">Alle KI-Plugins für Lightroom — Vergleichsübersicht</a></li>
+      <li><a href="/de/lrgenius-vs-excire">LrGenius vs. Excire, Aftershoot, Imagen &amp; mehr — Gesamtüberblick</a></li>
+      <li><a href="/de/compare/lrgenius-vs-aftershoot">LrGenius vs. Aftershoot</a></li>
+      <li><a href="/de/compare/lrgenius-vs-neurapix">LrGenius vs. Neurapix</a></li>
+    </ul>
+  </nav>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .meta {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  .verdict, .comparison, .detail, .related-comparisons {
+    padding: 1.5rem 0;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid #eaeaea;
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f7f7f9;
+    white-space: nowrap;
+  }
+  td:first-child, th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f7f7f9;
+    z-index: 1;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #d8a73a;
+    color: #fff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+  .related-comparisons ul {
+    list-style: none;
+    padding: 0;
+  }
+  .related-comparisons li {
+    margin-bottom: 0.6rem;
+  }
+</style>

@@ -1,0 +1,275 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = 'LrGenius vs. Narrative Select (2026)';
+const description = 'Narrative Select ist eine eigenständige Culling-App außerhalb von Lightroom. LrGenius cullt direkt in Lightroom Classic mit KI-Gesichtserkennung und Schärfebewertung. Funktionen, Preis und Workflow im Vergleich.';
+const lastUpdated = '2026-08-17';
+---
+
+<Layout title={`${title} — Culling-Vergleich für Lightroom`} description={description} translatedPath="/compare/lrgenius-vs-narrative-select">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": lastUpdated,
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "LrGenius", "url": "https://lrgenius.com" },
+    "about": [
+      { "@type": "SoftwareApplication", "name": "LrGeniusAI" },
+      { "@type": "SoftwareApplication", "name": "Narrative Select" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://lrgenius.com/de" },
+      { "@type": "ListItem", "position": 2, "name": "KI-Plugins vergleichen", "item": "https://lrgenius.com/de/compare" },
+      { "@type": "ListItem", "position": 3, "name": "LrGenius vs. Narrative Select", "item": "https://lrgenius.com/de/compare/lrgenius-vs-narrative-select" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist LrGenius eine gute Alternative zu Narrative Select?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Für einfaches Culling und private Bibliotheken kann LrGeniusAI als kostenlose Alternative zu Narrative Select dienen und bietet zusätzlich KI-Verschlagwortung, Bildunterschriften und semantische Suche. Für professionelles Culling mit hohem Volumen (Hochzeiten, Events), bei denen die Scenes-Gruppierung und das Gesichts-Nahaufnahme-Panel von Narrative Select stark genutzt werden, bleibt Narrative Select die ausgereiftere und zuverlässigere Wahl."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bietet Narrative Select KI-Verschlagwortung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Narrative Select konzentriert sich auf KI-Culling. Es generiert keine Schlagworte oder Bildunterschriften und unterstützt keine semantische Suche. LrGeniusAI deckt all diese Funktionen ab."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist Narrative Select kostenlos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Narrative Select ist ein kostenpflichtiges Abo-Produkt mit einer kostenlosen Stufe und einer optionalen Pro-Stufe. LrGeniusAI ist komplett kostenlos und Open Source (AGPL-3.0)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Funktioniert Narrative Select offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Narrative Select nutzt eine Mischung aus lokaler und Cloud-unterstützter Verarbeitung — es ist nicht vollständig offline nutzbar. LrGeniusAI kann zu 100 % lokal laufen, mit KI-Modellen, die direkt ins Plugin eingebaut sind, oder über Ollama und LM Studio, ohne dass nach dem anfänglichen Modell-Download eine Internetverbindung nötig ist."
+        }
+      }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>LrGenius vs. Narrative Select</h1>
+    <p class="tagline">Kostenloses All-in-One-KI-Plugin vs. spezialisiertes Culling-Tool für Lightroom.</p>
+    <p class="meta">Zuletzt aktualisiert: {lastUpdated}</p>
+  </section>
+
+  <section class="verdict">
+    <h2>Kurzfazit</h2>
+    <p>
+      <strong>Wähle Narrative Select</strong>, wenn KI-Culling dein Hauptbedürfnis ist und du Hochzeiten,
+      Events oder andere umfangreiche Shootings fotografierst, bei denen Scenes-Gruppierung, Gesichts-Nahaufnahme-Prüfung
+      und Personal AI Presets fester Bestandteil deines Workflows sind. Narrative Select ist ausgereifter und für
+      Kundenarbeit weithin vertraut.
+    </p>
+    <p>
+      <strong>Wähle LrGeniusAI</strong>, wenn du KI-Verschlagwortung, Bildunterschriften, semantische Suche
+      <em>und</em> Culling in einem einzigen kostenlosen, Open-Source-Plugin für Lightroom möchtest, mit der
+      Möglichkeit, alles lokal laufen zu lassen — mit KI-Modellen, die direkt ins Plugin eingebaut sind, oder über
+      Ollama und LM Studio. Es ist die richtige Wahl, wenn dir Kosten, Datenschutz oder ein einziger integrierter
+      Workflow wichtiger sind als culling-spezifische Ausgereiftheit.
+    </p>
+  </section>
+
+  <section class="comparison">
+    <h2>Funktionsvergleich</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspekt</th>
+            <th>LrGeniusAI <span class="badge">beta</span></th>
+            <th>Narrative Select</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hauptzweck</td>
+            <td>Verschlagwortung, Bildunterschriften, Suche, Artenerkennung, Culling, Bearbeitungstraining</td>
+            <td>Spezialisiertes KI-Culling mit Scenes-Gruppierung</td>
+          </tr>
+          <tr>
+            <td>Lightroom-Integration</td>
+            <td>Plugin (läuft direkt in Lightroom)</td>
+            <td>Externe App, übergibt Auswahl zurück an LR</td>
+          </tr>
+          <tr>
+            <td>KI-Verschlagwortung</td>
+            <td>Ja — offenes Vokabular, per Prompt anpassbar</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>KI-Bildunterschriften / Titel / Alt-Text</td>
+            <td>Ja</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Semantische / natürlichsprachliche Suche</td>
+            <td>Ja</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>KI-Culling</td>
+            <td>Ja, gesichtsbewusst (beta)</td>
+            <td>Ja — Scenes-Gruppierung, Gesichts-Nahaufnahmen, ausgereift</td>
+          </tr>
+          <tr>
+            <td>Persönliche KI-Bearbeitungsvorlagen</td>
+            <td>AI Edit — aus deinen eigenen gespeicherten Bearbeitungen (beta)</td>
+            <td>Teilweise (Personal AI Presets)</td>
+          </tr>
+          <tr>
+            <td>Läuft lokal / offline</td>
+            <td>Ja (eingebaut oder über Ollama / LM Studio)</td>
+            <td>Gemischt — Cloud-unterstützt</td>
+          </tr>
+          <tr>
+            <td>Plattform</td>
+            <td>macOS + Windows</td>
+            <td>macOS + Windows</td>
+          </tr>
+          <tr>
+            <td>Open Source</td>
+            <td>Ja (AGPL-3.0)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Preis</td>
+            <td>Kostenlos</td>
+            <td>Abo (kostenlose Stufe + Pro)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="detail">
+    <h2>Wo jedes Tool glänzt</h2>
+
+    <h3>Narrative Select: intelligentes Culling für Storyteller</h3>
+    <p>
+      Narrative Select basiert auf dem Konzept der <em>Scenes</em> — dein Shooting wird automatisch in bedeutungsvolle
+      Momente gruppiert (Trauung, Empfang, Porträts usw.), sodass du Szene für Szene statt Foto für Foto cullen
+      kannst. Das Gesichts-Nahaufnahme-Panel zeigt Augenschärfe und Mimik auf einen Blick. Personal AI Presets (Pro)
+      wenden einen Basis-Bearbeitungsstil auf freigegebene Auswahlbilder an, bevor sie zurück an Lightroom gehen.
+    </p>
+    <p>
+      Für Hochzeits- und Lifestyle-Fotografinnen und -Fotografen, die auf Storytelling und narrative Struktur setzen,
+      stellen diese Funktionen einen ausgereiften, durchdachten Workflow dar. Narrative Select ist Cloud-unterstützt —
+      es ist nicht für vollständig offline Nutzung konzipiert.
+    </p>
+
+    <h3>LrGeniusAI: breiter KI-Workflow in einem kostenlosen Plugin</h3>
+    <p>
+      LrGeniusAI bleibt innerhalb von Lightroom Classic und deckt den kompletten KI-Metadaten-Workflow ab: Schlagworte,
+      Bildunterschriften, Titel, Alt-Text, semantische Suche, Gesichtserkennung, Culling und Bearbeitungsrezepte.
+      Für Fotografinnen und Fotografen, die all das an einem Ort möchten — ohne Abo — ist es einzigartig positioniert.
+    </p>
+    <p>
+      Da LrGeniusAI vollständig lokal laufen kann, mit KI-Modellen, die direkt ins Plugin eingebaut sind, oder über
+      Ollama und LM Studio, ist es hier auch die einzige Option, bei der die Fotodaten komplett auf deiner eigenen
+      Hardware bleiben. Die Culling-Funktion befindet sich noch in der Beta-Phase; siehe die
+      <a href="/help/docs/help-cull-photos">Anleitung zur Culling</a> für aktuelle Details.
+    </p>
+  </section>
+
+  <nav class="related-comparisons">
+    <h2>Weitere Vergleiche</h2>
+    <ul>
+      <li><a href="/de/compare">Alle KI-Plugins für Lightroom — Vergleichsübersicht</a></li>
+      <li><a href="/de/lrgenius-vs-excire">LrGenius vs. Excire, Aftershoot, Imagen &amp; mehr — Gesamtüberblick</a></li>
+      <li><a href="/de/compare/lrgenius-vs-peakto">LrGenius vs. Peakto</a></li>
+      <li><a href="/de/compare/lrgenius-vs-aftershoot">LrGenius vs. Aftershoot</a></li>
+    </ul>
+  </nav>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .meta {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  .verdict, .comparison, .detail, .related-comparisons {
+    padding: 1.5rem 0;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid #eaeaea;
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f7f7f9;
+    white-space: nowrap;
+  }
+  td:first-child, th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f7f7f9;
+    z-index: 1;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #d8a73a;
+    color: #fff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+  .related-comparisons ul {
+    list-style: none;
+    padding: 0;
+  }
+  .related-comparisons li {
+    margin-bottom: 0.6rem;
+  }
+</style>
