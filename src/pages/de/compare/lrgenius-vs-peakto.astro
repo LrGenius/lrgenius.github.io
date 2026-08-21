@@ -1,0 +1,279 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = 'LrGenius vs. Peakto (2026)';
+const description = 'Peakto ist ein reiner Mac-Katalog-Aggregator für Lightroom, Capture One und Apple Fotos. LrGenius ist ein Lightroom-Classic-Plugin für Windows und macOS. Ein Vergleich von KI-Funktionen, Plattformunterstützung und Preisen.';
+const lastUpdated = '2026-08-17';
+---
+
+<Layout title={`${title} — KI-Plugin-Vergleich für Lightroom`} description={description} translatedPath="/compare/lrgenius-vs-peakto">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": lastUpdated,
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "LrGenius", "url": "https://lrgenius.com" },
+    "about": [
+      { "@type": "SoftwareApplication", "name": "LrGeniusAI" },
+      { "@type": "SoftwareApplication", "name": "Peakto" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://lrgenius.com/de" },
+      { "@type": "ListItem", "position": 2, "name": "KI-Plugins vergleichen", "item": "https://lrgenius.com/de/compare" },
+      { "@type": "ListItem", "position": 3, "name": "LrGenius vs. Peakto", "item": "https://lrgenius.com/de/compare/lrgenius-vs-peakto" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist LrGenius besser als Peakto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Beide erfüllen unterschiedliche Zwecke. Peakto ist ein reiner Mac-Fotomanager, der Lightroom, Capture One, Apple Fotos und weitere Kataloge in einer durchsuchbaren Bibliothek vereint — ideal für Fotografen, die appübergreifend arbeiten. LrGeniusAI ist ein kostenloses, Open-Source-Lightroom-Classic-Plugin, das KI-Verschlagwortung, Bildunterschriften, semantische Suche, Artenerkennung auf dem eigenen Gerät, Culling und Bearbeitung an einem Ort bündelt — verfügbar für macOS und Windows. Wenn du auf Lightroom Classic setzt und Windows-Unterstützung willst, ist LrGenius die bessere Wahl; wenn du appübergreifend auf einem Mac arbeitest, deckt Peakto mehr ab."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Funktioniert Peakto unter Windows?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Peakto ist ausschließlich für macOS. LrGeniusAI unterstützt sowohl macOS als auch Windows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist Peakto kostenlos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Peakto ist ein Abo-basiertes Produkt. LrGeniusAI ist komplett kostenlos und Open Source (AGPL-3.0)."
+        }
+      }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>LrGenius vs. Peakto</h1>
+    <p class="tagline">Kostenloses Open-Source-Lightroom-Plugin vs. universeller Mac-Fotomanager.</p>
+    <p class="meta">Zuletzt aktualisiert: {lastUpdated}</p>
+  </section>
+
+  <section class="verdict">
+    <h2>Kurzfazit</h2>
+    <p>
+      <strong>Wähle Peakto</strong>, wenn du appübergreifend mit Lightroom, Capture One, Apple Fotos oder anderen
+      Apps auf einem Mac arbeitest und eine einzige, vereinte Bibliothek mit KI-Suche und Culling über alle
+      Kataloge hinweg willst.
+    </p>
+    <p>
+      <strong>Wähle LrGeniusAI</strong>, wenn du auf Lightroom Classic setzt, Windows-Unterstützung brauchst und
+      KI-Verschlagwortung, Bildunterschriften, semantische Suche, Artenerkennung, Culling und Bearbeitung in
+      einem kostenlosen, Open-Source-Plugin willst — mit der Option, alles zu 100 % lokal laufen zu lassen, mit
+      ins Plugin integrierten KI-Modellen oder über Ollama und LM Studio.
+    </p>
+  </section>
+
+  <section class="comparison">
+    <h2>Funktionsvergleich</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspekt</th>
+            <th>LrGeniusAI <span class="badge">beta</span></th>
+            <th>Peakto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Typ</td>
+            <td>Lightroom-Classic-Plugin</td>
+            <td>Eigenständige Mac-App + LR-Plugin-Brücke</td>
+          </tr>
+          <tr>
+            <td>Plattform</td>
+            <td>macOS + Windows</td>
+            <td>Nur macOS</td>
+          </tr>
+          <tr>
+            <td>Funktioniert mit</td>
+            <td>Lightroom Classic</td>
+            <td>Lightroom, Capture One, Apple Fotos, Luminar und mehr</td>
+          </tr>
+          <tr>
+            <td>KI-Verschlagwortung</td>
+            <td>Ja — offenes Vokabular, per Prompt anpassbar</td>
+            <td>Ja — lokale KI-Tags</td>
+          </tr>
+          <tr>
+            <td>Bildunterschriften / Beschreibungen / Alt-Text</td>
+            <td>Ja</td>
+            <td>Eingeschränkt</td>
+          </tr>
+          <tr>
+            <td>Semantische / natürlichsprachige Suche</td>
+            <td>Ja</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <td>Artenerkennung (taxonomisch)</td>
+            <td>Ja — BioCLIP 2 auf dem eigenen Gerät, mit Rang &amp; Konfidenz</td>
+            <td>Nein — generische Motiv-Tags</td>
+          </tr>
+          <tr>
+            <td>Gesichtserkennung</td>
+            <td>Ja — Clustering und Personen-Dialog (beta)</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <td>KI-Culling</td>
+            <td>Ja, gesichtsbasiert (beta)</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <td>Lernt persönlichen Bearbeitungsstil</td>
+            <td>AI Edit — aus deinen eigenen gespeicherten Edits (beta)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Läuft lokal / offline</td>
+            <td>Ja (integriert, oder Ollama / LM Studio)</td>
+            <td>Ja (lokale KI)</td>
+          </tr>
+          <tr>
+            <td>Open Source</td>
+            <td>Ja (AGPL-3.0)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Preis</td>
+            <td>Kostenlos</td>
+            <td>Abo (nur macOS)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="detail">
+    <h2>Wo jedes Tool glänzt</h2>
+
+    <h3>Peakto: der appübergreifende universelle Fotomanager</h3>
+    <p>
+      Peaktos größte Stärke ist seine Reichweite: Es importiert Kataloge aus Lightroom Classic, Lightroom CC,
+      Capture One, Apple Fotos, Luminar und mehreren weiteren Apps und gibt Mac-Fotografen eine einzige, vereinte
+      Bibliothek mit KI-Suche über alle hinweg. Wenn du Jahre an Fotos hast, die über mehrere Apps verteilt sind,
+      spart Peakto erheblichen manuellen Migrationsaufwand.
+    </p>
+
+    <h3>LrGeniusAI: tiefe Lightroom-Integration, kostenlos, plattformübergreifend</h3>
+    <p>
+      LrGeniusAI lebt als vollwertiges Plugin direkt in Lightroom Classic. Es schreibt KI-generierte Keywords,
+      Bildunterschriften, Titel und Alt-Text über das Lightroom SDK direkt in deinen Katalog, und die semantische
+      Suche zeigt Ergebnisse in einer normalen Lightroom-Sammlung an, sodass du die App nie verlassen musst. Es
+      ist außerdem die einzige kostenlose, Open-Source-Option in diesem Vergleich und die einzige, die sowohl
+      unter macOS als auch unter Windows läuft.
+    </p>
+    <p>
+      Es ist zudem die einzige Lösung, die Arten taxonomisch erkennt: <strong>BioCLIP 2</strong> läuft auf deinem
+      eigenen Rechner und schreibt wissenschaftlichen Namen, gebräuchlichen Namen, Rang, Konfidenz und die
+      vollständige linnéische Taxonomie in durchsuchbare Metadatenfelder, optional auch als Keyword-Hierarchie.
+      Peaktos lokale KI erzeugt Motiv-Tags wie „Vogel“ oder „Blume“ — das ist eine andere Aufgabe.
+    </p>
+    <p>
+      Da sich LrGeniusAI in der Beta-Phase befindet, variieren die Ergebnisse je nach Modell und Reifegrad der
+      Funktion — schau dir die
+      <a href="/help/docs/faq">FAQ</a> und die
+      <a href="https://github.com/LrGenius/LrGeniusAI/releases" target="_blank" rel="noopener">aktuellen Release Notes</a>
+      an, bevor du es in einem produktiven Workflow einsetzt.
+    </p>
+  </section>
+
+  <nav class="related-comparisons">
+    <h2>Weitere Vergleiche</h2>
+    <ul>
+      <li><a href="/de/compare">Alle KI-Plugins für Lightroom — Vergleichsübersicht</a></li>
+      <li><a href="/de/lrgenius-vs-excire">LrGenius vs. Excire, Aftershoot, Imagen &amp; mehr — vollständiger Überblick</a></li>
+      <li><a href="/de/compare/lrgenius-vs-aftershoot">LrGenius vs. Aftershoot</a></li>
+      <li><a href="/de/compare/lrgenius-vs-narrative-select">LrGenius vs. Narrative Select</a></li>
+    </ul>
+  </nav>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .meta {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  .verdict, .comparison, .detail, .related-comparisons {
+    padding: 1.5rem 0;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid #eaeaea;
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f7f7f9;
+    white-space: nowrap;
+  }
+  td:first-child, th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f7f7f9;
+    z-index: 1;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #d8a73a;
+    color: #fff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+  .related-comparisons ul {
+    list-style: none;
+    padding: 0;
+  }
+  .related-comparisons li {
+    margin-bottom: 0.6rem;
+  }
+</style>

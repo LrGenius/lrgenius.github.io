@@ -1,0 +1,269 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = 'LrGenius vs. Aftershoot (2026)';
+const description = 'Aftershoot ist eine kostenpflichtige, cloud-basierte App für Culling und Bearbeitung. LrGenius ist kostenlos, quelloffen und läuft direkt in Lightroom Classic — lokal oder über die Cloud. Feature-Tabelle, Preise und Workflow-Unterschiede im Vergleich.';
+const lastUpdated = '2026-08-17';
+---
+
+<Layout title={`${title} — Culling-Vergleich für Lightroom`} description={description} translatedPath="/compare/lrgenius-vs-aftershoot">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": lastUpdated,
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "LrGenius", "url": "https://lrgenius.com" },
+    "about": [
+      { "@type": "SoftwareApplication", "name": "LrGeniusAI" },
+      { "@type": "SoftwareApplication", "name": "Aftershoot" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://lrgenius.com/de" },
+      { "@type": "ListItem", "position": 2, "name": "KI-Plugins im Vergleich", "item": "https://lrgenius.com/de/compare" },
+      { "@type": "ListItem", "position": 3, "name": "LrGenius vs. Aftershoot", "item": "https://lrgenius.com/de/compare/lrgenius-vs-aftershoot" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist LrGenius eine gute Alternative zu Aftershoot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LrGenius kann das Culling von Aftershoot bei kleineren Shootings oder privaten Bildarchiven ersetzen und ergänzt sie um KI-Verschlagwortung, Bildunterschriften und semantische Suche, die Aftershoot nicht bietet — alles kostenlos. Für professionelles Culling großer Bildmengen (Hochzeiten, Events mit Tausenden von Aufnahmen) ist Aftershoot ausgereifter und praxiserprobter. LrGenius ist die bessere Wahl, wenn du ein einziges kostenloses Plugin möchtest, das den gesamten Workflow abdeckt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bietet Aftershoot KI-Verschlagwortung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Aftershoot konzentriert sich auf KI-Culling und -Bearbeitung. Es erzeugt keine Schlagwörter oder Bildunterschriften und bietet keine semantische Suche. LrGeniusAI deckt all diese Funktionen ab."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist Aftershoot kostenlos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Aftershoot ist ein kostenpflichtiger Abo-Dienst. LrGeniusAI ist vollständig kostenlos und quelloffen (AGPL-3.0)."
+        }
+      }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>LrGenius vs. Aftershoot</h1>
+    <p class="tagline">Kostenloses All-in-One-KI-Plugin vs. dediziertes Tool für KI-Culling und -Bearbeitung.</p>
+    <p class="meta">Zuletzt aktualisiert: {lastUpdated}</p>
+  </section>
+
+  <section class="verdict">
+    <h2>Kurzfazit</h2>
+    <p>
+      <strong>Wähle Aftershoot</strong>, wenn KI-Culling dein größter Engpass ist — besonders bei Event- oder
+      Hochzeitsfotografie mit hohem Bildaufkommen, wo du ein praxiserprobtes Tool brauchst, das bereits Millionen
+      von Aufnahmen verarbeitet hat und sich eng in den Culling-Workflow von Lightroom einfügt. Aftershoot bietet
+      zudem KI-Bearbeitung, die deinen persönlichen Stil erlernt.
+    </p>
+    <p>
+      <strong>Wähle LrGeniusAI</strong>, wenn du KI-Verschlagwortung, Bildunterschriften, semantische Suche und
+      Culling in einem einzigen kostenlosen, quelloffenen Plugin möchtest und bereit bist, mit einem Produkt zu
+      arbeiten, das sich noch weiterentwickelt. LrGeniusAI kann zu 100 % lokal laufen, mit KI-Modellen, die direkt im
+      Plugin eingebaut sind, oder über Ollama und LM Studio — kein Abo, kein Cloud-Upload nötig.
+    </p>
+  </section>
+
+  <section class="comparison">
+    <h2>Feature-Vergleich</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspekt</th>
+            <th>LrGeniusAI <span class="badge">beta</span></th>
+            <th>Aftershoot</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hauptzweck</td>
+            <td>Verschlagwortung, Bildunterschriften, Suche, Artenerkennung, Culling, Bearbeitungstraining</td>
+            <td>Dediziertes KI-Culling + KI-Bearbeitung</td>
+          </tr>
+          <tr>
+            <td>Lightroom-Integration</td>
+            <td>Plugin (läuft direkt in Lightroom)</td>
+            <td>Externe App, gibt gecullte Bilder an LR zurück</td>
+          </tr>
+          <tr>
+            <td>KI-Verschlagwortung</td>
+            <td>Ja — offenes Vokabular, per Prompt anpassbar</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>KI-Bildunterschriften / Titel / Alt-Text</td>
+            <td>Ja</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Semantische / natürlichsprachliche Suche</td>
+            <td>Ja</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>KI-Culling</td>
+            <td>Ja, gesichtsbewusst (Beta)</td>
+            <td>Ja — ausgereift, für hohes Bildaufkommen geeignet</td>
+          </tr>
+          <tr>
+            <td>Gesichtserkennung (Culling)</td>
+            <td>Ja (Beta)</td>
+            <td>Ja (Erkennung geschlossener Augen, unscharfer Aufnahmen)</td>
+          </tr>
+          <tr>
+            <td>Lernt persönlichen Bearbeitungsstil</td>
+            <td>AI Edit — aus deinen eigenen gespeicherten Bearbeitungen (Beta)</td>
+            <td>Ja — ausgereift</td>
+          </tr>
+          <tr>
+            <td>Läuft lokal / offline</td>
+            <td>Ja (eingebaut oder Ollama / LM Studio)</td>
+            <td>Ja (lokale Verarbeitung)</td>
+          </tr>
+          <tr>
+            <td>Plattform</td>
+            <td>macOS + Windows</td>
+            <td>macOS + Windows</td>
+          </tr>
+          <tr>
+            <td>Open Source</td>
+            <td>Ja (AGPL-3.0)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Preis</td>
+            <td>Kostenlos</td>
+            <td>Abo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="detail">
+    <h2>Wo jedes Tool seine Stärken hat</h2>
+
+    <h3>Aftershoot: zugeschnitten auf Culling großer Bildmengen</h3>
+    <p>
+      Aftershoot genießt das Vertrauen einer großen Community von Hochzeits- und Eventfotografen, die Hunderte oder
+      Tausende von Aufnahmen pro Shooting cullen. Die KI ist speziell auf Culling-Aufgaben trainiert — sie
+      erkennt Unschärfe, doppelte Aufnahmen, geschlossene Augen und unvorteilhafte Ausdrücke — und wird besser, je
+      mehr du sie mit deinen eigenen Auswahlentscheidungen trainierst. Die Bearbeitungskomponente wendet deinen
+      persönlichen Stil mit minimalem manuellem Aufwand auf die freigegebenen Auswahlbilder an.
+    </p>
+
+    <h3>LrGeniusAI: breiterer Workflow, keine Kosten</h3>
+    <p>
+      LrGeniusAI bündelt Culling zusammen mit KI-Verschlagwortung, semantischer Suche, Gesichtserkennung,
+      Bildunterschriften und Bearbeitungsrezepten in einem Lightroom-nativen Plugin. Für Fotografen, die all diese
+      Funktionen brauchen und nicht für mehrere Abos zahlen möchten, deckt LrGeniusAI den gesamten KI-Metadaten- und
+      Culling-Workflow kostenlos ab. Da es quelloffen ist, kannst du den Code außerdem einsehen oder dazu
+      beitragen.
+    </p>
+    <p>
+      Die Culling-Funktion befindet sich derzeit in der Beta-Phase — sie funktioniert gut für kleinere private
+      Bildarchive, erreicht aber möglicherweise noch nicht die Ausgabequalität und Zuverlässigkeit von Aftershoot für
+      professionelle Kundenarbeit. Siehe den <a href="/help/docs/help-cull-photos">Leitfaden zum Culling</a>
+      für die aktuellen Möglichkeiten.
+    </p>
+  </section>
+
+  <nav class="related-comparisons">
+    <h2>Weitere Vergleiche</h2>
+    <ul>
+      <li><a href="/de/compare">Alle KI-Plugins für Lightroom — die Vergleichsübersicht</a></li>
+      <li><a href="/de/lrgenius-vs-excire">LrGenius vs. Excire, Aftershoot, Imagen &amp; mehr — die Gesamtübersicht</a></li>
+      <li><a href="/de/compare/lrgenius-vs-peakto">LrGenius vs. Peakto</a></li>
+      <li><a href="/de/compare/lrgenius-vs-narrative-select">LrGenius vs. Narrative Select</a></li>
+    </ul>
+  </nav>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .meta {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  .verdict, .comparison, .detail, .related-comparisons {
+    padding: 1.5rem 0;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid #eaeaea;
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f7f7f9;
+    white-space: nowrap;
+  }
+  td:first-child, th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f7f7f9;
+    z-index: 1;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #d8a73a;
+    color: #fff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+  .related-comparisons ul {
+    list-style: none;
+    padding: 0;
+  }
+  .related-comparisons li {
+    margin-bottom: 0.6rem;
+  }
+</style>

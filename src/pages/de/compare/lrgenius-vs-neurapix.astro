@@ -1,0 +1,264 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = 'LrGenius vs. Neurapix (2026)';
+const description = 'Neurapix trainiert anhand deiner bestehenden Lightroom-Edits, um deinen persönlichen Stil per SmartPresets nachzubilden. LrGenius verfolgt einen anderen Ansatz: kostenlos, Open Source und direkt in Lightroom Classic integriert – mit KI-Verschlagwortung, semantischer Suche, Culling und ohne Abo-Gebühr.';
+const lastUpdated = '2026-08-17';
+---
+
+<Layout title={`${title} — KI-Bearbeitungsvergleich für Lightroom`} description={description} translatedPath="/compare/lrgenius-vs-neurapix">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": lastUpdated,
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "LrGenius", "url": "https://lrgenius.com" },
+    "about": [
+      { "@type": "SoftwareApplication", "name": "LrGeniusAI" },
+      { "@type": "SoftwareApplication", "name": "Neurapix" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://lrgenius.com/de" },
+      { "@type": "ListItem", "position": 2, "name": "KI-Plugins vergleichen", "item": "https://lrgenius.com/de/compare" },
+      { "@type": "ListItem", "position": 3, "name": "LrGenius vs. Neurapix", "item": "https://lrgenius.com/de/compare/lrgenius-vs-neurapix" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist LrGenius eine gute Alternative zu Neurapix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Beide decken unterschiedliche Bedürfnisse ab. Neurapix ist ein Cloud-basiertes Bearbeitungstool, das deine bestehenden Lightroom-Presets analysiert und einen passenden Stil auf neue Fotos anwendet – der Fokus liegt rein auf Bearbeitungseffizienz. LrGenius ist kostenlos, Open Source und vereint KI-Verschlagwortung, semantische Suche, Culling, Gesichtserkennung und experimentelle Bearbeitung in einem Lightroom-Plugin, mit der Option, alles komplett auf der eigenen Hardware laufen zu lassen. Wenn KI-Bearbeitung dein einziges Anliegen ist, ist Neurapix in diesem Bereich ausgereifter. Wenn du einen breiteren, kostenlosen, datenschutzfreundlichen KI-Workflow brauchst, deckt LrGenius mehr ab."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bietet Neurapix KI-Verschlagwortung oder Foto-Culling?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Neurapix konzentriert sich auf KI-Bearbeitung mittels SmartPresets. Es generiert weder Keywords noch Bildunterschriften und übernimmt auch kein Foto-Culling. LrGeniusAI deckt all diese Funktionen ab."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist Neurapix kostenlos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Neurapix berechnet Kosten pro Bild oder über ein Abo-Modell. LrGeniusAI ist komplett kostenlos und Open Source (AGPL-3.0). Lokale Verarbeitung verursacht keine Kosten pro Bild, egal ob du die integrierten KI-Modelle des Plugins oder Ollama und LM Studio nutzt."
+        }
+      }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>LrGenius vs. Neurapix</h1>
+    <p class="tagline">Kostenloses All-in-One-KI-Plugin vs. Cloud-KI-Bearbeitung mit SmartPresets.</p>
+    <p class="meta">Zuletzt aktualisiert: {lastUpdated}</p>
+  </section>
+
+  <section class="verdict">
+    <h2>Kurzfazit</h2>
+    <p>
+      <strong>Wähle Neurapix</strong>, wenn KI-Bearbeitung dein Hauptziel ist – insbesondere das Anwenden eines
+      einheitlichen Stils auf große Fotostapel mithilfe Cloud-basierter SmartPresets, die sich an deinen
+      bestehenden Lightroom-Look anpassen. Neurapix ist auf Bearbeitungseffizienz ausgelegt.
+    </p>
+    <p>
+      <strong>Wähle LrGeniusAI</strong>, wenn du KI-Verschlagwortung, semantische Suche, Artenerkennung,
+      Culling und Bearbeitung in einem kostenlosen, Open-Source-Lightroom-Plugin willst, das zu 100 % lokal
+      laufen kann. Der <em>AI Edit</em> von LrGeniusAI erstellt Rezepte aus deinen eigenen gespeicherten
+      Edits – noch in der Beta-Phase, aber kostenlos – und den Rest des Workflows (Verschlagwortung, Suche,
+      Artenerkennung, Culling) bietet Neurapix gar nicht an.
+    </p>
+  </section>
+
+  <section class="comparison">
+    <h2>Funktionsvergleich</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspekt</th>
+            <th>LrGeniusAI <span class="badge">beta</span></th>
+            <th>Neurapix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hauptzweck</td>
+            <td>Verschlagwortung, Bildunterschriften, Suche, Artenerkennung, Culling, Edit-Training</td>
+            <td>KI-Bearbeitung — SmartPresets passend zu deinem bestehenden Stil</td>
+          </tr>
+          <tr>
+            <td>Lightroom-Integration</td>
+            <td>Plugin (läuft innerhalb von Lightroom)</td>
+            <td>Cloud-Dienst mit Lightroom-Plugin</td>
+          </tr>
+          <tr>
+            <td>KI-Verschlagwortung</td>
+            <td>Ja — offenes Vokabular, per Prompt anpassbar</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>KI-Bildunterschriften / Titel / Alt-Text</td>
+            <td>Ja</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Semantische / natürlichsprachige Suche</td>
+            <td>Ja</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>KI-Culling</td>
+            <td>Ja, gesichtsbasiert (beta)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Lernt persönlichen Bearbeitungsstil</td>
+            <td>AI Edit — aus deinen eigenen gespeicherten Edits (beta)</td>
+            <td>Ja — SmartPresets, Cloud-trainiert</td>
+          </tr>
+          <tr>
+            <td>Läuft lokal / offline</td>
+            <td>Ja (integriert, oder Ollama / LM Studio)</td>
+            <td>Nein — nur Cloud</td>
+          </tr>
+          <tr>
+            <td>Datenschutz</td>
+            <td>Vollständig lokale Option — Fotos verlassen nie deinen Rechner</td>
+            <td>Fotos werden zur Verarbeitung in die Cloud hochgeladen</td>
+          </tr>
+          <tr>
+            <td>Plattform</td>
+            <td>macOS + Windows</td>
+            <td>macOS + Windows</td>
+          </tr>
+          <tr>
+            <td>Open Source</td>
+            <td>Ja (AGPL-3.0)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Preis</td>
+            <td>Kostenlos</td>
+            <td>Pay-per-Image oder Abo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="detail">
+    <h2>Wo jedes Tool glänzt</h2>
+
+    <h3>Neurapix: Cloud-KI-Bearbeitung mit SmartPresets</h3>
+    <p>
+      Neurapix analysiert deine bestehenden Lightroom-Presets und -Edits, um ein auf deinen Stil zugeschnittenes
+      SmartPreset zu erstellen. Wenn du einen neuen Fotostapel verarbeitest, wendet Neurapix diesen Look in der
+      Cloud an und liefert die Ergebnisse zurück an Lightroom. Es ist ein reiner Cloud-Dienst mit Fokus auf
+      Bearbeitung, der sich für Fotografen eignet, die große Mengen verarbeiten und Bearbeitungskonsistenz ohne
+      manuelle Anpassung an jedem einzelnen Bild wollen.
+    </p>
+
+    <h3>LrGeniusAI: breiterer Workflow, keine Kosten</h3>
+    <p>
+      LrGeniusAI ist ein Lightroom-Classic-Plugin — keine separate App oder Cloud-Dienst — das KI-Verschlagwortung,
+      Bildunterschriften, semantische Suche, Culling, Gesichtserkennung und experimentelle Edit-Rezepte kostenlos
+      abdeckt. Die Verarbeitung kann komplett auf deiner eigenen Hardware laufen, entweder mit den ins Plugin
+      integrierten KI-Modellen oder über einen bestehenden Ollama- oder LM-Studio-Server, sodass Fotos externe
+      Server nie erreichen. Die Bearbeitung von Neurapix ist ausgereifter; die Breite der Workflow-Funktionen von
+      LrGeniusAI und die Kostenfreiheit machen es zur besseren Wahl, wenn du mehr als nur Bearbeitung brauchst.
+    </p>
+  </section>
+
+  <nav class="related-comparisons">
+    <h2>Weitere Vergleiche</h2>
+    <ul>
+      <li><a href="/de/compare">Alle KI-Plugins für Lightroom — Vergleichsübersicht</a></li>
+      <li><a href="/de/lrgenius-vs-excire">LrGenius vs. Excire, Aftershoot, Imagen &amp; mehr — vollständiger Überblick</a></li>
+      <li><a href="/de/compare/lrgenius-vs-imagen-ai">LrGenius vs. Imagen AI</a></li>
+      <li><a href="/de/compare/lrgenius-vs-aftershoot">LrGenius vs. Aftershoot</a></li>
+    </ul>
+  </nav>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .meta {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  .verdict, .comparison, .detail, .related-comparisons {
+    padding: 1.5rem 0;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid #eaeaea;
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f7f7f9;
+    white-space: nowrap;
+  }
+  td:first-child, th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f7f7f9;
+    z-index: 1;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #d8a73a;
+    color: #fff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+  .related-comparisons ul {
+    list-style: none;
+    padding: 0;
+  }
+  .related-comparisons li {
+    margin-bottom: 0.6rem;
+  }
+</style>

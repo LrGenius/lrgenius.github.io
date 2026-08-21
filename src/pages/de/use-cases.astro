@@ -1,0 +1,192 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="LrGeniusAI für jeden Fotografen — Anwendungsfälle & Workflows"
+  description="So passt sich LrGeniusAI an unterschiedliche Foto-Workflows an: Hochzeit, Stock, Natur, Hobby und Archivierung. Kostenlose KI-Verschlagwortung, Culling und semantische Suche für Lightroom Classic."
+  translatedPath="/use-cases"
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://lrgenius.com/de" },
+      { "@type": "ListItem", "position": 2, "name": "Anwendungsfälle", "item": "https://lrgenius.com/de/use-cases" }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>LrGeniusAI für jeden Fotografen</h1>
+    <p class="tagline">KI-Verschlagwortung, Culling und Suche — kostenlos, lokal und direkt in Lightroom Classic integriert.</p>
+  </section>
+
+  <section class="intro">
+    <p>
+      LrGeniusAI ist ein einziges kostenloses Plugin, das den gesamten KI-Workflow innerhalb von
+      Lightroom Classic abdeckt — von der Auswahl der besten Aufnahmen bis zum Wiederfinden Jahre
+      später. Im Folgenden siehst du, wie unterschiedliche Fotografentypen es einsetzen.
+    </p>
+  </section>
+
+  <section class="use-cases">
+
+    <div class="use-case">
+      <h2>Hochzeits- &amp; Eventfotografen</h2>
+      <p class="pain-point">Du schießt Tausende Bilder pro Event und verbringst Stunden mit der Culling, bevor du überhaupt mit der Bearbeitung anfangen kannst.</p>
+      <h3>So hilft dir LrGeniusAI</h3>
+      <ul>
+        <li><strong>KI-Culling (Beta)</strong> wählt mit gesichtsbewusster Bewertung die besten Aufnahmen vor — sie erkennt Schärfe, Mimik und Bildaufbau über große Bildmengen hinweg.</li>
+        <li><strong>Gesichtserkennung</strong> gruppiert Gäste und Familienmitglieder, sodass du schnell prüfen kannst, ob alle wichtigen Personen abgedeckt sind.</li>
+        <li><strong>Kontextuelle Analyse</strong> lässt dich vor der Indexierung Namen, Location und Event-Details angeben — daraus entstehen Bildunterschriften wie „Brautpaar tauscht bei Sonnenuntergangs-Zeremonie die Ringe“.</li>
+        <li><strong>Semantische Suche</strong> findet den „ersten Tanz mit den Großeltern im Hintergrund“ auch Jahre nach der Lieferung noch.</li>
+      </ul>
+      <p class="cta-links">
+        <a href="/help/docs/help-cull-photos">Culling-Guide</a> ·
+        <a href="/help/docs/help-people-faces">Personen-&amp;-Gesichter-Guide</a>
+      </p>
+    </div>
+
+    <div class="use-case">
+      <h2>Stock- &amp; Redaktionsfotografen</h2>
+      <p class="pain-point">Stock-Bibliotheken brauchen präzise, umfassende Schlagwörter für die Auffindbarkeit. Manuelles Taggen ist langsam und uneinheitlich.</p>
+      <h3>So hilft dir LrGeniusAI</h3>
+      <ul>
+        <li><strong>KI-Verschlagwortung mit offenem Vokabular</strong> erzeugt beschreibende, uneingeschränkte Tags — statt einer festen Taxonomie — passend zu dem, was tatsächlich auf jedem Bild zu sehen ist.</li>
+        <li><strong>Massenindexierung</strong> verarbeitet deine gesamte Bibliothek im Hintergrund, während du an anderen Aufgaben arbeitest.</li>
+        <li><strong>Bildunterschriften und Alt-Texte</strong> liefern dir fertige Beschreibungen für Agentur-Einreichungen und Barrierefreiheits-Anforderungen.</li>
+        <li><strong>Schlagwort-Deduplizierung</strong> räumt überlappende und redundante Tags vor der Einreichung auf.</li>
+      </ul>
+      <p class="cta-links">
+        <a href="/help/docs/help-analyze-and-index">Analysieren-&amp;-Indexieren-Guide</a> ·
+        <a href="/help/docs/help-keyword-dedup-and-declutter">Schlagwort-Deduplizierung-Guide</a>
+      </p>
+    </div>
+
+    <div class="use-case">
+      <h2>Natur- &amp; Wildlife-Fotografen</h2>
+      <p class="pain-point">Artennamen, Verhaltensweisen und Lebensräume brauchen spezifische, genaue Schlagwörter — allgemeine Tagging-Tools übersehen die Details, auf die es ankommt.</p>
+      <h3>So hilft dir LrGeniusAI</h3>
+      <ul>
+        <li><strong>Kontexthinweise</strong> lassen dich vor der Analyse Ort, Art oder Situation angeben — die KI berücksichtigt deine Hinweise in Schlagwörtern und Bildunterschriften für höhere Genauigkeit.</li>
+        <li><strong>Verschlagwortung mit offenem Vokabular</strong> erfasst Verhaltensweisen („Vogel im Flug“, „balzendes Paar“, „fütterndes Jungtier“) statt nur Artenbezeichnungen.</li>
+        <li><strong>Semantische Suche</strong> findet „Aufnahmen von Rotwild am Waldrand zur goldenen Stunde“, ohne dass exakte Schlagwortübereinstimmungen nötig sind.</li>
+        <li>Läuft mit <strong>lokalen KI-Modellen</strong>, die im Plugin integriert sind — keine Fotos werden an externe Server gesendet, und keine separate KI-App muss unterwegs installiert werden.</li>
+      </ul>
+      <p class="cta-links">
+        <a href="/help/docs/help-analyze-and-index">Analysieren-&amp;-Indexieren-Guide</a> ·
+        <a href="/help/docs/help-advanced-search">Erweiterte-Suche-Guide</a>
+      </p>
+    </div>
+
+    <div class="use-case">
+      <h2>Hobby- &amp; Privatfotografen</h2>
+      <p class="pain-point">Dein Katalog ist auf Zehntausende Bilder angewachsen, und du findest das Foto, das dir vorschwebt, einfach nicht mehr.</p>
+      <h3>So hilft dir LrGeniusAI</h3>
+      <ul>
+        <li><strong>Semantische Freitextsuche</strong> lässt dich beschreiben, woran du dich erinnerst — „Kinder spielen im Schnee in roten Jacken“ — und findet das Foto sofort, ohne dass du es zuvor verschlagwortet haben musst.</li>
+        <li><strong>KI-Verschlagwortung</strong> läuft im Hintergrund über deine bestehende Bibliothek und baut mit der Zeit einen durchsuchbaren Index auf.</li>
+        <li><strong>Ähnliche finden</strong> geht von einem Foto aus, das dir gefällt, und zeigt visuell ähnliche Aufnahmen aus deinem gesamten Katalog.</li>
+        <li>Alles läuft <strong>lokal auf deinem eigenen Rechner</strong>, mit dem KI-Modell direkt im Plugin integriert — kostenlos, privat, ohne Abo, ohne zusätzliche Einrichtung.</li>
+      </ul>
+      <p class="cta-links">
+        <a href="/help/docs/help-advanced-search">Erweiterte-Suche-Guide</a> ·
+        <a href="/help/docs/help-find-similar">Ähnliche-finden-Guide</a>
+      </p>
+    </div>
+
+    <div class="use-case">
+      <h2>Fotoarchivare &amp; Bibliotheksverwalter</h2>
+      <p class="pain-point">Große Altkataloge haben keine einheitlichen Metadaten. Manuelle Nachbearbeitung in diesem Umfang ist nicht praktikabel.</p>
+      <h3>So hilft dir LrGeniusAI</h3>
+      <ul>
+        <li><strong>KI-Massenverschlagwortung</strong> verarbeitet Tausende unverschlagwortete Bilder und schreibt standardisierte Schlagwörter direkt in die Lightroom-Metadaten.</li>
+        <li><strong>KI-Bildunterschriften und Alt-Texte</strong> verbessern die Barrierefreiheit und machen Bilder anhand ihres beschreibenden Inhalts durchsuchbar.</li>
+        <li><strong>Schlagwort-Deduplizierung</strong> fasst abweichende Schreibweisen, Synonyme und Alt-Tags zu einem sauberen, kontrollierten Vokabular zusammen.</li>
+        <li><strong>Lokale Verarbeitung</strong> hält sensible oder vertrauliche Bildsammlungen von externen Servern fern.</li>
+      </ul>
+      <p class="cta-links">
+        <a href="/help/docs/help-analyze-and-index">Analysieren-&amp;-Indexieren-Guide</a> ·
+        <a href="/help/docs/help-keyword-dedup-and-declutter">Schlagwort-Deduplizierung-Guide</a>
+      </p>
+    </div>
+
+  </section>
+
+  <section class="cta">
+    <h2>Bereit, es auszuprobieren?</h2>
+    <p>
+      LrGeniusAI ist kostenlos, quelloffen und läuft direkt in Lightroom Classic unter macOS und Windows.
+    </p>
+    <p>
+      <a href="https://github.com/LrGenius/LrGeniusAI/releases" target="_blank" rel="noopener">Von GitHub herunterladen</a> ·
+      <a href="/help/docs/getting-started">Getting-Started-Guide</a> ·
+      <a href="/help/docs/faq">FAQ</a>
+    </p>
+  </section>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .intro {
+    padding: 1rem 0 0.5rem;
+    max-width: 720px;
+  }
+  .use-cases {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .use-case {
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+  }
+  .use-case h2 {
+    margin-top: 0;
+    color: var(--color-primary, #0066cc);
+  }
+  .pain-point {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  .use-case h3 {
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #444;
+  }
+  .use-case ul {
+    padding-left: 1.25rem;
+    line-height: 1.7;
+  }
+  .use-case li {
+    margin-bottom: 0.4rem;
+  }
+  .cta-links {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  .cta-links a {
+    color: var(--color-primary, #0066cc);
+  }
+  .cta {
+    padding: 2.5rem 0;
+    border-top: 1px solid #eaeaea;
+  }
+  .cta h2 {
+    margin-top: 0;
+  }
+</style>

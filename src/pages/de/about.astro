@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Über LrGeniusAI — Kostenloses Open-Source-KI-Plugin für Lightroom Classic"
+  description="LrGeniusAI ist ein kostenloses, quelloffenes KI-Plugin für Lightroom Classic. Erfahre mehr über die Mission des Projekts, die Philosophie Lokale KI zuerst mit integrierten llama.cpp- und MLX-Engines, die AGPL-3.0-Lizenz und wie du mitwirken kannst."
+  translatedPath="/about"
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://lrgenius.com/de" },
+      { "@type": "ListItem", "position": 2, "name": "Über uns", "item": "https://lrgenius.com/de/about" }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>Über LrGeniusAI</h1>
+    <p class="tagline">Kostenlose, quelloffene KI für jeden Lightroom-Classic-Fotografen.</p>
+  </section>
+
+  <section class="about-section">
+    <h2>Was ist LrGeniusAI?</h2>
+    <p>
+      LrGeniusAI ist ein Plugin für Adobe Lightroom Classic, das moderne KI-Funktionen direkt in deinen
+      Foto-Workflow bringt — ohne Abo, ohne Cloud-Konto und ohne dass Fotos deinen Computer verlassen.
+      Es umfasst KI-Verschlagwortung, Fotosuche in natürlicher Sprache, KI-gestütztes Culling,
+      Gesichtserkennung und experimentelle Bearbeitungsrezepte — alles direkt aus Lightroom heraus.
+    </p>
+    <p>
+      Das Plugin ist kostenlos und Open Source unter der
+      <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener">AGPL-3.0-Lizenz</a>.
+      Der Quellcode liegt auf <a href="https://github.com/LrGenius" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Warum kostenlos und Open Source?</h2>
+    <p>
+      Die Werkzeuge, die Fotografen zum Organisieren und Wiederfinden ihrer Arbeit brauchen, sollten
+      nicht noch ein monatliches Abo obendrauf auf einen ohnehin teuren Software-Stack bedeuten.
+      KI-Modelle, die leistungsfähig genug sind, um Fotos zu beschreiben und zu durchsuchen, laufen
+      inzwischen auf gewöhnlicher Consumer-Hardware — es gibt keinen technischen Grund, warum diese
+      Funktionen ein Cloud-Abo erfordern sollten.
+    </p>
+    <p>
+      Mit der Veröffentlichung von LrGeniusAI unter der AGPL-3.0-Lizenz verpflichtet sich das Projekt,
+      dauerhaft frei und offen zu bleiben. Jeder kann den Code einsehen, anpassen oder Verbesserungen
+      beisteuern. Abgeleitete Werke müssen unter denselben Bedingungen offen bleiben — so bleiben die
+      Beiträge der Community der Allgemeinheit erhalten.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Lokale KI zuerst</h2>
+    <p>
+      LrGeniusAI ist darauf ausgelegt, deine Fotos vollständig auf deiner eigenen Hardware zu verarbeiten
+      — und das, ohne dass du zusätzlich etwas installieren musst. Das Backend führt Vision-Modelle
+      selbst aus, über
+      <a href="/help/docs/help-local-ai-models">integrierte llama.cpp- und MLX-Engines</a>: Wähle im
+      Plug-in-Manager ein Modell aus, klicke auf Herunterladen, und die Analyse läuft direkt auf deinem
+      Rechner. Nutzt du bereits <a href="/help/docs/help-ollama-setup">Ollama</a> oder
+      <a href="/help/docs/help-lm-studio-setup">LM Studio</a>, spricht das Plugin auch mit diesen und
+      verwendet bereits heruntergeladene Modelle weiter, statt eine zweite Kopie zu laden.
+    </p>
+    <p>
+      Läuft alles lokal, verlassen keine Bilddaten jemals deinen Computer — keine Telemetrie, kein
+      Training mit deinen Fotos, kein Zugriff durch Dritte. Das zählt für Fotografen, die mit
+      unveröffentlichten Kundenaufträgen oder sensiblen Motiven arbeiten, oder einfach für alle, die
+      Wert auf die Hoheit über ihre eigenen Daten legen.
+    </p>
+    <p>
+      Cloud-Anbieter (ChatGPT, Google Gemini) werden ebenfalls unterstützt — für alle, die maximale
+      Modellqualität wollen oder keine geeignete Hardware für lokale Inferenz haben. Die Wahl liegt
+      immer bei dir.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Status und Roadmap</h2>
+    <p>
+      LrGeniusAI wird aktiv weiterentwickelt. Die Kernfunktionen — KI-Verschlagwortung, semantische
+      Suche und Gesichtserkennung — sind stabil und werden täglich von Fotografen genutzt. KI-Culling
+      und Bearbeitungsrezepte befinden sich in der Beta-Phase und werden weiter ausgereift. Das Backend
+      wurde in Rust neu geschrieben, was den Speicherbedarf deutlich reduziert und die Indexierung
+      spürbar beschleunigt hat.
+    </p>
+    <p>
+      Die Installationsprogramme sind derzeit nicht code-signiert, was unter macOS und Windows
+      Sicherheitswarnungen auslösen kann. Das ist eine bekannte Einschränkung, die behoben wird, sobald
+      das Projekt weiter ausgereift ist. Die aktuellen Installationsanweisungen findest du im
+      <a href="/help/docs/getting-started">Getting-Started-Guide</a>, häufige Fragen in den
+      <a href="/help/docs/faq">FAQ</a>.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Du willst etwas Einfacheres?</h2>
+    <p>
+      LrGeniusAI ist zu einem vollständigen Toolkit gewachsen — semantische Suche, Culling,
+      Bearbeitungsrezepte, Gesichtserkennung — gestützt von einem lokalen Server. Wenn du nur schnelle
+      KI-Verschlagwortung und Bildunterschriften ohne die zusätzlichen beweglichen Teile möchtest,
+      wirf einen Blick auf
+      <a href="https://github.com/LrGenius/LrGeniusTagAI" target="_blank" rel="noopener">LrGeniusTagAI</a>,
+      unser früheres, minimalistisches Lightroom-Classic-Plugin, das sich ausschließlich auf KI-Tagging
+      konzentriert.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Wie du mitwirken kannst</h2>
+    <p>
+      Beiträge jeder Art sind willkommen — Fehlerberichte, Funktionswünsche, Verbesserungen an der
+      Dokumentation oder Code. Das Projekt ist auf GitHub gehostet:
+    </p>
+    <ul>
+      <li><a href="https://github.com/LrGenius/LrGeniusAI/issues" target="_blank" rel="noopener">Einen Fehler melden oder eine Funktion vorschlagen</a></li>
+      <li><a href="https://github.com/LrGenius/LrGeniusAI/discussions" target="_blank" rel="noopener">Fragen stellen und Ideen teilen</a></li>
+      <li><a href="https://github.com/LrGenius" target="_blank" rel="noopener">Quellcode durchstöbern</a></li>
+    </ul>
+    <p>
+      Wenn dir LrGeniusAI Zeit spart, vergib gerne einen Stern für das Repository auf GitHub — das
+      hilft anderen, das Projekt zu entdecken.
+    </p>
+  </section>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .about-section {
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+    max-width: 720px;
+  }
+  .about-section h2 {
+    margin-top: 0;
+    color: var(--color-primary, #0066cc);
+  }
+  .about-section p, .about-section li {
+    line-height: 1.75;
+    color: #333;
+  }
+  .about-section ul {
+    padding-left: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .about-section li {
+    margin-bottom: 0.4rem;
+  }
+</style>

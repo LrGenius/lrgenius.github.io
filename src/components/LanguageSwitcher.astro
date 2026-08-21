@@ -1,12 +1,26 @@
 ---
-const { pathname } = Astro.url;
-const currentLang = Astro.currentLocale;
+// EN lives unprefixed at the root, DE is mirrored under /de/. Only the
+// marketing pages listed below exist in both languages — help docs, the
+// glossary, and the wiki-sourced docs stay English-only, so switching from
+// one of those falls back to the other language's homepage instead of a
+// path that would 404.
+const TRANSLATED_PREFIXES = ['/', '/about', '/use-cases', '/downloads', '/contact', '/compare', '/lrgenius-vs-excire'];
 
+const { pathname } = Astro.url;
+const currentLang = (Astro.currentLocale ?? 'en') as 'en' | 'de';
 const otherLang = currentLang === 'en' ? 'de' : 'en';
-const otherLangPath = pathname.replace(`/${currentLang}/`, `/${otherLang}/`);
+
+const pathWithoutLocale = currentLang === 'de' ? (pathname.replace(/^\/de/, '') || '/') : pathname;
+const hasTranslation = TRANSLATED_PREFIXES.some((prefix) =>
+  prefix === '/' ? pathWithoutLocale === '/' : pathWithoutLocale === prefix || pathWithoutLocale.startsWith(`${prefix}/`)
+);
+
+const otherLangPath = hasTranslation
+  ? (otherLang === 'de' ? `/de${pathWithoutLocale === '/' ? '' : pathWithoutLocale}` : pathWithoutLocale)
+  : (otherLang === 'de' ? '/de' : '/');
 ---
 
-<a href={otherLangPath} class="language-switcher">
+<a href={otherLangPath} class="language-switcher" aria-label={otherLang === 'de' ? 'Auf Deutsch anzeigen' : 'View in English'}>
   {otherLang.toUpperCase()}
 </a>
 

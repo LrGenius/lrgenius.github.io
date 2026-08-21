@@ -1,10 +1,10 @@
 ---
 import { useTranslations } from '../i18n/utils';
 
-const lang = Astro.currentLocale as 'en' | 'de';
+const lang = (Astro.currentLocale ?? 'en') as 'en' | 'de';
 const t = useTranslations(lang);
 
-const base = `/${lang}`;
+const base = lang === 'de' ? '/de' : '';
 ---
 <footer>
   <div class="container footer-container">
@@ -13,10 +13,10 @@ const base = `/${lang}`;
       <span>LrGenius</span>
     </div>
     <div class="footer-links">
-      <a href="/compare">Compare AI plugins for Lightroom</a>
-      <a href="/lrgenius-vs-excire">LrGenius vs. Excire &amp; others</a>
-      <a href="/help">Help &amp; Docs</a>
-      <a href="/about">About</a>
+      <a href={`${base}/compare`}>{t('footer.compare_link')}</a>
+      <a href={`${base}/lrgenius-vs-excire`}>{t('footer.excire_link')}</a>
+      <a href="/help">{t('footer.help_link')}</a>
+      <a href={`${base}/about`}>{t('footer.about_link')}</a>
     </div>
     <div class="footer-social">
       <a href="https://ko-fi.com/W7X2240HF4" target="_blank" rel="noopener">

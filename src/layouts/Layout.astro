@@ -9,10 +9,17 @@ import { useTranslations } from '../i18n/utils';
 interface Props {
 	title: string;
 	description?: string;
+	/**
+	 * Absolute path of this page's counterpart in the other language
+	 * (e.g. '/de/about' when rendering the English page, '/about' when
+	 * rendering the German one). Omit for pages that only exist in one
+	 * language (help docs, glossary).
+	 */
+	translatedPath?: string;
 }
 
-const { title, description } = Astro.props;
-const lang = Astro.currentLocale as 'en' | 'de';
+const { title, description, translatedPath } = Astro.props;
+const lang = (Astro.currentLocale ?? 'en') as 'en' | 'de';
 const t = useTranslations(lang);
 ---
 
@@ -24,6 +31,13 @@ const t = useTranslations(lang);
 		<link rel="icon" type="image/png" href="/lrgenius.png" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+		{translatedPath && (
+			<>
+				<link rel="alternate" hreflang={lang} href={new URL(Astro.url.pathname, Astro.site)} />
+				<link rel="alternate" hreflang={lang === 'en' ? 'de' : 'en'} href={new URL(translatedPath, Astro.site)} />
+				<link rel="alternate" hreflang="x-default" href={new URL(lang === 'en' ? Astro.url.pathname : translatedPath, Astro.site)} />
+			</>
+		)}
 		<meta name="keywords" content={t('seo.keywords')} />
 		<SEO
 			title={title}

@@ -1,0 +1,287 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = 'LrGenius vs. AnyVision (2026)';
+const description = 'AnyVision nutzt Google Cloud Vision, um Fotos in Lightroom zu verschlagworten. LrGenius ist kostenlos, quelloffen und kann lokale KI-Verschlagwortung durchführen, ohne Fotos in die Cloud zu senden — dazu semantische Suche, Culling und mehr.';
+const lastUpdated = '2026-08-17';
+---
+
+<Layout title={`${title} — KI-Verschlagwortungs-Vergleich für Lightroom`} description={description} translatedPath="/compare/lrgenius-vs-anyvision">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": lastUpdated,
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "LrGenius", "url": "https://lrgenius.com" },
+    "about": [
+      { "@type": "SoftwareApplication", "name": "LrGeniusAI" },
+      { "@type": "SoftwareApplication", "name": "AnyVision" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://lrgenius.com/de" },
+      { "@type": "ListItem", "position": 2, "name": "KI-Plugins im Vergleich", "item": "https://lrgenius.com/de/compare" },
+      { "@type": "ListItem", "position": 3, "name": "LrGenius vs. AnyVision", "item": "https://lrgenius.com/de/compare/lrgenius-vs-anyvision" }
+    ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist LrGenius eine gute Alternative zu AnyVision für die Verschlagwortung in Lightroom?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LrGenius ist eine starke Alternative, besonders für Fotografen, denen Datenschutz oder Kosten wichtig sind. Beide Tools fügen Fotos in Lightroom KI-generierte Schlagwörter hinzu. AnyVision leitet Bilder über Google Cloud Vision, das heißt Fotos werden auf einen externen Server hochgeladen und du zahlst laufende API-Kosten. LrGenius kann vollständig auf deiner eigenen Hardware laufen — mit KI-Modellen, die direkt im Plugin eingebaut sind, oder einem vorhandenen Ollama- oder LM-Studio-Server — kein Cloud-Upload, keine wiederkehrenden Gebühren. LrGenius bietet außerdem semantische Freitextsuche, Bildunterschriften, Culling und Gesichtserkennung, die AnyVision nicht hat."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist der Unterschied zwischen AnyVision und LrGenius bei der Verschlagwortung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AnyVision nutzt Google Cloud Vision, um Schlagwörter aus einer festen Taxonomie zu erzeugen — die Labels sind durch Googles Modell vorgegeben. LrGeniusAI verwendet Vision-Language-Modelle mit offenem Vokabular (lokal oder in der Cloud), die beschreibende, uneingeschränkte Schlagwörter und vollständige Bildunterschriften erzeugen können. Du kannst die Prompts von LrGenius außerdem an deinen konkreten Workflow oder dein Motiv anpassen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist AnyVision kostenlos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. AnyVision erfordert eine kostenpflichtige Plugin-Lizenz zuzüglich Google-Cloud-Vision-API-Kosten für jedes verarbeitete Bild. LrGeniusAI ist vollständig kostenlos und quelloffen (AGPL-3.0). Lokale Verarbeitung verursacht keine Kosten pro Bild, egal ob du die eingebauten KI-Modelle des Plugins oder Ollama und LM Studio nutzt."
+        }
+      }
+    ]
+  })} />
+
+  <section class="hero compact">
+    <h1>LrGenius vs. AnyVision</h1>
+    <p class="tagline">Kostenlose lokale KI-Verschlagwortung vs. Google-Vision-gestützte Schlagwort-Erkennung.</p>
+    <p class="meta">Zuletzt aktualisiert: {lastUpdated}</p>
+  </section>
+
+  <section class="verdict">
+    <h2>Kurzfazit</h2>
+    <p>
+      <strong>Wähle AnyVision</strong>, wenn du Google Cloud Vision bereits in anderen Workflows nutzt und eine
+      unkomplizierte Integration möchtest, die diese Labels direkt nach Lightroom überträgt — und Kosten oder
+      Datenschutz für dich keine primäre Rolle spielen.
+    </p>
+    <p>
+      <strong>Wähle LrGeniusAI</strong>, wenn du deine Fotos auf deiner eigenen Hardware behalten, laufende
+      API-Kosten vermeiden und Schlagwörter mit offenem Vokabular sowie Bildunterschriften, semantische Suche,
+      Culling, Gesichtserkennung und taxonomische Artenerkennung möchtest — alles in einem einzigen kostenlosen,
+      quelloffenen Plugin. Die lokalen Modelle von LrGeniusAI können bei vielen Fotografie-Genres mit der
+      Schlagwort-Qualität von Google Vision mithalten oder sie übertreffen.
+    </p>
+  </section>
+
+  <section class="comparison">
+    <h2>Feature-Vergleich</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspekt</th>
+            <th>LrGeniusAI <span class="badge">beta</span></th>
+            <th>AnyVision</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hauptzweck</td>
+            <td>Verschlagwortung, Bildunterschriften, Suche, Artenerkennung, Culling, Bearbeitungstraining</td>
+            <td>KI-Schlagwort-Tagging über Google Cloud Vision</td>
+          </tr>
+          <tr>
+            <td>Lightroom-Integration</td>
+            <td>Plugin (läuft direkt in Lightroom)</td>
+            <td>Plugin (läuft direkt in Lightroom)</td>
+          </tr>
+          <tr>
+            <td>KI-Verschlagwortung</td>
+            <td>Ja — offenes Vokabular, per Prompt anpassbar</td>
+            <td>Ja — feste Taxonomie von Google Vision</td>
+          </tr>
+          <tr>
+            <td>KI-Bildunterschriften / Titel / Alt-Text</td>
+            <td>Ja</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Semantische / natürlichsprachliche Suche</td>
+            <td>Ja</td>
+            <td>Nur indirekt (über generierte Tags)</td>
+          </tr>
+          <tr>
+            <td>Artenerkennung (taxonomisch)</td>
+            <td>Ja — BioCLIP 2 lokal auf dem Gerät, mit Rangstufe &amp; Konfidenz</td>
+            <td>Indirekt — Google-Vision-Labels, keine Rangstufen</td>
+          </tr>
+          <tr>
+            <td>KI-Culling</td>
+            <td>Ja, gesichtsbewusst (Beta)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Gesichtserkennung</td>
+            <td>Ja (Beta)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Lernt persönlichen Bearbeitungsstil</td>
+            <td>AI Edit — aus deinen eigenen gespeicherten Bearbeitungen (Beta)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Läuft lokal / offline</td>
+            <td>Ja (eingebaut oder Ollama / LM Studio)</td>
+            <td>Nein — nur Cloud (Google Vision)</td>
+          </tr>
+          <tr>
+            <td>Datenschutz</td>
+            <td>Vollständig lokale Option — Fotos verlassen deinen Rechner nie</td>
+            <td>Fotos werden an Google Cloud Vision gesendet</td>
+          </tr>
+          <tr>
+            <td>Plattform</td>
+            <td>macOS + Windows</td>
+            <td>macOS + Windows</td>
+          </tr>
+          <tr>
+            <td>Open Source</td>
+            <td>Ja (AGPL-3.0)</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>Preis</td>
+            <td>Kostenlos</td>
+            <td>Kostenpflichtige Lizenz + Google-API-Kosten</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="detail">
+    <h2>Wo jedes Tool seine Stärken hat</h2>
+
+    <h3>AnyVision: direkte Google-Vision-Integration</h3>
+    <p>
+      AnyVision leitet deine Fotos durch Google Cloud Vision, um Labels zu extrahieren und sie als
+      Lightroom-Schlagwörter zu schreiben. Für Nutzer, die bereits im Google-Cloud-Ökosystem verankert sind, ist dies
+      ein vorhersehbarer, API-gesteuerter Ansatz mit konsistenter Ausgabe eines bekannten Modells. Der Kompromiss
+      sind laufende API-Kosten, ausschließliche Cloud-Verarbeitung und ein festes Vokabular, das durch Googles
+      Modell und nicht durch dein Motiv bestimmt wird.
+    </p>
+
+    <h3>LrGeniusAI: offenes Vokabular, lokal oder in der Cloud</h3>
+    <p>
+      LrGeniusAI verwendet moderne Vision-Language-Modelle, die Schlagwörter mit offenem Vokabular erzeugen —
+      beschreibende, uneingeschränkte Begriffe, zugeschnitten auf das, was tatsächlich auf jedem Foto zu sehen ist.
+      Du kannst die Prompts für dein Genre anpassen (Wildlife, Hochzeit, Stock) und wählen, ob du ein lokales Modell
+      (kostenlos, privat) oder eine Cloud-API (ChatGPT, Gemini) nutzt. Über die Verschlagwortung hinaus bietet
+      LrGeniusAI semantische Freitextsuche, Bildunterschriften für Barrierefreiheit, Culling und
+      Gesichtserkennung — nichts davon bietet AnyVision.
+    </p>
+    <p>
+      Für Naturfotografie ist der Unterschied noch deutlicher. Google Vision liefert Labels; LrGeniusAI führt
+      <strong>BioCLIP 2</strong> auf deinem eigenen Rechner aus und schreibt eine echte taxonomische Bestimmung —
+      wissenschaftlicher Name, gebräuchlicher Name, Rangstufe, Konfidenz und die vollständige linnésche Hierarchie —
+      in durchsuchbare Lightroom-Felder, ohne API-Aufruf und ohne Kosten pro Foto. Ist sich das Modell bei der Art
+      nicht sicher, gibt es die tiefste Rangstufe an, die es sicher bestimmen kann, statt einen binomialen Artnamen
+      zu raten.
+    </p>
+    <p>
+      Siehe den <a href="/help/docs/help-analyze-and-index">Leitfaden zu Analyse &amp; Index</a> und den
+      <a href="/help/docs/help-choosing-ai-model">Leitfaden zur Wahl des KI-Modells</a> für Details zur Auswahl
+      und Konfiguration deines KI-Anbieters.
+    </p>
+  </section>
+
+  <nav class="related-comparisons">
+    <h2>Weitere Vergleiche</h2>
+    <ul>
+      <li><a href="/de/compare">Alle KI-Plugins für Lightroom — die Vergleichsübersicht</a></li>
+      <li><a href="/de/lrgenius-vs-excire">LrGenius vs. Excire, Peakto, Aftershoot &amp; mehr — die Gesamtübersicht</a></li>
+      <li><a href="/de/compare/lrgenius-vs-aftershoot">LrGenius vs. Aftershoot</a></li>
+      <li><a href="/de/compare/lrgenius-vs-imagen-ai">LrGenius vs. Imagen AI</a></li>
+    </ul>
+  </nav>
+
+</Layout>
+
+<style>
+  .hero.compact {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  .meta {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  .verdict, .comparison, .detail, .related-comparisons {
+    padding: 1.5rem 0;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid #eaeaea;
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f7f7f9;
+    white-space: nowrap;
+  }
+  td:first-child, th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f7f7f9;
+    z-index: 1;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #d8a73a;
+    color: #fff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+  }
+  h3 {
+    margin-top: 1.5rem;
+  }
+  .related-comparisons ul {
+    list-style: none;
+    padding: 0;
+  }
+  .related-comparisons li {
+    margin-bottom: 0.6rem;
+  }
+</style>
